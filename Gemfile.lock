@@ -66,7 +66,7 @@ GEM
       ast (~> 2.4.1)
       racc
     power_assert (1.2.0)
-    pry (0.13.1)
+    pry (0.14.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
     pry-coolline (0.2.5)
