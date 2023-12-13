@@ -12,6 +12,8 @@ AllCops:
     - 'bin/*'
 Layout/LineLength:
   Enabled: false
+Style/AccessorGrouping:
+  Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
 Style/HashEachMethods:
@@ -20,6 +22,8 @@ Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
   Enabled: true
+Style/WordArray:
+  EnforcedStyle: brackets
 inherit_mode:
   merge:
     - Exclude
