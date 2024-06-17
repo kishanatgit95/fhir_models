@@ -3,6 +3,7 @@ require 'rake/testtask'
 require 'rspec/core/rake_task'
 require 'rubocop/rake_task'
 require 'pry'
+require 'pry-byebug'
 
 Dir['lib/fhir_models/tasks/**/*.rake'].each do |file|
   load file

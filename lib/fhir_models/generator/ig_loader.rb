@@ -21,7 +21,7 @@ module FHIR
 
       def load
         load_ig
-        #load_standalone_resources
+        load_standalone_resources
       end
 
       def load_ig
@@ -33,30 +33,33 @@ module FHIR
           next if entry.directory?
 
           file_name = entry.full_name.split('/').last
+          next unless file_name.end_with? '.json'
 
-          if file_name == 'package.json'
-            @ig_metadata = IGMetadata.new(JSON.parse(entry.read))
-            puts "Extract FHIR Package version #{ig_metadata.version}"
+          begin
+            if file_name == 'package.json'
+              resource = JSON.parse(entry.read)
+              @ig_metadata = IGMetadata.new(resource)
+              puts "Extract FHIR Package version #{ig_metadata.version}"
+              next
+            end
+
+            next unless file_name.start_with?('StructureDefinition', 'ValueSet')
+
+            resource = JSON.parse(entry.read)
+            binding.pry if resource.empty?
+            next if resource.empty?
+          rescue StandardError
+            puts "Cannot read and parse JOSN file #{file_name}."
             next
           end
 
-          #next if file_name.end_with? 'openapi.json'
-
-          next unless file_name.start_with? 'StructureDefinition'
-          next unless file_name.end_with? '.json'
-
-          #next unless entry.full_name.start_with? 'package/'
-
-
-          resource = JSON.parse(entry.read)
-          next if resource.empty?
           ig_resources.add(resource)
         end
 
-        #binding.pry
         puts "Extracted Primitve Types: #{ig_resources.primitive_types&.count}"
         puts "Extracted Complex Types: #{ig_resources.complex_types&.count}"
         puts "Extracted Resource Definitions: #{ig_resources.resource_definitions&.count}"
+        puts "Extracted Value Sets: #{ig_resources.value_sets&.count}"
         ig_resources
       end
 
@@ -67,15 +70,15 @@ module FHIR
 
         Dir.glob(File.join(ig_directory, '*.json')).each do |file_path|
           begin
-            resource = FHIR.from_contents(File.read(file_path))
-            next if resource.nil?
+            resource = JSON.parse(File.read(file_path))
+            next if resource.empty?
           rescue StandardError
             file_name = file_path.split('/').last
-            puts "#{file_name} does not appear to be a FHIR resource."
+            puts "Cannot read and parse JOSN file #{file_name}."
             next
           end
 
-          ig_resources.add(resource)
+          ig_resources.add(resource, break_bundle: true)
         end
 
         ig_resources

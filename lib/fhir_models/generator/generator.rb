@@ -5,6 +5,7 @@
 require_relative 'ig_loader'
 require_relative 'template'
 require_relative 'metadata_generator'
+require_relative 'class_generator'
 # require_relative 'generator/ig_metadata_extractor'
 # require_relative 'generator/granular_scope_group_generator'
 # require_relative 'generator/granular_scope_resource_type_group_generator'
@@ -39,6 +40,7 @@ module FHIR
       puts "Generating tests for IG #{File.basename(ig_file_name)}"
       load_ig_package
       generate_metadata
+      #generate_types
       #extract_metadata
       # generate_search_tests
       # generate_read_tests
@@ -62,19 +64,19 @@ module FHIR
       # write_metadata
     end
 
-    def extract_metadata
-      self.ig_metadata = IGMetadataExtractor.new(ig_resources).extract
+    # def extract_metadata
+    #   self.ig_metadata = IGMetadataExtractor.new(ig_resources).extract
 
-      FileUtils.mkdir_p(base_output_dir)
-    end
+    #   FileUtils.mkdir_p(base_output_folder)
+    # end
 
-    def write_metadata
-      File.open(File.join(base_output_dir, 'metadata.yml'), 'w') do |file|
-        file.write(YAML.dump(ig_metadata.to_hash))
-      end
-    end
+    # def write_metadata
+    #   File.open(File.join(base_output_folder, 'metadata.yml'), 'w') do |file|
+    #     file.write(YAML.dump(ig_metadata.to_hash))
+    #   end
+    # end
 
-    def base_output_dir
+    def base_output_folder
       File.join(__dir__, '../generated', ig_metadata.version)
     end
 
@@ -83,56 +85,63 @@ module FHIR
       ig_loader = IGLoader.new(ig_file_name)
       @ig_resources = ig_loader.load
       @ig_metadata = ig_loader.ig_metadata
-      FileUtils.mkdir_p(base_output_dir)
+
+      FileUtils.mkdir_p(base_output_folder)
     end
 
     def generate_metadata
-      MetadataGenerator.new(ig_resources, base_output_dir).generate
+      MetadataGenerator.new(ig_resources, base_output_folder).generate
+    end
+
+    def generate_types
+      output_folder = File.join(base_output_folder, 'types')
+      complex_types = ig_resources.complex_types
+      ClassGenerator.new(complex_types, output_folder).generate
     end
 
     def generate_reference_resolution_tests
-      ReferenceResolutionTestGenerator.generate(ig_metadata, base_output_dir)
+      ReferenceResolutionTestGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_must_support_tests
-      MustSupportTestGenerator.generate(ig_metadata, base_output_dir)
+      MustSupportTestGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_validation_tests
-      ValidationTestGenerator.generate(ig_metadata, base_output_dir)
+      ValidationTestGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_read_tests
-      ReadTestGenerator.generate(ig_metadata, base_output_dir)
+      ReadTestGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_search_tests
-      SearchTestGenerator.generate(ig_metadata, base_output_dir)
+      SearchTestGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_provenance_revinclude_search_tests
-      ProvenanceRevincludeSearchTestGenerator.generate(ig_metadata, base_output_dir)
+      ProvenanceRevincludeSearchTestGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_granular_scope_tests
-      GranularScopeTestGenerator.generate(ig_metadata, base_output_dir)
-      GranularScopeReadTestGenerator.generate(ig_metadata, base_output_dir)
+      GranularScopeTestGenerator.generate(ig_metadata, base_output_folder)
+      GranularScopeReadTestGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_groups
-      GroupGenerator.generate(ig_metadata, base_output_dir)
+      GroupGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_granular_scope_resource_type_groups
-      GranularScopeResourceTypeGroupGenerator.generate(ig_metadata, base_output_dir)
+      GranularScopeResourceTypeGroupGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_granular_scope_groups
-      GranularScopeGroupGenerator.generate(ig_metadata, base_output_dir)
+      GranularScopeGroupGenerator.generate(ig_metadata, base_output_folder)
     end
 
     def generate_suites
-      SuiteGenerator.generate(ig_metadata, base_output_dir)
+      SuiteGenerator.generate(ig_metadata, base_output_folder)
     end
   end
 end
