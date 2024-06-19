@@ -40,7 +40,7 @@ module FHIR
       puts "Generating tests for IG #{File.basename(ig_file_name)}"
       load_ig_package
       generate_metadata
-      #generate_types
+      generate_types
       #extract_metadata
       # generate_search_tests
       # generate_read_tests
@@ -99,49 +99,49 @@ module FHIR
       ClassGenerator.new(complex_types, output_folder).generate
     end
 
-    def generate_reference_resolution_tests
-      ReferenceResolutionTestGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_reference_resolution_tests
+    #   ReferenceResolutionTestGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_must_support_tests
-      MustSupportTestGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_must_support_tests
+    #   MustSupportTestGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_validation_tests
-      ValidationTestGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_validation_tests
+    #   ValidationTestGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_read_tests
-      ReadTestGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_read_tests
+    #   ReadTestGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_search_tests
-      SearchTestGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_search_tests
+    #   SearchTestGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_provenance_revinclude_search_tests
-      ProvenanceRevincludeSearchTestGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_provenance_revinclude_search_tests
+    #   ProvenanceRevincludeSearchTestGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_granular_scope_tests
-      GranularScopeTestGenerator.generate(ig_metadata, base_output_folder)
-      GranularScopeReadTestGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_granular_scope_tests
+    #   GranularScopeTestGenerator.generate(ig_metadata, base_output_folder)
+    #   GranularScopeReadTestGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_groups
-      GroupGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_groups
+    #   GroupGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_granular_scope_resource_type_groups
-      GranularScopeResourceTypeGroupGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_granular_scope_resource_type_groups
+    #   GranularScopeResourceTypeGroupGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_granular_scope_groups
-      GranularScopeGroupGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_granular_scope_groups
+    #   GranularScopeGroupGenerator.generate(ig_metadata, base_output_folder)
+    # end
 
-    def generate_suites
-      SuiteGenerator.generate(ig_metadata, base_output_folder)
-    end
+    # def generate_suites
+    #   SuiteGenerator.generate(ig_metadata, base_output_folder)
+    # end
   end
 end

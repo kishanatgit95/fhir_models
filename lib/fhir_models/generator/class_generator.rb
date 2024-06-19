@@ -52,7 +52,7 @@ module FHIR
         end
         # now build the child templates...
         child_templates.each do |child_name|
-          child_fixed_name = cap_first(child_name.gsub("#{type_name}.", ''))
+          child_fixed_name = child_name.gsub("#{type_name}.", '').capitalize
           next if child_fixed_name.include?('.')
 
           child_def = { 'id' => child_fixed_name, 'snapshot' => { 'element' => [] } }
@@ -110,8 +110,7 @@ module FHIR
               elsif data_type == 'http://hl7.org/fhirpath/System.String' && extension
                 data_type = extension.first['valueUrl']
               end
-              capitalized = data_type.capitalize
-              fieldname = field_base_name.gsub('[x]', capitalized)
+              fieldname = field_base_name.gsub('[x]', data_type.capitalize)
               field = FHIR::Field.new(fieldname)
               field.path = element['path'].gsub(path_type, type_name)
               field.type = data_type
@@ -141,7 +140,7 @@ module FHIR
                 end
               elsif ['Element', 'BackboneElement'].include?(data_type)
                 # This is a nested structure or class
-                field.type = "#{hierarchy.join('::')}::#{cap_first(field.name)}"
+                field.type = "#{hierarchy.join('::')}::#{field.name.capitalize}"
               end
 
               template.fields << field
@@ -162,7 +161,7 @@ module FHIR
                              klass.hierarchy.join('::')
                            else
                              # the template/child is a direct ancester (it isn't in @templates yet because it is being defined now)
-                             field.type.split('.').map { |x| cap_first(x) }.join('::')
+                             field.type.split('.').map { |x| x.capitalize }.join('::')
                            end
             end
             field.min = element['min']

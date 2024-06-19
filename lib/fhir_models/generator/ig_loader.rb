@@ -43,7 +43,7 @@ module FHIR
               next
             end
 
-            next unless file_name.start_with?('StructureDefinition', 'ValueSet')
+            next unless file_name.start_with?('CodeSystem', 'StructureDefinition', 'ValueSet')
 
             resource = JSON.parse(entry.read)
             binding.pry if resource.empty?
