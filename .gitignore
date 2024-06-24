@@ -7,3 +7,6 @@ tmp/
 
 # User-specific
 .idea
+
+# ig-extraction
+lib/fhir_models/igs/package/
