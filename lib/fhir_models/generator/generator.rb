@@ -40,7 +40,7 @@ module FHIR
       puts "Generating tests for IG #{File.basename(ig_file_name)}"
       load_ig_package
       generate_metadata
-      #generate_types
+      generate_types
     end
 
     def base_output_folder
