@@ -1,10 +1,11 @@
 module FHIR
   class Generator
     class ClassGenerator
-      attr_accessor :structure_defs, :output_folder
+      attr_accessor :structure_defs, :ig_resources, :output_folder
 
-      def initialize(structure_defs, output_folder)
+      def initialize(structure_defs, ig_resources, output_folder)
         self.structure_defs = structure_defs
+        self.ig_resources = ig_resources
         self.output_folder = output_folder
         @templates = []
       end
@@ -13,7 +14,7 @@ module FHIR
         structure_defs.each do |structure_def|
           @templates.clear
           type_name = structure_def['id']
-          template = generate_class([type_name], structure_def, true)
+            template = generate_class([type_name], structure_def, true)
           params = @defn.search_parameters(type_name)
           template.constants['SEARCH_PARAMS'] = params unless params.nil?
           filename = File.join(folder, "#{type_name}.rb")
@@ -131,7 +132,7 @@ module FHIR
                 binding_uri = field.binding['uri']
                 # Strip off the |4.0.0 or |4.0.1 or |2014-03-26 or similar from the ends of URLs
                 binding_uri&.gsub!(/\|[A-Za-z0-9.\-]*/, '')
-                codes = @defn.get_codes(binding_uri)
+                codes = ig_resources.get_codes(binding_uri)
                 field.valid_codes = codes unless codes.nil?
                 if field.valid_codes.empty? && binding_uri && !binding_uri.end_with?(*KNOWN_MISSING_EXPANSIONS)
                   FHIR.logger.warn "  MISSING EXPANSION -- #{field.path} #{field.min}..#{field.max}: #{binding_uri} (#{field.binding['strength']})"

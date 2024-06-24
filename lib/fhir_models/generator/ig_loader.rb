@@ -43,7 +43,7 @@ module FHIR
               next
             end
 
-            next unless file_name.start_with?('CodeSystem', 'StructureDefinition', 'ValueSet')
+            next unless file_name.start_with?('CodeSystem', 'SearchParameter', 'StructureDefinition', 'ValueSet')
 
             resource = JSON.parse(entry.read)
             binding.pry if resource.empty?
@@ -60,6 +60,8 @@ module FHIR
         puts "Extracted Complex Types: #{ig_resources.complex_types&.count}"
         puts "Extracted Resource Definitions: #{ig_resources.resource_definitions&.count}"
         puts "Extracted Value Sets: #{ig_resources.value_sets&.count}"
+        puts "Extracted Code Systems: #{ig_resources.code_systems&.count}"
+        puts "Extracted Search Parameters: #{ig_resources.search_parameters&.count}"
         ig_resources
       end
 

@@ -1,10 +1,6 @@
 module FHIR
   class Generator
     class IGResources
-      def resources_by_type
-        @resources_by_type ||= Hash.new { |hash, key| hash[key] = [] }
-      end
-
       def add(resource, break_bundle: false)
         return if resource.nil?
 
@@ -50,12 +46,24 @@ module FHIR
         resources_by_type['StructureDefinition'].select { |sd| sd['kind'] == 'resource' && sd['derivation'] != 'constraint' }
       end
 
-      def code_systems(url)
-        resources_by_type['CodeSystem'].find { |cs| cs['url'] == url}
+      def code_systems(url = nil)
+        if url.nil?
+          resources_by_type['CodeSystem']
+        else
+          resources_by_type['CodeSystem'].find { |cs| cs['url'] == url}
+        end
       end
 
-      def value_sets(url)
-        resources_by_type['ValueSet'].find { |vs| vs['url'] == url}
+      def value_sets(url = nil)
+        if url.nil?
+          resources_by_type['ValueSet']
+        else
+          resources_by_type['ValueSet'].find { |vs| vs['url'] == url}
+        end
+      end
+
+      def search_parameters
+        resources_by_type['SearchParameter']
       end
 
       def transformed_expansion
@@ -115,10 +123,9 @@ module FHIR
               end
             end
           end
-          @@cache[uri].each { |_system, codes| codes.uniq! }
+          transformed_expansion[url].each { |_system, codes| codes.uniq! }
         end
-        @@cache[uri]
-
+        transformed_expansion[url]
       end
 
       def codes_from_compose(backbone_element)
@@ -128,7 +135,7 @@ module FHIR
         if !system_url.nil?
           if !backbone_element['concept'].nil?
             backbone_element['concept'].each { |coding| collected_codes << coding['code'] }
-          if backbone_element['filter'].nil?
+          elsif backbone_element['filter'].nil?
             # i.e. the include/exclude element has 'system', 'copyright' and/or 'version'
             code_systems.each do |cs|
               cs['concept']&.each { |concept| collected_codes << y['code'] }
@@ -141,31 +148,10 @@ module FHIR
         collected_codes
       end
 
-      # def profile_by_url(url)
-      #   resources_by_type['StructureDefinition'].find { |profile| profile.url == url }
-      # end
-
-      # def resource_for_profile(url)
-      #   resources_by_type['StructureDefinition'].find { |profile| profile.url == url }.type
-      # end
-
-      # def value_set_by_url(url)
-      #   resources_by_type['ValueSet'].find { |profile| profile.url == url }
-      # end
-
-      # def code_system_by_url(url)
-      #   resources_by_type['CodeSystem'].find { |system| system.url == url }
-      # end
-
-      # def search_param_by_resource_and_name(resource, name)
-      #   # remove '_' from search parameter name, such as _id or _tag
-      #   normalized_name = normalized_name = name.to_s.delete_prefix('_')
-
-      #   resources_by_type['SearchParameter']
-      #     .find { |param| param.id == "us-core-#{resource.downcase}-#{normalized_name}" }
-      # end
-
       # private
+      def resources_by_type
+        @resources_by_type ||= Hash.new { |hash, key| hash[key] = [] }
+      end
     end
   end
 end
