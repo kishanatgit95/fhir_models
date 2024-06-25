@@ -1,6 +1,7 @@
 module FHIR
   class Generator
     class ClassGenerator
+      KNOWN_MISSING_EXPANSIONS = ['bcp47', 'bcp13.txt', 'mimetypes', 'LL379-9'].freeze
       attr_accessor :structure_defs, :ig_resources, :output_folder
 
       def initialize(structure_defs, ig_resources, output_folder)
