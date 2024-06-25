@@ -62,8 +62,14 @@ module FHIR
         end
       end
 
-      def search_parameters
-        resources_by_type['SearchParameter']
+      def search_parameters(type = nil)
+        if type.nil?
+          resources_by_type['SearchParameter']
+        else
+          resources_by_type['SearchParameter'].select do |p|
+            p['base'].include?(type_name) && p['xpath'] && !p['xpath'].include?('extension')
+          end.map { |p| p['code'] }
+        end
       end
 
       def transformed_expansion
