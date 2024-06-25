@@ -62,12 +62,12 @@ module FHIR
         end
       end
 
-      def search_parameters(type = nil)
-        if type.nil?
+      def search_parameters(type_name = nil)
+        if type_name.nil?
           resources_by_type['SearchParameter']
         else
           resources_by_type['SearchParameter'].select do |p|
-            p['base'].include?(type_name) && p['xpath'] && !p['xpath'].include?('extension')
+            p['base']&.include?(type_name) && p['xpath'] && !p['xpath'].include?('extension')
           end.map { |p| p['code'] }
         end
       end

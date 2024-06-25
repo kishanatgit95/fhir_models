@@ -52,7 +52,6 @@ module FHIR
       ig_loader = IGLoader.new(ig_file_name)
       @ig_resources = ig_loader.load
       @ig_metadata = ig_loader.ig_metadata
-
       FileUtils.mkdir_p(base_output_folder)
     end
 
@@ -62,6 +61,8 @@ module FHIR
 
     def generate_types
       output_folder = File.join(base_output_folder, 'types')
+      FileUtils.mkdir_p(output_folder)
+
       complex_types = ig_resources.complex_types
       ClassGenerator.new(complex_types, ig_resources, output_folder).generate
     end

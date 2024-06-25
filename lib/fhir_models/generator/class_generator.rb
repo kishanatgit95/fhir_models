@@ -16,12 +16,12 @@ module FHIR
           @templates.clear
           type_name = structure_def['id']
           template = generate_class([type_name], structure_def, true)
-          # params = @defn.search_parameters(type_name)
-          # template.constants['SEARCH_PARAMS'] = params unless params.nil?
-          # filename = File.join(folder, "#{type_name}.rb")
-          # file = File.open(filename, 'w:UTF-8')
-          # file.write(template.to_s)
-          # file.close
+          params = ig_resources.search_parameters(type_name)
+          template.constants['SEARCH_PARAMS'] = params unless params.nil?
+          filename = File.join(output_folder, "#{type_name}.rb")
+          file = File.open(filename, 'w:UTF-8')
+          file.write(template.to_s)
+          file.close
         end
       end
 
