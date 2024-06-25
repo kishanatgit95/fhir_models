@@ -41,7 +41,6 @@ module FHIR
 
         output_file_name = File.join(output_folder, 'metadata.rb')
 
-        binding.pry
         file = File.open(output_file_name, 'w:UTF-8')
         file.write(template.to_s)
         file.close

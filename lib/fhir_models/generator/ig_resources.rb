@@ -143,9 +143,8 @@ module FHIR
             backbone_element['concept'].each { |coding| collected_codes << coding['code'] }
           elsif backbone_element['filter'].nil?
             # i.e. the include/exclude element has 'system', 'copyright' and/or 'version'
-            code_systems.each do |cs|
-              cs['concept']&.each { |concept| collected_codes << concept['code'] }
-            end
+            cs = code_systems(system_url)
+            cs['concept']&.each { |concept| collected_codes << concept['code'] } unless cs.nil?
           end
         elsif !backbone_element['valueSet'].nil?
           # Handle include/exclude value set

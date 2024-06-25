@@ -46,7 +46,6 @@ module FHIR
             next unless file_name.start_with?('CodeSystem', 'SearchParameter', 'StructureDefinition', 'ValueSet')
 
             resource = JSON.parse(entry.read)
-            binding.pry if resource.empty?
             next if resource.empty?
           rescue StandardError
             puts "Cannot read and parse JOSN file #{file_name}."
