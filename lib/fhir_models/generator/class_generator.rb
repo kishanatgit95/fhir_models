@@ -25,6 +25,13 @@ module FHIR
         end
       end
 
+      # This method is necessary for fields such as `codeFilter`.  "codeFilter".capitalize -> "Codefilter", but "CodeFilter" is desired output.
+      def cap_first(string)
+        t = String.new(string)
+        t[0] = t[0].upcase
+        t
+      end
+
       def generate_class(hierarchy, structure_def, top_level = false)
         type_name = structure_def['id']
         constrained_type = structure_def['type']
@@ -54,7 +61,7 @@ module FHIR
         end
         # now build the child templates...
         child_templates.each do |child_name|
-          child_fixed_name = child_name.gsub("#{type_name}.", '').capitalize
+          child_fixed_name = cap_first(child_name.gsub("#{type_name}.", ''))
           next if child_fixed_name.include?('.')
 
           child_def = { 'id' => child_fixed_name, 'snapshot' => { 'element' => [] } }
@@ -112,7 +119,7 @@ module FHIR
               elsif data_type == 'http://hl7.org/fhirpath/System.String' && extension
                 data_type = extension.first['valueUrl']
               end
-              fieldname = field_base_name.gsub('[x]', data_type.capitalize)
+              fieldname = field_base_name.gsub('[x]', cap_first(data_type))
               field = FHIR::Field.new(fieldname)
               field.path = element['path'].gsub(path_type, type_name)
               field.type = data_type
@@ -142,7 +149,7 @@ module FHIR
                 end
               elsif ['Element', 'BackboneElement'].include?(data_type)
                 # This is a nested structure or class
-                field.type = "#{hierarchy.join('::')}::#{field.name.capitalize}"
+                field.type = "#{hierarchy.join('::')}::#{cap_first(field.name)}"
               end
 
               template.fields << field
@@ -163,7 +170,7 @@ module FHIR
                              klass.hierarchy.join('::')
                            else
                              # the template/child is a direct ancester (it isn't in @templates yet because it is being defined now)
-                             field.type.split('.').map { |x| x.capitalize }.join('::')
+                             field.type.split('.').map { |x| cap_first(x) }.join('::')
                            end
             end
             field.min = element['min']

@@ -13,7 +13,7 @@ module FHIR
       'extension' => {'type'=>'Extension', 'path'=>'Population.extension', 'min'=>0, 'max'=>Float::INFINITY},
       'modifierExtension' => {'type'=>'Extension', 'path'=>'Population.modifierExtension', 'min'=>0, 'max'=>Float::INFINITY},
       'ageRange' => {'type'=>'Range', 'path'=>'Population.age[x]', 'min'=>0, 'max'=>1},
-      'ageCodeableconcept' => {'type'=>'CodeableConcept', 'path'=>'Population.age[x]', 'min'=>0, 'max'=>1},
+      'ageCodeableConcept' => {'type'=>'CodeableConcept', 'path'=>'Population.age[x]', 'min'=>0, 'max'=>1},
       'gender' => {'type'=>'CodeableConcept', 'path'=>'Population.gender', 'min'=>0, 'max'=>1},
       'race' => {'type'=>'CodeableConcept', 'path'=>'Population.race', 'min'=>0, 'max'=>1},
       'physiologicalCondition' => {'type'=>'CodeableConcept', 'path'=>'Population.physiologicalCondition', 'min'=>0, 'max'=>1}
@@ -23,7 +23,7 @@ module FHIR
     attr_accessor :extension              # 0-* [ Extension ]
     attr_accessor :modifierExtension      # 0-* [ Extension ]
     attr_accessor :ageRange               # 0-1 Range
-    attr_accessor :ageCodeableconcept     # 0-1 CodeableConcept
+    attr_accessor :ageCodeableConcept     # 0-1 CodeableConcept
     attr_accessor :gender                 # 0-1 CodeableConcept
     attr_accessor :race                   # 0-1 CodeableConcept
     attr_accessor :physiologicalCondition # 0-1 CodeableConcept

@@ -17,19 +17,19 @@ module FHIR
       'amountString' => {'type'=>'string', 'path'=>'SubstanceAmount.amount[x]', 'min'=>0, 'max'=>1},
       'amountType' => {'type'=>'CodeableConcept', 'path'=>'SubstanceAmount.amountType', 'min'=>0, 'max'=>1},
       'amountText' => {'type'=>'string', 'path'=>'SubstanceAmount.amountText', 'min'=>0, 'max'=>1},
-      'referenceRange' => {'type'=>'SubstanceAmount::Referencerange', 'path'=>'SubstanceAmount.referenceRange', 'min'=>0, 'max'=>1}
+      'referenceRange' => {'type'=>'SubstanceAmount::ReferenceRange', 'path'=>'SubstanceAmount.referenceRange', 'min'=>0, 'max'=>1}
     }
 
-    class Referencerange < FHIR::Model
+    class ReferenceRange < FHIR::Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
 
       METADATA = {
-        'id' => {'type'=>'string', 'path'=>'Referencerange.id', 'min'=>0, 'max'=>1},
-        'extension' => {'type'=>'Extension', 'path'=>'Referencerange.extension', 'min'=>0, 'max'=>Float::INFINITY},
-        'lowLimit' => {'type'=>'Quantity', 'path'=>'Referencerange.lowLimit', 'min'=>0, 'max'=>1},
-        'highLimit' => {'type'=>'Quantity', 'path'=>'Referencerange.highLimit', 'min'=>0, 'max'=>1}
+        'id' => {'type'=>'string', 'path'=>'ReferenceRange.id', 'min'=>0, 'max'=>1},
+        'extension' => {'type'=>'Extension', 'path'=>'ReferenceRange.extension', 'min'=>0, 'max'=>Float::INFINITY},
+        'lowLimit' => {'type'=>'Quantity', 'path'=>'ReferenceRange.lowLimit', 'min'=>0, 'max'=>1},
+        'highLimit' => {'type'=>'Quantity', 'path'=>'ReferenceRange.highLimit', 'min'=>0, 'max'=>1}
       }
 
       attr_accessor :id        # 0-1 string
@@ -46,6 +46,6 @@ module FHIR
     attr_accessor :amountString      # 0-1 string
     attr_accessor :amountType        # 0-1 CodeableConcept
     attr_accessor :amountText        # 0-1 string
-    attr_accessor :referenceRange    # 0-1 SubstanceAmount::Referencerange
+    attr_accessor :referenceRange    # 0-1 SubstanceAmount::ReferenceRange
   end
 end

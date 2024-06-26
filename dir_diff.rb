@@ -37,7 +37,8 @@ def compare_directories(dir1, dir2, options)
       file2 = File.join(dir2, file)
       unless FileUtils.compare_file(file1, file2)
         puts "File #{file} differs"
-        puts Diffy::Diff.new(file1, file2, source: 'files') if !options[:verbose].nil?
+        puts Diffy::Diff.new(file1, file2, source: 'files', context: 1) if !options[:verbose].nil?
+        puts "\n" if !options[:verbose].nil?
       end
     end
   end

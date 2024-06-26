@@ -88,7 +88,7 @@ module FHIR
           elsif to_value_set['compose'].nil? && !from_value_set['compose'].nil?
             to_value_set['compose'] = from_value_set['compose']
           else
-            puts "Cannot merget ValueSet #{url}"
+            puts "Cannot merge ValueSet #{url}"
           end
         end
       end
@@ -144,12 +144,21 @@ module FHIR
           elsif backbone_element['filter'].nil?
             # i.e. the include/exclude element has 'system', 'copyright' and/or 'version'
             cs = code_systems(system_url)
-            cs['concept']&.each { |concept| collected_codes << concept['code'] } unless cs.nil?
+            collected_codes.concat(all_codes_from_concept(cs['concept'])) unless cs.nil?
           end
         elsif !backbone_element['valueSet'].nil?
           # Handle include/exclude value set
         end
 
+        collected_codes
+      end
+
+      def all_codes_from_concept(concept)
+        collected_codes = []
+        concept&.each do |concept|
+          collected_codes << concept['code']
+          collected_codes.concat(all_codes_from_concept(concept['concept'])) unless concept['concept'].nil?
+        end
         collected_codes
       end
 
