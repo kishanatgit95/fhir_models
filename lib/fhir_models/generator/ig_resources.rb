@@ -143,7 +143,7 @@ module FHIR
             backbone_element['concept'].each { |coding| collected_codes << coding['code'] }
           elsif backbone_element['filter'].nil?
             # i.e. the include/exclude element has 'system', 'copyright' and/or 'version'
-            cs = code_systems(system_url)
+            cs = get_code_systems(system_url)
             collected_codes.concat(all_codes_from_concept(cs['concept'])) unless cs.nil?
           end
         elsif !backbone_element['valueSet'].nil?
