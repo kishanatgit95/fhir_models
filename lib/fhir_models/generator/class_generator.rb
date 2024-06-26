@@ -16,7 +16,7 @@ module FHIR
           @templates.clear
           type_name = structure_def['id']
           template = generate_class([type_name], structure_def, true)
-          params = ig_resources.search_parameters(type_name)
+          params = ig_resources.get_search_parameters(type_name).map { |p| p['code'] }
           template.constants['SEARCH_PARAMS'] = params unless params.nil?
           filename = File.join(output_folder, "#{type_name}.rb")
           file = File.open(filename, 'w:UTF-8')

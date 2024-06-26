@@ -46,7 +46,7 @@ module FHIR
         resources_by_type['StructureDefinition'].select { |sd| sd['kind'] == 'resource' && sd['derivation'] != 'constraint' }
       end
 
-      def code_systems(url = nil)
+      def get_code_systems(url = nil)
         if url.nil?
           resources_by_type['CodeSystem']
         else
@@ -54,7 +54,7 @@ module FHIR
         end
       end
 
-      def value_sets(url = nil)
+      def get_value_sets(url = nil)
         if url.nil?
           resources_by_type['ValueSet']
         else
@@ -62,13 +62,13 @@ module FHIR
         end
       end
 
-      def search_parameters(type_name = nil)
+      def get_search_parameters(type_name = nil)
         if type_name.nil?
           resources_by_type['SearchParameter']
         else
           resources_by_type['SearchParameter'].select do |p|
             p['base']&.include?(type_name) && p['xpath'] && !p['xpath'].include?('extension')
-          end.map { |p| p['code'] }
+          end
         end
       end
 
@@ -78,7 +78,7 @@ module FHIR
 
       def merge_value_set(from_value_set)
         url = from_value_set['url']
-        to_value_set = value_sets(url)
+        to_value_set = get_value_sets(url)
 
         if vs.nil?
           resources_by_type['ValueSet'] << from_value_set
@@ -97,7 +97,7 @@ module FHIR
         return nil if url.nil?
         return transformed_expansion[url] if transformed_expansion[url]
 
-        value_set = value_sets(url)
+        value_set = get_value_sets(url)
         unless value_set.nil?
           transformed_expansion[url] = {}
           # if the expansion is completed already, use it...
@@ -143,7 +143,7 @@ module FHIR
             backbone_element['concept'].each { |coding| collected_codes << coding['code'] }
           elsif backbone_element['filter'].nil?
             # i.e. the include/exclude element has 'system', 'copyright' and/or 'version'
-            cs = code_systems(system_url)
+            cs = get_code_systems(system_url)
             cs['concept']&.each { |concept| collected_codes << concept['code'] } unless cs.nil?
           end
         elsif !backbone_element['valueSet'].nil?
