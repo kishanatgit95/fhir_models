@@ -75,7 +75,7 @@ module FHIR
             next if resource.empty?
           rescue StandardError
             file_name = file_path.split('/').last
-            puts "Cannot read and parse JOSN file #{file_name}."
+            puts "Cannot read and parse JSON file #{file_name}."
             next
           end
 

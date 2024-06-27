@@ -41,6 +41,7 @@ module FHIR
       load_ig_package
       generate_metadata
       generate_types
+      generate_resources
     end
 
     def base_output_folder
@@ -65,6 +66,14 @@ module FHIR
 
       complex_types = ig_resources.complex_types
       ClassGenerator.new(complex_types, ig_resources, output_folder).generate
+    end
+
+    def generate_resources
+      output_folder = File.join(base_output_folder, 'resources')
+      FileUtils.mkdir_p(output_folder)
+
+      resource_definitions = ig_resources.resource_definitions
+      ClassGenerator.new(resource_definitions, ig_resources, output_folder).generate
     end
   end
 end
