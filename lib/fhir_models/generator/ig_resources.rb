@@ -1,15 +1,17 @@
 module FHIR
   class Generator
     class IGResources
+      attr_accessor :ig_metadata
+
       def add(resource, break_bundle: false)
         return if resource.nil?
 
-        if (break_bundle && resource['resourceType'] == 'Bundle')
+        if break_bundle && resource['resourceType'] == 'Bundle'
           resource['entry']&.each do |entry|
             entry_resource = entry['resource']
             next if entry_resource.nil?
 
-            if (entry_resource['resourceType'] == 'ValueSet')
+            if entry_resource['resourceType'] == 'ValueSet'
               merge_value_set(entry_resource)
             else
               resources_by_type[resource['resourceType']] << entry_resource
@@ -20,26 +22,12 @@ module FHIR
         end
       end
 
-      # def capability_statement(mode = 'server')
-      #   resources_by_type['CapabilityStatement'].find do |capability_statement_resource|
-      #     capability_statement_resource.rest.any? { |r| r.mode == mode }
-      #   end
-      # end
-
-      # def ig
-      #   resources_by_type['ImplementationGuide'].first
-      # end
-
-      # def inspect
-      #   'IGResources'
-      # end
-
       def primitive_types
         resources_by_type['StructureDefinition'].select { |sd| sd['kind'] == 'primitive-type' }
       end
 
       def complex_types
-        resources_by_type['StructureDefinition'].select { |sd| sd['kind'] == 'complex-type' && sd['derivation'] != 'constraint'}
+        resources_by_type['StructureDefinition'].select { |sd| sd['kind'] == 'complex-type' && sd['derivation'] != 'constraint' }
       end
 
       def resource_definitions
@@ -50,7 +38,7 @@ module FHIR
         if url.nil?
           resources_by_type['CodeSystem']
         else
-          resources_by_type['CodeSystem'].find { |cs| cs['url'] == url}
+          resources_by_type['CodeSystem'].find { |cs| cs['url'] == url }
         end
       end
 
@@ -58,7 +46,7 @@ module FHIR
         if url.nil?
           resources_by_type['ValueSet']
         else
-          resources_by_type['ValueSet'].find { |vs| vs['url'] == url}
+          resources_by_type['ValueSet'].find { |vs| vs['url'] == url }
         end
       end
 
@@ -82,14 +70,12 @@ module FHIR
 
         if to_value_set.nil?
           resources_by_type['ValueSet'] << from_value_set
+        elsif to_value_set['expansion'].nil? && !from_value_set['expansion'].nil?
+          to_value_set['expansion'] = from_value_set['expansion']
+        elsif to_value_set['compose'].nil? && !from_value_set['compose'].nil?
+          to_value_set['compose'] = from_value_set['compose']
         else
-          if to_value_set['expansion'].nil? && !from_value_set['expansion'].nil?
-            to_value_set['expansion'] = from_value_set['expansion']
-          elsif to_value_set['compose'].nil? && !from_value_set['compose'].nil?
-            to_value_set['compose'] = from_value_set['compose']
-          else
-            puts "Cannot merge ValueSet #{url}"
-          end
+          puts "Cannot merge ValueSet #{url}"
         end
       end
 
@@ -104,8 +90,8 @@ module FHIR
           # except for http://hl7.org/fhir/ValueSet/c80-doc-typecodes, because that expansion is missing codes
           if value_set.dig('expansion', 'contains') && url != 'http://hl7.org/fhir/ValueSet/c80-doc-typecodes'
             transformed_expansion[url] = value_set['expansion']['contains']
-              .group_by { |coding| coding['system'] }
-              .transform_values { |v| v.map { |coding| coding['code'] } }
+                                         .group_by { |coding| coding['system'] }
+                                         .transform_values { |v| v.map { |coding| coding['code'] } }
           elsif !value_set['compose'].nil?
             # the expansion is not available, so we have to include values
             # and possibly partially expand the Valueset by including extra CodeSystems
@@ -113,17 +99,18 @@ module FHIR
             value_set['compose']['include']&.each do |include_element|
               system_url = include_element['system']
               next if system_url.nil?
-              included_codes = codes_from_compose(include_element)
 
+              included_codes = codes_from_compose(include_element)
               transformed_expansion[url][system_url] = included_codes unless included_codes.empty?
             end
 
             value_set['compose']['exclude']&.each do |exclude_element|
               system_url = exclude_element['system']
               next if system_url.nil?
+
               excluded_codes = codes_from_compose(exclude_element)
 
-              if transformed_expansion[url].has_key?(system_url)
+              if transformed_expansion[url].key?(system_url)
                 transformed_expansion[url][system_url] = transformed_expansion[url][system_url] - excluded_codes
                 transformed_expansion[url].delete(system_url) if transformed_expansion[url][system_url].empty?
               end
@@ -155,9 +142,9 @@ module FHIR
 
       def all_codes_from_concept(concept)
         collected_codes = []
-        concept&.each do |concept|
-          collected_codes << concept['code']
-          collected_codes.concat(all_codes_from_concept(concept['concept'])) unless concept['concept'].nil?
+        concept&.each do |c|
+          collected_codes << c['code']
+          collected_codes.concat(all_codes_from_concept(c['concept'])) unless c['concept'].nil?
         end
         collected_codes
       end

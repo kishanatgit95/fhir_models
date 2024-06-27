@@ -11,8 +11,9 @@ module FHIR
       attr_accessor :fields
       attr_accessor :templates
       attr_accessor :top_level
+      attr_accessor :fhir_version
 
-      def initialize(name = ['Template'], top_level = false)
+      def initialize(name, top_level)
         @name = name
         @hierarchy = []
         @kind = nil
@@ -49,7 +50,14 @@ module FHIR
         s = []
         # TODO: insert copyright statement
         # always declare the FHIR module
-        s << 'module FHIR' if @top_level
+        if @top_level
+          s << 'module FHIR'
+
+          if fhir_version != 'R4'
+            s << "  module #{fhir_version}"
+            offset += 2
+          end
+        end
 
         @name.each_with_index do |name, index|
           space = indent(index + 1, offset)
@@ -107,9 +115,7 @@ module FHIR
           s[-1] << "# #{field.min}-#{field.max} "
           s[-1] << '[ ' if field.max.to_i > 1 || field.max == '*'
           s[-1] << field.type
-          if field.type == 'Reference'
-            s[-1] << "(#{field.type_profiles.map { |p| p.split('/').last }.join('|')})"
-          end
+          s[-1] << "(#{field.type_profiles.map { |p| p.split('/').last }.join('|')})" if field.type == 'Reference'
           s[-1] << ' ]' if field.max.to_i > 1 || field.max == '*'
         end
 
@@ -125,7 +131,10 @@ module FHIR
           space = indent(index + 1, offset)
           s << "#{space}end"
         end
-        s << 'end' if @top_level
+        if @top_level
+          s << '  end' if fhir_version != 'R4'
+          s << 'end'
+        end
         s.join("\n")
       end
 
