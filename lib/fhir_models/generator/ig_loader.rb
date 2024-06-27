@@ -1,6 +1,3 @@
-# require 'active_support/all'
-# require 'fhir_models'
-# require 'pathname'
 require 'rubygems/package'
 require 'zlib'
 require_relative 'ig_resources'
@@ -9,7 +6,7 @@ require_relative 'ig_metadata'
 module FHIR
   class Generator
     class IGLoader
-      attr_accessor :ig_file_name, :ig_metadata
+      attr_accessor :ig_file_name
 
       def initialize(ig_file_name)
         self.ig_file_name = ig_file_name
@@ -38,8 +35,8 @@ module FHIR
           begin
             if file_name == 'package.json'
               resource = JSON.parse(entry.read)
-              @ig_metadata = IGMetadata.new(resource)
-              puts "Extract FHIR Package version #{ig_metadata.version}"
+              ig_resources.ig_metadata = IGMetadata.new(resource)
+              puts "Extract FHIR Package version #{ig_resources.ig_metadata.version}"
               next
             end
 

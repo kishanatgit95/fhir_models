@@ -1,3 +1,5 @@
+require_relative 'template'
+
 module FHIR
   class Generator
     class ClassGenerator
@@ -15,7 +17,7 @@ module FHIR
         structure_defs.each do |structure_def|
           @templates.clear
           type_name = structure_def['id']
-          template = generate_class([type_name], structure_def, true)
+          template = generate_class([type_name], structure_def, top_level: true)
           params = ig_resources.get_search_parameters(type_name).map { |p| p['code'] }
           template.constants['SEARCH_PARAMS'] = params unless params.nil?
           filename = File.join(output_folder, "#{type_name}.rb")
@@ -32,15 +34,14 @@ module FHIR
         t
       end
 
-      def generate_class(hierarchy, structure_def, top_level = false)
+      def generate_class(hierarchy, structure_def, top_level: false)
         type_name = structure_def['id']
-        constrained_type = structure_def['type']
-        path_type = type_name
-        path_type = constrained_type if constrained_type
+        path_type = structure_def['type'] || type_name
 
-        template = FHIR::Boot::Template.new([type_name], top_level)
+        template = Template.new([type_name], top_level)
         template.hierarchy = hierarchy
         template.kind = structure_def['kind']
+        template.fhir_version = ig_resources.ig_metadata.shortName
         return template if structure_def['snapshot'].nil? || structure_def['snapshot']['element'].nil?
 
         multiple_data_types = {}
@@ -55,9 +56,7 @@ module FHIR
           next unless element['type']
 
           unique_types = element['type'].map { |t| t['code'] }.uniq
-          if unique_types.include?('Element') || unique_types.include?('BackboneElement')
-            child_templates << element['path']
-          end
+          child_templates << element['path'] if unique_types.include?('Element') || unique_types.include?('BackboneElement')
         end
         # now build the child templates...
         child_templates.each do |child_name|
@@ -139,7 +138,7 @@ module FHIR
                 # set the actual code list
                 binding_uri = field.binding['uri']
                 # Strip off the |4.0.0 or |4.0.1 or |2014-03-26 or similar from the ends of URLs
-                binding_uri&.gsub!(/\|[A-Za-z0-9.\-]*/, '')
+                binding_uri&.gsub!(/\|[A-Za-z0-9.-]*/, '')
                 codes = ig_resources.get_codes(binding_uri)
                 field.valid_codes = codes unless codes.nil?
                 if field.valid_codes.empty? && binding_uri && !binding_uri.end_with?(*KNOWN_MISSING_EXPANSIONS)

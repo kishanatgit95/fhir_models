@@ -1,3 +1,5 @@
+require_relative 'template'
+
 module FHIR
   class Generator
     class MetadataGenerator
@@ -9,7 +11,8 @@ module FHIR
       end
 
       def generate
-        template = FHIR::Boot::Template.new([], true)
+        template = Template.new([], true)
+        template.fhir_version = ig_resources.ig_metadata.shortName
 
         primitives = ig_resources.primitive_types
         hash = {}
@@ -44,7 +47,6 @@ module FHIR
         file = File.open(output_file_name, 'w:UTF-8')
         file.write(template.to_s)
         file.close
-
       end
     end
   end

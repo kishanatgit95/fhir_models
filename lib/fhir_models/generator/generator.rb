@@ -1,24 +1,7 @@
-
-# require 'fhir_models'
-# require 'inferno/ext/fhir_models'
-
 require_relative 'ig_loader'
 require_relative 'template'
 require_relative 'metadata_generator'
 require_relative 'class_generator'
-# require_relative 'generator/ig_metadata_extractor'
-# require_relative 'generator/granular_scope_group_generator'
-# require_relative 'generator/granular_scope_resource_type_group_generator'
-# require_relative 'generator/granular_scope_test_generator'
-# require_relative 'generator/granular_scope_read_test_generator'
-# require_relative 'generator/group_generator'
-# require_relative 'generator/must_support_test_generator'
-# require_relative 'generator/provenance_revinclude_search_test_generator'
-# require_relative 'generator/read_test_generator'
-# require_relative 'generator/reference_resolution_test_generator'
-# require_relative 'generator/search_test_generator'
-# require_relative 'generator/suite_generator'
-# require_relative 'generator/validation_test_generator'
 
 module FHIR
   class Generator
@@ -30,7 +13,7 @@ module FHIR
       end
     end
 
-    attr_accessor :ig_resources, :ig_metadata, :ig_file_name
+    attr_accessor :ig_resources, :ig_file_name
 
     def initialize(ig_file_name)
       self.ig_file_name = ig_file_name
@@ -44,14 +27,13 @@ module FHIR
     end
 
     def base_output_folder
-      File.join(__dir__, '../generated', ig_metadata.version)
+      File.join(__dir__, '../generated', ig_resources.ig_metadata.version)
     end
 
     def load_ig_package
       FHIR.logger = Logger.new('/dev/null')
       ig_loader = IGLoader.new(ig_file_name)
-      @ig_resources = ig_loader.load
-      @ig_metadata = ig_loader.ig_metadata
+      self.ig_resources = ig_loader.load
       FileUtils.mkdir_p(base_output_folder)
     end
 
