@@ -16,9 +16,24 @@ module FHIR
         @ig_resources ||= IGResources.new
       end
 
+      def excluded_files
+        @excluded_files ||= []
+      end
+
       def load
+        load_excluded_files
         load_ig
-        load_standalone_resources
+        load_supplement_resources
+      end
+
+      def load_excluded_files
+        ig_directory = ig_file_name.chomp('.tgz')
+
+        return ig_resources unless File.exist? ig_directory
+
+        file_name = File.join(ig_directory, 'package_exclude', 'excluded_files.json')
+
+        @excluded_files = JSON.parse(File.read(file_name))
       end
 
       def load_ig
@@ -31,6 +46,7 @@ module FHIR
 
           file_name = entry.full_name.split('/').last
           next unless file_name.end_with? '.json'
+          next if excluded_files.include?(file_name)
 
           begin
             if file_name == 'package.json'
@@ -45,7 +61,7 @@ module FHIR
             resource = JSON.parse(entry.read)
             next if resource.empty?
           rescue StandardError
-            puts "Cannot read and parse JOSN file #{file_name}."
+            puts "Cannot read and parse JSON file #{file_name}."
             next
           end
 
@@ -61,12 +77,12 @@ module FHIR
         ig_resources
       end
 
-      def load_standalone_resources
+      def load_supplement_resources
         ig_directory = ig_file_name.chomp('.tgz')
 
         return ig_resources unless File.exist? ig_directory
 
-        Dir.glob(File.join(ig_directory, '*.json')).each do |file_path|
+        Dir.glob(File.join(ig_directory, 'package_supplement', '*.json')).each do |file_path|
           begin
             resource = JSON.parse(File.read(file_path))
             next if resource.empty?

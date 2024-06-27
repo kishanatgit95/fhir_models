@@ -16,12 +16,16 @@ Style/AccessorGrouping:
   Enabled: false
 Style/FrozenStringLiteralComment:
   Enabled: false
+Style/Documentation:
+  Enabled: false
 Style/HashEachMethods:
   Enabled: true
 Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
   Enabled: true
+Style/SymbolArray:
+  Enabled: false
 Style/WordArray:
   EnforcedStyle: brackets
 inherit_mode:
