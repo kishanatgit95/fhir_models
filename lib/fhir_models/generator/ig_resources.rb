@@ -9,8 +9,8 @@ module FHIR
             entry_resource = entry['resource']
             next if entry_resource.nil?
 
-            if (resource['resourceType'] == 'ValueSet')
-              merge_value_set(value_set)
+            if (entry_resource['resourceType'] == 'ValueSet')
+              merge_value_set(entry_resource)
             else
               resources_by_type[resource['resourceType']] << entry_resource
             end
@@ -80,7 +80,7 @@ module FHIR
         url = from_value_set['url']
         to_value_set = get_value_sets(url)
 
-        if vs.nil?
+        if to_value_set.nil?
           resources_by_type['ValueSet'] << from_value_set
         else
           if to_value_set['expansion'].nil? && !from_value_set['expansion'].nil?
@@ -102,7 +102,7 @@ module FHIR
           transformed_expansion[url] = {}
           # if the expansion is completed already, use it...
           # except for http://hl7.org/fhir/ValueSet/c80-doc-typecodes, because that expansion is missing codes
-          if value_set.dig('expansion', 'contains') && uri != 'http://hl7.org/fhir/ValueSet/c80-doc-typecodes'
+          if value_set.dig('expansion', 'contains') && url != 'http://hl7.org/fhir/ValueSet/c80-doc-typecodes'
             transformed_expansion[url] = value_set['expansion']['contains']
               .group_by { |coding| coding['system'] }
               .transform_values { |v| v.map { |coding| coding['code'] } }
