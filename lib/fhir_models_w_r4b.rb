@@ -16,11 +16,21 @@ end
 
 require File.join(root, 'lib', 'fhir_models', 'fhir.rb')
 
-# Require the generated code
-Dir.glob(File.join(root, 'lib', 'fhir_models', 'fhir', '*.rb')).sort.each do |file|
+require File.join(root, 'lib', 'fhir_models', 'fhir.rb')
+
+# # Require the generated code
+# Dir.glob(File.join(root, 'lib', 'fhir_models', 'fhir', '*.rb')).sort.each do |file|
+#   require file
+# end
+# Dir.glob(File.join(root, 'lib', 'fhir_models', 'fhir', '**', '*.rb')).sort.each do |file|
+#   require file
+# end
+
+# Require newly generated code
+Dir.glob(File.join(root, 'lib', 'fhir_models', 'generated', '*.rb')).sort.each do |file|
   require file
 end
-Dir.glob(File.join(root, 'lib', 'fhir_models', 'fhir', '**', '*.rb')).sort.each do |file|
+Dir.glob(File.join(root, 'lib', 'fhir_models', 'generated', '**', '*.rb')).sort.each do |file|
   require file
 end
 
