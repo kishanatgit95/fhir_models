@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'fhir_models/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'fhir_models_w_r4b'
+  spec.name          = 'fhir_models'
   spec.version       = FHIR::Models::VERSION
   spec.authors       = ['Jason Walonoski', 'Andre Quina', "Michael O'Keefe", 'Robert Scanlon', 'Reece Adamson']
   spec.email         = ['jwalonoski@mitre.org']

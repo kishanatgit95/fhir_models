@@ -52,11 +52,9 @@ module FHIR
         # always declare the FHIR module
         if @top_level
           s << 'module FHIR'
+          s << "  module #{fhir_version}"
+          offset += 2
 
-          if fhir_version != 'R4'
-            s << "  module #{fhir_version}"
-            offset += 2
-          end
         end
 
         @name.each_with_index do |name, index|
@@ -132,7 +130,8 @@ module FHIR
           s << "#{space}end"
         end
         if @top_level
-          s << '  end' if fhir_version != 'R4'
+          s << '  end'
+          s << "  #{@name.first} = FHIR::R4::#{@name.first}" if fhir_version == 'R4' # manually filled for metadata.rb
           s << 'end'
         end
         s.join("\n")
