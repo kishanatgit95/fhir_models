@@ -181,7 +181,7 @@ module FHIR
       # check datatype
       datatype = meta['type']
       value.each do |v|
-        klassname = v.class.name.gsub('FHIR::', '')
+        klassname = v.class.name.gsub("FHIR::#{version}::", '')
         # if the data type is a generic Resource, validate it
         if datatype == 'Resource'
           if FHIR.const_get(version)::RESOURCES.include?(klassname)
