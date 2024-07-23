@@ -6,8 +6,8 @@ require 'bcp47'
 module FHIR
   class Model
     extend FHIR::Deprecate
-    def initialize(hash = {})
-      from_hash(hash)
+    def initialize(hash = {}, version = self.class.name.split('::')[1])
+      from_hash(hash, version)
       self.class::METADATA.each do |key, value|
         local_name = key
         local_name = value['local_name'] if value['local_name']
@@ -57,8 +57,8 @@ module FHIR
       raise NoMethodError.new("undefined method `#{method_name}' for #{self.class.name}", method_name)
     end
 
-    def to_reference
-      FHIR::Reference.new(reference: "#{self.class.name.split('::').last}/#{id}")
+    def to_reference(version = 'R4')
+      FHIR.const_get(version)::Reference.new(reference: "#{self.class.name.split('::').last}/#{id}")
     end
 
     def equals?(other, exclude = [])
@@ -123,10 +123,10 @@ module FHIR
             subset = [] # subset is the values associated with just this slice
             if slice['type'] == 'Extension'
               subset = if slice['type_profiles']
-                         value.select { |x| slice['type_profiles'].include?(x.url) }
-                       else
-                         value
-                       end
+                        value.select { |x| slice['type_profiles'].include?(x.url) }
+                      else
+                        value
+                      end
             else
               FHIR.logger.warn 'Validation not supported on slices (except for Extensions)'
             end
@@ -171,7 +171,7 @@ module FHIR
     # contained_here: all contained resources to be considered
     # meta: the metadata definition for this field (or slice)
     # errors: the ongoing list of errors
-    def validate_field(field, value, contained_here, meta, errors)
+    def validate_field(field, value, contained_here, meta, errors, version = self.class.name.split('::')[1])
       errors[field] = []
       # check cardinality
       count = value.length
@@ -184,7 +184,7 @@ module FHIR
         klassname = v.class.name.gsub('FHIR::', '')
         # if the data type is a generic Resource, validate it
         if datatype == 'Resource'
-          if FHIR::RESOURCES.include?(klassname)
+          if FHIR.const_get(version)::RESOURCES.include?(klassname)
             validation = v.validate(contained_here)
             errors[field] << validation unless validation.empty?
           else
@@ -201,7 +201,7 @@ module FHIR
             errors[field] << "#{meta['path']}: expected Reference, found #{klassname}"
           end
         # if the data type is a particular resource or complex type or BackBone element within this resource
-        elsif FHIR::RESOURCES.include?(datatype) || FHIR::TYPES.include?(datatype) || v.class.name.start_with?(self.class.name)
+        elsif FHIR.const_get(version)::RESOURCES.include?(datatype) || FHIR.const_get(version)::TYPES.include?(datatype) || v.class.name.start_with?(self.class.name)
           if datatype == klassname
             validation = v.validate(contained_here)
             errors[field] << validation unless validation.empty?
@@ -209,8 +209,8 @@ module FHIR
             errors[field] << "#{meta['path']}: incorrect type. Found #{klassname} expected #{datatype}"
           end
         # if the data type is a primitive, test the regular expression (if any)
-        elsif FHIR::PRIMITIVES.include?(datatype)
-          primitive_meta = FHIR::PRIMITIVES[datatype]
+        elsif FHIR.const_get(version)::PRIMITIVES.include?(datatype)
+          primitive_meta = FHIR.const_get(version)::PRIMITIVES[datatype]
           if primitive_meta['regex'] && primitive_meta['type'] != 'number'
             match = (v.to_s =~ Regexp.new(primitive_meta['regex']))
             errors[field] << "#{meta['path']}: #{v} does not match #{datatype} regex" if match.nil?
@@ -303,7 +303,7 @@ module FHIR
       valid
     end
 
-    def each_element(path = nil, &block)
+    def each_element(path = nil, version = self.class.name.split('::')[1], &block)
       self.class::METADATA.each do |element_name, metadata|
         local_name = metadata.fetch :local_name, element_name
         values = [instance_variable_get("@#{local_name}")].flatten.compact
@@ -318,7 +318,7 @@ module FHIR
             end
           child_path += "[#{i}]" if metadata['max'] > 1
           yield value, metadata, child_path
-          value.each_element child_path, &block unless FHIR::PRIMITIVES.include? metadata['type']
+          value.each_element child_path, &block unless FHIR.const_get(version)::PRIMITIVES.include? metadata['type']
         end
       end
       self

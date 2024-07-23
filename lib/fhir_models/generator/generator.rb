@@ -3,6 +3,11 @@ require_relative 'template'
 require_relative 'metadata_generator'
 require_relative 'class_generator'
 
+VERSION_MAP = {
+  '4.0.1' => 'r4',
+  '4.3.0' => 'r4b'
+}
+
 module FHIR
   class Generator
     def self.generate
@@ -28,7 +33,7 @@ module FHIR
     end
 
     def base_output_folder
-      File.join(__dir__, '../generated', ig_resources.ig_metadata.version)
+      File.join(__dir__, '../', VERSION_MAP[ig_resources.ig_metadata.version].to_s, 'generated')
     end
 
     def load_ig_package

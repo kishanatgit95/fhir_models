@@ -15,12 +15,12 @@ module FHIR
     @default_logger ||= Logger.new(ENV['FHIR_LOGGER'] || $stdout)
   end
 
-  def self.from_contents(contents)
+  def self.from_contents(contents, version = 'R4')
     doc = Nokogiri::XML(contents)
     if doc.errors.empty?
-      FHIR::Xml.from_xml(contents)
+      FHIR::Xml.from_xml(contents, version)
     else
-      FHIR::Json.from_json(contents)
+      FHIR::Json.from_json(contents, version)
     end
   end
 

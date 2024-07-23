@@ -10,12 +10,12 @@ module FHIR
       JSON.pretty_generate(to_hash, opts)
     end
 
-    def self.from_json(json)
+    def self.from_json(json, version = 'R4')
       hash = JSON.parse(json)
       resource = nil
       begin
         resource_type = hash['resourceType']
-        klass = Module.const_get("FHIR::#{resource_type}")
+        klass = Module.const_get("FHIR::#{version}::#{resource_type}")
         resource = klass.new(hash)
       rescue StandardError => e
         FHIR.logger.error("Failed to deserialize JSON:\n#{e.backtrace}")
