@@ -123,10 +123,10 @@ module FHIR
             subset = [] # subset is the values associated with just this slice
             if slice['type'] == 'Extension'
               subset = if slice['type_profiles']
-                        value.select { |x| slice['type_profiles'].include?(x.url) }
-                      else
-                        value
-                      end
+                         value.select { |x| slice['type_profiles'].include?(x.url) }
+                       else
+                         value
+                       end
             else
               FHIR.logger.warn 'Validation not supported on slices (except for Extensions)'
             end

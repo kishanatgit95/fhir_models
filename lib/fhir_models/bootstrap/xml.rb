@@ -69,7 +69,7 @@ module FHIR
       node
     end
 
-    def self.from_xml(xml, version='R4')
+    def self.from_xml(xml, version = 'R4')
       doc = Nokogiri::XML(xml)
       doc.root.add_namespace_definition('f', 'http://hl7.org/fhir')
       doc.root.add_namespace_definition('x', 'http://www.w3.org/1999/xhtml')
@@ -116,10 +116,7 @@ module FHIR
 
       # If this hash contains nothing but an embedded resource, we should return that
       # embedded resource without the wrapper
-      if hash.keys.length == 1 &&
-        FHIR.const_get(version)::RESOURCES.include?(hash.keys.first) &&
-        hash.values.first.is_a?(Hash) &&
-        hash.values.first['resourceType'] == hash.keys.first
+      if hash.keys.length == 1 && FHIR.const_get(version)::RESOURCES.include?(hash.keys.first) && hash.values.first.is_a?(Hash) && hash.values.first['resourceType'] == hash.keys.first
         hash.values.first
       else
         hash

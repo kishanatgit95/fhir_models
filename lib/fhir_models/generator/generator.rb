@@ -6,7 +6,7 @@ require_relative 'class_generator'
 VERSION_MAP = {
   '4.0.1' => 'r4',
   '4.3.0' => 'r4b'
-}
+}.freeze
 
 module FHIR
   class Generator
