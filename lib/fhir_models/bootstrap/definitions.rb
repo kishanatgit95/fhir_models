@@ -138,7 +138,9 @@ module FHIR
     def self.profiles_for_resource(resource_name, version = 'R4')
       return nil if resource_name.nil?
 
-      profiles.select { |x| x['baseType'] == resource_name }.map { |x| FHIR.const_get(version)::StructureDefinition.new(x) }
+      profiles
+        .select { |profile| profile['baseType'] == resource_name }
+        .map { |profile| FHIR.const_get(version)::StructureDefinition.new(profile) }
     end
     deprecate :get_profiles_for_resource, :profile_for_resource
 
