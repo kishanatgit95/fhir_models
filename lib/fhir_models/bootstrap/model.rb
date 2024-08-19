@@ -17,10 +17,6 @@ module FHIR
       end
     end
 
-    def version
-      'R4'
-    end
-
     # This is necessary for uniq to properly identify two FHIR models as being identical
     def hash
       to_hash.hash
@@ -61,7 +57,7 @@ module FHIR
       raise NoMethodError.new("undefined method `#{method_name}' for #{self.class.name}", method_name)
     end
 
-    def to_reference(version = self.version)
+    def to_reference
       version_class::Reference.new(reference: "#{self.class.name.split('::').last}/#{id}")
     end
 
