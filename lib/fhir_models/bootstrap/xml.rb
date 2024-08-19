@@ -78,7 +78,7 @@ module FHIR
       resource = nil
       begin
         resource_type = doc.root.name
-        klass = Module.const_get("FHIR::#{version}::#{resource_type}")
+        klass = self.module_version.const_get(resource_type)
         resource = klass.new(hash)
       rescue StandardError => e
         FHIR.logger.error("Failed to deserialize XML:\n#{e.backtrace}")
@@ -112,11 +112,11 @@ module FHIR
       end
       hash['url'] = node.get_attribute('url') if ['extension', 'modifierExtension'].include?(node.name)
       hash['id'] = node.get_attribute('id') if node.get_attribute('id') # Testscript fixture ids (applies to any BackboneElement)
-      hash['resourceType'] = node.name if version_class::RESOURCES.include?(node.name)
+      hash['resourceType'] = node.name if module_version::RESOURCES.include?(node.name)
 
       # If this hash contains nothing but an embedded resource, we should return that
       # embedded resource without the wrapper
-      if hash.keys.length == 1 && version_class::RESOURCES.include?(hash.keys.first) && hash.values.first.is_a?(Hash) && hash.values.first['resourceType'] == hash.keys.first
+      if hash.keys.length == 1 && module_version::RESOURCES.include?(hash.keys.first) && hash.values.first.is_a?(Hash) && hash.values.first['resourceType'] == hash.keys.first
         hash.values.first
       else
         hash
@@ -133,6 +133,14 @@ module FHIR
       schema = File.join(defns, 'fhir-all.xsd')
       xsd = Nokogiri::XML::Schema(File.new(schema))
       xsd.validate(Nokogiri::XML(xml))
+    end
+
+    def self.module_version_name
+      FHIR.module_version_name
+    end
+    
+    def self.module_version
+      FHIR.module_version
     end
 
     private :hash_to_xml_node

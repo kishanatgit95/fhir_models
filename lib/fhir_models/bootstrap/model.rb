@@ -58,7 +58,7 @@ module FHIR
     end
 
     def to_reference
-      version_class::Reference.new(reference: "#{self.class.name.split('::').last}/#{id}")
+      module_version::Reference.new(reference: "#{self.class.name.split('::').last}/#{id}")
     end
 
     def equals?(other, exclude = [])
@@ -181,10 +181,10 @@ module FHIR
       # check datatype
       datatype = meta['type']
       value.each do |v|
-        klassname = v.class.name.gsub("FHIR::#{version}::", '')
+        klassname = v.class.name.gsub("#{module_version.name}::", '')
         # if the data type is a generic Resource, validate it
         if datatype == 'Resource'
-          if version_class::RESOURCES.include?(klassname)
+          if module_version::RESOURCES.include?(klassname)
             validation = v.validate(contained_here)
             errors[field] << validation unless validation.empty?
           else
@@ -201,7 +201,7 @@ module FHIR
             errors[field] << "#{meta['path']}: expected Reference, found #{klassname}"
           end
         # if the data type is a particular resource or complex type or BackBone element within this resource
-        elsif version_class::RESOURCES.include?(datatype) || version_class::TYPES.include?(datatype) || v.class.name.start_with?(self.class.name)
+        elsif module_version::RESOURCES.include?(datatype) || module_version::TYPES.include?(datatype) || v.class.name.start_with?(self.class.name)
           if datatype == klassname
             validation = v.validate(contained_here)
             errors[field] << validation unless validation.empty?
@@ -209,8 +209,8 @@ module FHIR
             errors[field] << "#{meta['path']}: incorrect type. Found #{klassname} expected #{datatype}"
           end
         # if the data type is a primitive, test the regular expression (if any)
-        elsif version_class::PRIMITIVES.include?(datatype)
-          primitive_meta = version_class::PRIMITIVES[datatype]
+        elsif module_version::PRIMITIVES.include?(datatype)
+          primitive_meta = module_version::PRIMITIVES[datatype]
           if primitive_meta['regex'] && primitive_meta['type'] != 'number'
             match = (v.to_s =~ Regexp.new(primitive_meta['regex']))
             errors[field] << "#{meta['path']}: #{v} does not match #{datatype} regex" if match.nil?
@@ -318,7 +318,7 @@ module FHIR
             end
           child_path += "[#{i}]" if metadata['max'] > 1
           yield value, metadata, child_path
-          value.each_element child_path, &block unless version_class::PRIMITIVES.include? metadata['type']
+          value.each_element child_path, &block unless module_version::PRIMITIVES.include? metadata['type']
         end
       end
       self

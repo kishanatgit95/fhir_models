@@ -5,11 +5,11 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      def version
+      def module_version_name
         'R4'
       end
 
-      def version_class
+      def module_version
         FHIR::R4
       end
 
@@ -61,11 +61,11 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
-        def version
+        def module_version_name
           'R4'
         end
 
-        def version_class
+        def module_version
           FHIR::R4
         end
 
@@ -91,11 +91,11 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
-        def version
+        def module_version_name
           'R4'
         end
 
-        def version_class
+        def module_version
           FHIR::R4
         end
 
@@ -220,11 +220,11 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
-        def version
+        def module_version_name
           'R4'
         end
 
-        def version_class
+        def module_version
           FHIR::R4
         end
 

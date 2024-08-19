@@ -80,4 +80,13 @@ module FHIR
       false
     end
   end
+
+  # These are needed for the unit tests that call FHIR directly
+  def self.module_version_name
+    'R4'
+  end
+  
+  def self.module_version
+    FHIR::R4
+  end
 end

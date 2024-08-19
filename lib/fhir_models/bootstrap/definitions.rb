@@ -46,7 +46,7 @@ module FHIR
       return @@cache[type_name] if @@cache[type_name]
 
       definition = types.find { |x| x['xmlId'] == type_name || x['name'] == type_name || x['url'] == type_name }
-      @@cache[type_name] = version::StructureDefinition.new(definition) if definition
+      @@cache[type_name] = module_version::StructureDefinition.new(definition) if definition
       @@cache[type_name]
     end
     deprecate :get_type_definition, :type_definition
@@ -76,7 +76,7 @@ module FHIR
       return @@cache[resource_name] if @@cache[resource_name]
 
       definition = resources.find { |x| x['xmlId'] == resource_name || x['name'] == resource_name || x['url'] == resource_name }
-      @@cache[resource_name] = version_class::StructureDefinition.new(definition) if definition
+      @@cache[resource_name] = module_version::StructureDefinition.new(definition) if definition
       @@cache[resource_name]
     end
     deprecate :get_resource_definition, :resource_definition
@@ -109,7 +109,7 @@ module FHIR
       extension = extensions.find { |x| x['xmlId'] == extension_name || x['name'] == extension_name || x['url'] == extension_name }
       return nil if extension.nil?
 
-      version_class::StructureDefinition.new(extension)
+      module_version::StructureDefinition.new(extension)
     end
     deprecate :get_extension_definition, :extension_definition
 
@@ -138,7 +138,7 @@ module FHIR
     def self.profiles_for_resource(resource_name)
       return nil if resource_name.nil?
 
-      profiles.select { |x| x['baseType'] == resource_name }.map { |x| version_class::StructureDefinition.new(x) }
+      profiles.select { |x| x['baseType'] == resource_name }.map { |x| module_version::StructureDefinition.new(x) }
     end
     deprecate :get_profiles_for_resource, :profile_for_resource
 
@@ -286,6 +286,14 @@ module FHIR
       return nil if type_name.nil?
 
       search_params.select { |p| p['base'].include?(type_name) && p['xpath'] && !p['xpath'].include?('extension') }.map { |p| p['code'] }
+    end
+
+    def self.module_version_name
+      FHIR.module_version_name
+    end
+    
+    def self.module_version
+      FHIR.module_version
     end
     deprecate :get_search_parameters, :search_parameters
   end
