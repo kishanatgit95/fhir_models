@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       MULTIPLE_TYPES = {
         'medication' => ['CodeableConcept', 'Reference'],
         'effective' => ['dateTime', 'Period']
@@ -55,6 +59,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Performer.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Performer.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -77,6 +85,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {

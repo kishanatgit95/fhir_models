@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       MULTIPLE_TYPES = {
         'asNeeded' => ['boolean', 'CodeableConcept']
       }
@@ -40,6 +44,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {

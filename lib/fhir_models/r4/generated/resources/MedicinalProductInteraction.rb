@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MedicinalProductInteraction.id', 'min'=>0, 'max'=>1},
@@ -35,6 +39,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {

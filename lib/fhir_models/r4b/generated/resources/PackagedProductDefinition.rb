@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['biological', 'contained-item', 'device', 'identifier', 'manufactured-item', 'medication', 'name', 'nutrition', 'package', 'package-for', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'PackagedProductDefinition.id', 'min'=>0, 'max'=>1},
@@ -44,6 +48,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'LegalStatusOfSupply.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'LegalStatusOfSupply.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -66,6 +74,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {
@@ -91,6 +103,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           MULTIPLE_TYPES = {
@@ -122,6 +138,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           MULTIPLE_TYPES = {
@@ -157,6 +177,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           METADATA = {

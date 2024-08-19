@@ -10,7 +10,7 @@ module FHIR
       JSON.pretty_generate(to_hash, opts)
     end
 
-    def self.from_json(json, version = 'R4')
+    def self.from_json(json)
       hash = JSON.parse(json)
       resource = nil
       begin

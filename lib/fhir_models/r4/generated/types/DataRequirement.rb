@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       MULTIPLE_TYPES = {
         'subject' => ['CodeableConcept', 'Reference']
       }
@@ -36,6 +40,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'CodeFilter.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'CodeFilter.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -60,6 +68,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {
@@ -91,6 +103,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {

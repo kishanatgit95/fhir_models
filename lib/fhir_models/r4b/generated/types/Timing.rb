@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Timing.id', 'min'=>0, 'max'=>1},
@@ -26,6 +30,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         MULTIPLE_TYPES = {

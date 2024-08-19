@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['code', 'content-mode', 'context', 'context-quantity', 'context-type', 'date', 'description', 'identifier', 'jurisdiction', 'language', 'name', 'publisher', 'status', 'supplements', 'system', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'CodeSystem.id', 'min'=>0, 'max'=>1},
@@ -56,6 +60,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Filter.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Filter.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -82,6 +90,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {
@@ -112,6 +124,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Concept.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Concept.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -131,6 +147,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {
@@ -157,6 +177,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           MULTIPLE_TYPES = {

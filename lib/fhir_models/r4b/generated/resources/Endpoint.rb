@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['connection-type', 'identifier', 'name', 'organization', 'payload-type', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Endpoint.id', 'min'=>0, 'max'=>1},

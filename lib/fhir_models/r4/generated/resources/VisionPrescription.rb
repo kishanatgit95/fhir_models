@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['datewritten', 'encounter', 'identifier', 'patient', 'prescriber', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'VisionPrescription.id', 'min'=>0, 'max'=>1},
@@ -38,6 +42,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'LensSpecification.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'LensSpecification.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -65,6 +73,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {

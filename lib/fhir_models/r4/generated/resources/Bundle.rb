@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['composition', 'identifier', 'message', 'timestamp', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Bundle.id', 'min'=>0, 'max'=>1},
@@ -31,6 +35,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {
@@ -57,6 +65,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Entry.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Entry.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -76,6 +88,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {
@@ -100,6 +116,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {
@@ -132,6 +152,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {

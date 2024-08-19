@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       MULTIPLE_TYPES = {
         'effective' => ['dateTime', 'Period', 'Timing', 'instant'],
         'value' => ['Quantity', 'CodeableConcept', 'string', 'boolean', 'integer', 'Range', 'Ratio', 'SampledData', 'time', 'dateTime', 'Period']
@@ -71,6 +75,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ReferenceRange.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'ReferenceRange.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -101,6 +109,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {

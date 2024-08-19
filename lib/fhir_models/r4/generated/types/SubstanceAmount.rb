@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       MULTIPLE_TYPES = {
         'amount' => ['Quantity', 'Range', 'string']
       }
@@ -32,6 +36,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {

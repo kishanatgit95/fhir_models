@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'BiologicallyDerivedProduct.id', 'min'=>0, 'max'=>1},
@@ -41,6 +45,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         MULTIPLE_TYPES = {
           'collected' => ['dateTime', 'Period']
         }
@@ -70,6 +78,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         MULTIPLE_TYPES = {
@@ -105,6 +117,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         MULTIPLE_TYPES = {
           'time' => ['dateTime', 'Period']
         }
@@ -132,6 +148,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {

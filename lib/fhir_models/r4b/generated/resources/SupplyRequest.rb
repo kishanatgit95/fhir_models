@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       MULTIPLE_TYPES = {
         'item' => ['CodeableConcept', 'Reference'],
         'occurrence' => ['dateTime', 'Period', 'Timing']
@@ -50,6 +54,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         MULTIPLE_TYPES = {

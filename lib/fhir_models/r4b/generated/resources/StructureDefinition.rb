@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['abstract', 'base', 'base-path', 'context', 'context-quantity', 'context-type', 'date', 'derivation', 'description', 'experimental', 'ext-context', 'identifier', 'jurisdiction', 'keyword', 'kind', 'name', 'path', 'publisher', 'status', 'title', 'type', 'url', 'valueset', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'StructureDefinition.id', 'min'=>0, 'max'=>1},
@@ -57,6 +61,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Mapping.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Mapping.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -85,6 +93,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Context.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Context.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -109,6 +121,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Snapshot.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Snapshot.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -129,6 +145,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {

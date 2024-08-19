@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['date', 'evaluated-resource', 'identifier', 'measure', 'patient', 'period', 'reporter', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MeasureReport.id', 'min'=>0, 'max'=>1},
@@ -41,6 +45,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Group.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -58,6 +66,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           METADATA = {
@@ -86,6 +98,10 @@ module FHIR
             'R4B'
           end
 
+          def version_class
+            FHIR::R4B
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Stratifier.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Stratifier.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -101,6 +117,10 @@ module FHIR
 
             def version
               'R4B'
+            end
+
+            def version_class
+              FHIR::R4B
             end
 
             METADATA = {
@@ -120,6 +140,10 @@ module FHIR
 
               def version
                 'R4B'
+              end
+
+              def version_class
+                FHIR::R4B
               end
 
               METADATA = {
@@ -144,6 +168,10 @@ module FHIR
 
               def version
                 'R4B'
+              end
+
+              def version_class
+                FHIR::R4B
               end
 
               METADATA = {

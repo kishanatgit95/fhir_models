@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['characteristic', 'characteristic-type', 'contact', 'domain', 'identifier', 'ingredient', 'master-file', 'name', 'name-language', 'product-classification', 'status', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MedicinalProductDefinition.id', 'min'=>0, 'max'=>1},
@@ -58,6 +62,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Contact.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Contact.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -82,6 +90,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Name.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Name.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -99,6 +111,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           METADATA = {
@@ -123,6 +139,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           METADATA = {
@@ -160,6 +180,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'CrossReference.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'CrossReference.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -182,6 +206,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {
@@ -210,6 +238,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         MULTIPLE_TYPES = {

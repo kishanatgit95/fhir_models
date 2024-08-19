@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['case', 'case-type', 'holder', 'identifier', 'region', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'RegulatedAuthorization.id', 'min'=>0, 'max'=>1},
@@ -42,6 +46,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         MULTIPLE_TYPES = {

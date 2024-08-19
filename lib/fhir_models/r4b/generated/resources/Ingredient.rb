@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['for', 'function', 'identifier', 'manufacturer', 'role', 'substance', 'substance-code', 'substance-definition']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Ingredient.id', 'min'=>0, 'max'=>1},
@@ -38,6 +42,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Manufacturer.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Manufacturer.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -62,6 +70,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Substance.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Substance.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -77,6 +89,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           MULTIPLE_TYPES = {
@@ -105,6 +121,10 @@ module FHIR
 
             def version
               'R4B'
+            end
+
+            def version_class
+              FHIR::R4B
             end
 
             MULTIPLE_TYPES = {

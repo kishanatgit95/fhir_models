@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'effective', 'identifier', 'jurisdiction', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ChargeItemDefinition.id', 'min'=>0, 'max'=>1},
@@ -53,6 +57,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Applicability.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Applicability.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -79,6 +87,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'PropertyGroup.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'PropertyGroup.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -94,6 +106,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {

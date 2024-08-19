@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['actuality', 'category', 'date', 'event', 'location', 'recorder', 'resultingcondition', 'seriousness', 'severity', 'study', 'subject', 'substance']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'AdverseEvent.id', 'min'=>0, 'max'=>1},
@@ -50,6 +54,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SuspectEntity.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'SuspectEntity.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -65,6 +73,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {

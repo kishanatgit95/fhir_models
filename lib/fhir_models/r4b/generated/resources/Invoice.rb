@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['account', 'date', 'identifier', 'issuer', 'participant', 'participant-role', 'patient', 'recipient', 'status', 'subject', 'totalgross', 'totalnet', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Invoice.id', 'min'=>0, 'max'=>1},
@@ -46,6 +50,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Participant.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Participant.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -70,6 +78,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         MULTIPLE_TYPES = {
           'chargeItem' => ['Reference', 'CodeableConcept']
         }
@@ -90,6 +102,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           METADATA = {

@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       MULTIPLE_TYPES = {
         'topic' => ['CodeableConcept', 'Reference'],
         'legallyBinding' => ['Attachment', 'Reference']
@@ -69,6 +73,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ContentDefinition.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'ContentDefinition.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -99,6 +107,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {
@@ -132,6 +144,10 @@ module FHIR
             'R4'
           end
 
+          def version_class
+            FHIR::R4
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'SecurityLabel.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'SecurityLabel.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -160,6 +176,10 @@ module FHIR
             'R4'
           end
 
+          def version_class
+            FHIR::R4
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Offer.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Offer.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -185,6 +205,10 @@ module FHIR
               'R4'
             end
 
+            def version_class
+              FHIR::R4
+            end
+
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Party.id', 'min'=>0, 'max'=>1},
               'extension' => {'type'=>'Extension', 'path'=>'Party.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -207,6 +231,10 @@ module FHIR
 
             def version
               'R4'
+            end
+
+            def version_class
+              FHIR::R4
             end
 
             MULTIPLE_TYPES = {
@@ -271,6 +299,10 @@ module FHIR
             'R4'
           end
 
+          def version_class
+            FHIR::R4
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Asset.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Asset.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -301,6 +333,10 @@ module FHIR
               'R4'
             end
 
+            def version_class
+              FHIR::R4
+            end
+
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Context.id', 'min'=>0, 'max'=>1},
               'extension' => {'type'=>'Extension', 'path'=>'Context.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -325,6 +361,10 @@ module FHIR
 
             def version
               'R4'
+            end
+
+            def version_class
+              FHIR::R4
             end
 
             MULTIPLE_TYPES = {
@@ -400,6 +440,10 @@ module FHIR
             'R4'
           end
 
+          def version_class
+            FHIR::R4
+          end
+
           MULTIPLE_TYPES = {
             'occurrence' => ['dateTime', 'Period', 'Timing']
           }
@@ -439,6 +483,10 @@ module FHIR
 
             def version
               'R4'
+            end
+
+            def version_class
+              FHIR::R4
             end
 
             METADATA = {
@@ -511,6 +559,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Signer.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Signer.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -535,6 +587,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {
@@ -564,6 +620,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         MULTIPLE_TYPES = {
           'content' => ['Attachment', 'Reference']
         }
@@ -589,6 +649,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {

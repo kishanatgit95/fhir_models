@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['code', 'context', 'context-quantity', 'context-type', 'date', 'description', 'expansion', 'identifier', 'jurisdiction', 'name', 'publisher', 'reference', 'status', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ValueSet.id', 'min'=>0, 'max'=>1},
@@ -48,6 +52,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Compose.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Compose.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -65,6 +73,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {
@@ -87,6 +99,10 @@ module FHIR
               'R4'
             end
 
+            def version_class
+              FHIR::R4
+            end
+
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Concept.id', 'min'=>0, 'max'=>1},
               'extension' => {'type'=>'Extension', 'path'=>'Concept.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -103,6 +119,10 @@ module FHIR
 
               def version
                 'R4'
+              end
+
+              def version_class
+                FHIR::R4
               end
 
               METADATA = {
@@ -137,6 +157,10 @@ module FHIR
 
             def version
               'R4'
+            end
+
+            def version_class
+              FHIR::R4
             end
 
             METADATA = {
@@ -184,6 +208,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Expansion.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Expansion.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -203,6 +231,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           MULTIPLE_TYPES = {
@@ -242,6 +274,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {

@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubstanceReferenceInformation.id', 'min'=>0, 'max'=>1},
@@ -33,6 +37,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {
@@ -61,6 +69,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'GeneElement.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'GeneElement.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -85,6 +97,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {
@@ -113,6 +129,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {

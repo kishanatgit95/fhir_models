@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['author', 'item', 'source']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Linkage.id', 'min'=>0, 'max'=>1},
@@ -31,6 +35,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {

@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubscriptionStatus.id', 'min'=>0, 'max'=>1},
@@ -35,6 +39,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {

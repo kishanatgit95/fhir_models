@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['_id', '_id', '_lastUpdated', '_profile', '_security', '_source', '_tag']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Resource.id', 'min'=>0, 'max'=>1},

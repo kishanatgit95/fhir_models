@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = ['date', 'derived-or-self', 'identifier', 'resource', 'status', 'title', 'trigger-description', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubscriptionTopic.id', 'min'=>0, 'max'=>1},
@@ -52,6 +56,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ResourceTrigger.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'ResourceTrigger.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -70,6 +78,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           METADATA = {
@@ -112,6 +124,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'EventTrigger.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'EventTrigger.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -136,6 +152,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {
@@ -166,6 +186,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {

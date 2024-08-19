@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['category', 'date', 'encounter', 'identifier', 'participant', 'patient', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'CareTeam.id', 'min'=>0, 'max'=>1},
@@ -41,6 +45,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {

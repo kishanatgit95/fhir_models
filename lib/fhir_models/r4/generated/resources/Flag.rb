@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['author', 'date', 'encounter', 'identifier', 'patient', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Flag.id', 'min'=>0, 'max'=>1},

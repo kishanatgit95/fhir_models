@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period', 'Timing'],
         'product' => ['Reference', 'CodeableConcept']
@@ -61,6 +65,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {

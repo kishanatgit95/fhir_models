@@ -77,6 +77,10 @@ module FHIR
         s << "#{space}  '#{fhir_version}'"
         s << "#{space}end"
         s << ''
+        s << "#{space}def version_class"
+        s << "#{space}  FHIR::#{fhir_version}"
+        s << "#{space}end"
+        s << ''
 
         # add mandatory METADATA constant
         @constants['METADATA'] = metadata unless metadata.empty?

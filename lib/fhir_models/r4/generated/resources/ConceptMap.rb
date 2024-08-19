@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       MULTIPLE_TYPES = {
         'source' => ['uri', 'canonical'],
         'target' => ['uri', 'canonical']
@@ -54,6 +58,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Group.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -75,6 +83,10 @@ module FHIR
             'R4'
           end
 
+          def version_class
+            FHIR::R4
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Element.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Element.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -91,6 +103,10 @@ module FHIR
 
             def version
               'R4'
+            end
+
+            def version_class
+              FHIR::R4
             end
 
             METADATA = {
@@ -112,6 +128,10 @@ module FHIR
 
               def version
                 'R4'
+              end
+
+              def version_class
+                FHIR::R4
               end
 
               METADATA = {
@@ -159,6 +179,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {

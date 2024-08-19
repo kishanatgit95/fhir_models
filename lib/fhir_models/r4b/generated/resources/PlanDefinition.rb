@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       MULTIPLE_TYPES = {
         'subject' => ['CodeableConcept', 'Reference', 'canonical']
       }
@@ -66,6 +70,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Goal.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Goal.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -86,6 +94,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           MULTIPLE_TYPES = {
@@ -131,6 +143,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         MULTIPLE_TYPES = {
@@ -188,6 +204,10 @@ module FHIR
             'R4B'
           end
 
+          def version_class
+            FHIR::R4B
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Condition.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Condition.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -210,6 +230,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           MULTIPLE_TYPES = {
@@ -243,6 +267,10 @@ module FHIR
             'R4B'
           end
 
+          def version_class
+            FHIR::R4B
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Participant.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Participant.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -265,6 +293,10 @@ module FHIR
 
           def version
             'R4B'
+          end
+
+          def version_class
+            FHIR::R4B
           end
 
           METADATA = {

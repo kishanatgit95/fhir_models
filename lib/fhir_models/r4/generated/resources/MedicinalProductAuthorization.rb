@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['country', 'holder', 'identifier', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MedicinalProductAuthorization.id', 'min'=>0, 'max'=>1},
@@ -46,6 +50,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'JurisdictionalAuthorization.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'JurisdictionalAuthorization.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -74,6 +82,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {

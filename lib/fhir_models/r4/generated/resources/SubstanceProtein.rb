@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubstanceProtein.id', 'min'=>0, 'max'=>1},
@@ -32,6 +36,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {

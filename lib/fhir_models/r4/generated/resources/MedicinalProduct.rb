@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['identifier', 'name', 'name-language']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MedicinalProduct.id', 'min'=>0, 'max'=>1},
@@ -50,6 +54,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Name.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Name.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -66,6 +74,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {
@@ -90,6 +102,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           METADATA = {
@@ -126,6 +142,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ManufacturingBusinessOperation.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'ManufacturingBusinessOperation.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -156,6 +176,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {

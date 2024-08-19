@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['identifier', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MedicinalProductPackaged.id', 'min'=>0, 'max'=>1},
@@ -39,6 +43,10 @@ module FHIR
           'R4'
         end
 
+        def version_class
+          FHIR::R4
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'BatchIdentifier.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'BatchIdentifier.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -61,6 +69,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {

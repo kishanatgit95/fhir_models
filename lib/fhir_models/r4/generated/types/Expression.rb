@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'Expression.id', 'min'=>0, 'max'=>1},

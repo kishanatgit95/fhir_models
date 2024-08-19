@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['appointment-type', 'identifier', 'schedule', 'service-category', 'service-type', 'specialty', 'start', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Slot.id', 'min'=>0, 'max'=>1},

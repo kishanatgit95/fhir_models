@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['actual', 'characteristic', 'code', 'exclude', 'identifier', 'managing-entity', 'member', 'type', 'value']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
@@ -38,6 +42,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {
@@ -77,6 +85,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         METADATA = {

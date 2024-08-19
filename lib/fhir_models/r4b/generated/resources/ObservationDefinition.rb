@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ObservationDefinition.id', 'min'=>0, 'max'=>1},
@@ -43,6 +47,10 @@ module FHIR
           'R4B'
         end
 
+        def version_class
+          FHIR::R4B
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'QuantitativeDetails.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'QuantitativeDetails.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -69,6 +77,10 @@ module FHIR
 
         def version
           'R4B'
+        end
+
+        def version_class
+          FHIR::R4B
         end
 
         METADATA = {

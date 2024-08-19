@@ -9,6 +9,10 @@ module FHIR
         'R4B'
       end
 
+      def version_class
+        FHIR::R4B
+      end
+
       MULTIPLE_TYPES = {
         'value' => ['CodeableConcept', 'Quantity', 'Range', 'Reference']
       }

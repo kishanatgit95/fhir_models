@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['author', 'authored', 'code', 'encounter', 'group-identifier', 'identifier', 'instantiates-canonical', 'instantiates-uri', 'intent', 'participant', 'patient', 'priority', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'RequestGroup.id', 'min'=>0, 'max'=>1},
@@ -46,6 +50,10 @@ module FHIR
 
         def version
           'R4'
+        end
+
+        def version_class
+          FHIR::R4
         end
 
         MULTIPLE_TYPES = {
@@ -90,6 +98,10 @@ module FHIR
             'R4'
           end
 
+          def version_class
+            FHIR::R4
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Condition.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Condition.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -112,6 +124,10 @@ module FHIR
 
           def version
             'R4'
+          end
+
+          def version_class
+            FHIR::R4
           end
 
           MULTIPLE_TYPES = {

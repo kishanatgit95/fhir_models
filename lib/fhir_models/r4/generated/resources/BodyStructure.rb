@@ -9,6 +9,10 @@ module FHIR
         'R4'
       end
 
+      def version_class
+        FHIR::R4
+      end
+
       SEARCH_PARAMS = ['identifier', 'location', 'morphology', 'patient']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'BodyStructure.id', 'min'=>0, 'max'=>1},
