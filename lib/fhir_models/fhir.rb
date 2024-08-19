@@ -85,8 +85,8 @@ module FHIR
   def self.module_version_name
     'R4'
   end
-
-  def self.module_version
+  
+  def self.model_version_class
     FHIR::R4
   end
 end
