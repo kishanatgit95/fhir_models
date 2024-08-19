@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['code', 'expiration-date', 'form', 'identifier', 'ingredient', 'ingredient-code', 'lot-number', 'manufacturer', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Medication.id', 'min'=>0, 'max'=>1},
@@ -29,6 +33,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         MULTIPLE_TYPES = {
           'item' => ['CodeableConcept', 'Reference']
@@ -56,6 +64,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Batch.id', 'min'=>0, 'max'=>1},

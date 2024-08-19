@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'depends-on', 'description', 'experimental', 'global', 'jurisdiction', 'name', 'publisher', 'resource', 'status', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ImplementationGuide.id', 'min'=>0, 'max'=>1},
@@ -42,6 +46,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'DependsOn.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'DependsOn.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -64,6 +72,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Global.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Global.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -84,6 +96,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Definition.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Definition.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -99,6 +115,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Grouping.id', 'min'=>0, 'max'=>1},
@@ -119,6 +139,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           MULTIPLE_TYPES = {
             'example' => ['boolean', 'canonical']
@@ -153,6 +177,10 @@ module FHIR
           include FHIR::Json
           include FHIR::Xml
 
+          def version
+            'R4B'
+          end
+
           MULTIPLE_TYPES = {
             'name' => ['url', 'Reference']
           }
@@ -182,6 +210,10 @@ module FHIR
           include FHIR::Json
           include FHIR::Xml
 
+          def version
+            'R4B'
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Parameter.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Parameter.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -201,6 +233,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Template.id', 'min'=>0, 'max'=>1},
@@ -234,6 +270,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Manifest.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Manifest.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -249,6 +289,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           MULTIPLE_TYPES = {
             'example' => ['boolean', 'canonical']
@@ -276,6 +320,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Page.id', 'min'=>0, 'max'=>1},

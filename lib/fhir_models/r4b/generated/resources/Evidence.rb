@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       MULTIPLE_TYPES = {
         'citeAs' => ['Reference', 'markdown']
       }
@@ -51,6 +55,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'VariableDefinition.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'VariableDefinition.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -79,6 +87,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Statistic.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Statistic.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -99,6 +111,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'SampleSize.id', 'min'=>0, 'max'=>1},
@@ -125,6 +141,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'AttributeEstimate.id', 'min'=>0, 'max'=>1},
@@ -156,6 +176,10 @@ module FHIR
           include FHIR::Json
           include FHIR::Xml
 
+          def version
+            'R4B'
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'ModelCharacteristic.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'ModelCharacteristic.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -170,6 +194,10 @@ module FHIR
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
+
+            def version
+              'R4B'
+            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Variable.id', 'min'=>0, 'max'=>1},
@@ -220,6 +248,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Certainty.id', 'min'=>0, 'max'=>1},

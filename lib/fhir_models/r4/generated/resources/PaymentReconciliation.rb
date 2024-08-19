@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['created', 'disposition', 'identifier', 'outcome', 'payment-issuer', 'request', 'requestor', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'PaymentReconciliation.id', 'min'=>0, 'max'=>1},
@@ -36,6 +40,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Detail.id', 'min'=>0, 'max'=>1},
@@ -72,6 +80,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ProcessNote.id', 'min'=>0, 'max'=>1},

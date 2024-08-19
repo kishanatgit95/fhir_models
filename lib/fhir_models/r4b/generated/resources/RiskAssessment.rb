@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period']
       }
@@ -42,6 +46,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         MULTIPLE_TYPES = {
           'probability' => ['decimal', 'Range'],

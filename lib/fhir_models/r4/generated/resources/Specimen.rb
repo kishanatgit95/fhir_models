@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['accession', 'bodysite', 'collected', 'collector', 'container', 'container-id', 'identifier', 'parent', 'patient', 'status', 'subject', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Specimen.id', 'min'=>0, 'max'=>1},
@@ -34,6 +38,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         MULTIPLE_TYPES = {
           'collected' => ['dateTime', 'Period'],
@@ -73,6 +81,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         MULTIPLE_TYPES = {
           'time' => ['dateTime', 'Period']
         }
@@ -101,6 +113,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         MULTIPLE_TYPES = {
           'additive' => ['CodeableConcept', 'Reference']

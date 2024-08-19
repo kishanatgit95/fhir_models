@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       SEARCH_PARAMS = ['device', 'dose-form', 'form-of', 'identifier', 'ingredient', 'manufactured-item', 'route', 'target-species']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'AdministrableProductDefinition.id', 'min'=>0, 'max'=>1},
@@ -31,6 +35,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'Quantity', 'date', 'boolean', 'Attachment']
@@ -65,6 +73,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'RouteOfAdministration.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'RouteOfAdministration.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -83,6 +95,10 @@ module FHIR
           include FHIR::Json
           include FHIR::Xml
 
+          def version
+            'R4B'
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'TargetSpecies.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'TargetSpecies.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -95,6 +111,10 @@ module FHIR
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
+
+            def version
+              'R4B'
+            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'WithdrawalPeriod.id', 'min'=>0, 'max'=>1},

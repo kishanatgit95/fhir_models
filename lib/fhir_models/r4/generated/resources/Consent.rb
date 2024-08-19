@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       MULTIPLE_TYPES = {
         'source' => ['Attachment', 'Reference']
       }
@@ -39,6 +43,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Policy.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Policy.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -58,6 +66,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Verification.id', 'min'=>0, 'max'=>1},
@@ -81,6 +93,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Provision.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Provision.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -103,6 +119,10 @@ module FHIR
           include FHIR::Json
           include FHIR::Xml
 
+          def version
+            'R4'
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Actor.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Actor.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -122,6 +142,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Data.id', 'min'=>0, 'max'=>1},

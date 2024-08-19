@@ -1,6 +1,10 @@
 module FHIR
   module R4
 
+    def version
+      'R4'
+    end
+
     PRIMITIVES = {
       'base64Binary' => {'type'=>'string', 'regex'=>'(\\s*([0-9a-zA-Z\\+/=]){4}\\s*)+'},
       'boolean' => {'type'=>'boolean', 'regex'=>'true|false'},

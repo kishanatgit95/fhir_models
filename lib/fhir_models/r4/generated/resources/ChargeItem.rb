@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period', 'Timing'],
         'product' => ['Reference', 'CodeableConcept']
@@ -54,6 +58,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Performer.id', 'min'=>0, 'max'=>1},

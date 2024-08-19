@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'CodeableConcept.id', 'min'=>0, 'max'=>1},

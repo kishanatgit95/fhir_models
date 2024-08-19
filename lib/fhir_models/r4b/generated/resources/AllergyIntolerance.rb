@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       MULTIPLE_TYPES = {
         'onset' => ['dateTime', 'Age', 'Period', 'Range', 'string']
       }
@@ -44,6 +48,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Reaction.id', 'min'=>0, 'max'=>1},

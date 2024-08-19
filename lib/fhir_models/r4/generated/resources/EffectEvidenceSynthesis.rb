@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'EffectEvidenceSynthesis.id', 'min'=>0, 'max'=>1},
@@ -55,6 +59,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SampleSize.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'SampleSize.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -76,6 +84,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ResultsByExposure.id', 'min'=>0, 'max'=>1},
@@ -101,6 +113,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'EffectEstimate.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'EffectEstimate.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -117,6 +133,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'PrecisionEstimate.id', 'min'=>0, 'max'=>1},
@@ -153,6 +173,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Certainty.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Certainty.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -166,6 +190,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'CertaintySubcomponent.id', 'min'=>0, 'max'=>1},

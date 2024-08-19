@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       MULTIPLE_TYPES = {
         'manufacturer' => ['string', 'Reference']
       }
@@ -48,6 +52,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'UdiDeviceIdentifier.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'UdiDeviceIdentifier.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -70,6 +78,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'DeviceName.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'DeviceName.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -89,6 +101,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Specialization.id', 'min'=>0, 'max'=>1},
@@ -110,6 +126,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Capability.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Capability.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -129,6 +149,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Property.id', 'min'=>0, 'max'=>1},
@@ -151,6 +175,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Material.id', 'min'=>0, 'max'=>1},

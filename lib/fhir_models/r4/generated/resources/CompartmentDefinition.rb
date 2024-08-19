@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['code', 'context', 'context-quantity', 'context-type', 'date', 'description', 'name', 'publisher', 'resource', 'status', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'CompartmentDefinition.id', 'min'=>0, 'max'=>1},
@@ -35,6 +39,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Resource.id', 'min'=>0, 'max'=>1},

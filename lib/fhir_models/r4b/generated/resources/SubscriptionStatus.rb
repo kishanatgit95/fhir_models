@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubscriptionStatus.id', 'min'=>0, 'max'=>1},
@@ -28,6 +32,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'NotificationEvent.id', 'min'=>0, 'max'=>1},

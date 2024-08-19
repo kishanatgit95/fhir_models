@@ -6,7 +6,7 @@ require 'bcp47'
 module FHIR
   class Model
     extend FHIR::Deprecate
-    def initialize(hash = {}, version = self.class.name.split('::')[1])
+    def initialize(hash = {}, version = self.version)
       from_hash(hash, version)
       self.class::METADATA.each do |key, value|
         local_name = key
@@ -15,6 +15,10 @@ module FHIR
           instance_variable_set("@#{local_name}".to_sym, [])
         end
       end
+    end
+
+    def version
+      'R4'
     end
 
     # This is necessary for uniq to properly identify two FHIR models as being identical
@@ -57,7 +61,7 @@ module FHIR
       raise NoMethodError.new("undefined method `#{method_name}' for #{self.class.name}", method_name)
     end
 
-    def to_reference(version = 'R4')
+    def to_reference(version = self.version)
       FHIR.const_get(version)::Reference.new(reference: "#{self.class.name.split('::').last}/#{id}")
     end
 

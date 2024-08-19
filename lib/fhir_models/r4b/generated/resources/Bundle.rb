@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       SEARCH_PARAMS = ['composition', 'identifier', 'message', 'timestamp', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Bundle.id', 'min'=>0, 'max'=>1},
@@ -24,6 +28,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Link.id', 'min'=>0, 'max'=>1},
@@ -45,6 +53,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Entry.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Entry.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -61,6 +73,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Search.id', 'min'=>0, 'max'=>1},
@@ -81,6 +97,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Request.id', 'min'=>0, 'max'=>1},
@@ -109,6 +129,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Response.id', 'min'=>0, 'max'=>1},

@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       MULTIPLE_TYPES = {
         'effective' => ['dateTime', 'Period']
       }
@@ -46,6 +50,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Investigation.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Investigation.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -65,6 +73,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Finding.id', 'min'=>0, 'max'=>1},

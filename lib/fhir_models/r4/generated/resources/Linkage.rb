@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['author', 'item', 'source']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Linkage.id', 'min'=>0, 'max'=>1},
@@ -24,6 +28,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Item.id', 'min'=>0, 'max'=>1},

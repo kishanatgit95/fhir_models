@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['_id', '_lastUpdated', '_profile', '_security', '_source', '_tag']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Resource.id', 'min'=>0, 'max'=>1},

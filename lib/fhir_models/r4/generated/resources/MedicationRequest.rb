@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       MULTIPLE_TYPES = {
         'reported' => ['boolean', 'Reference'],
         'medication' => ['CodeableConcept', 'Reference']
@@ -60,6 +64,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'DispenseRequest.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'DispenseRequest.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -77,6 +85,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'InitialFill.id', 'min'=>0, 'max'=>1},
@@ -109,6 +121,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         MULTIPLE_TYPES = {
           'allowed' => ['boolean', 'CodeableConcept']

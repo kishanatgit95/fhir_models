@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['appointment-type', 'identifier', 'schedule', 'service-category', 'service-type', 'specialty', 'start', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Slot.id', 'min'=>0, 'max'=>1},

@@ -73,6 +73,11 @@ module FHIR
         s << "#{space}include FHIR::Xml" unless @name.empty?
         s << ''
 
+        s << "#{space}def version"
+        s << "#{space}  '#{fhir_version}'"
+        s << "#{space}end"
+        s << ''
+
         # add mandatory METADATA constant
         @constants['METADATA'] = metadata unless metadata.empty?
 

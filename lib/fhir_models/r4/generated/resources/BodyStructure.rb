@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['identifier', 'location', 'morphology', 'patient']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'BodyStructure.id', 'min'=>0, 'max'=>1},

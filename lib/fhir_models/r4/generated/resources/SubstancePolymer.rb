@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubstancePolymer.id', 'min'=>0, 'max'=>1},
@@ -28,6 +32,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'MonomerSet.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'MonomerSet.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -40,6 +48,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'StartingMaterial.id', 'min'=>0, 'max'=>1},
@@ -72,6 +84,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Repeat.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Repeat.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -86,6 +102,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'RepeatUnit.id', 'min'=>0, 'max'=>1},
@@ -102,6 +122,10 @@ module FHIR
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
+
+            def version
+              'R4'
+            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'DegreeOfPolymerisation.id', 'min'=>0, 'max'=>1},
@@ -122,6 +146,10 @@ module FHIR
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
+
+            def version
+              'R4'
+            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'StructuralRepresentation.id', 'min'=>0, 'max'=>1},

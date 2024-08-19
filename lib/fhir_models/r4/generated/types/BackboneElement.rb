@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'string', 'path'=>'BackboneElement.id', 'min'=>0, 'max'=>1},

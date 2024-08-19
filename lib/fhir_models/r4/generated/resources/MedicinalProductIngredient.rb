@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = []
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MedicinalProductIngredient.id', 'min'=>0, 'max'=>1},
@@ -28,6 +32,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SpecifiedSubstance.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'SpecifiedSubstance.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -42,6 +50,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Strength.id', 'min'=>0, 'max'=>1},
@@ -60,6 +72,10 @@ module FHIR
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
+
+            def version
+              'R4'
+            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'ReferenceStrength.id', 'min'=>0, 'max'=>1},
@@ -107,6 +123,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Substance.id', 'min'=>0, 'max'=>1},

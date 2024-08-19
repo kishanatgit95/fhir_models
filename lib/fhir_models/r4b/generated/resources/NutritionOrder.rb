@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       SEARCH_PARAMS = ['additive', 'datetime', 'encounter', 'formula', 'identifier', 'instantiates-canonical', 'instantiates-uri', 'oraldiet', 'patient', 'provider', 'status', 'supplement']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'NutritionOrder.id', 'min'=>0, 'max'=>1},
@@ -39,6 +43,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'OralDiet.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'OralDiet.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -55,6 +63,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Nutrient.id', 'min'=>0, 'max'=>1},
@@ -75,6 +87,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Texture.id', 'min'=>0, 'max'=>1},
@@ -107,6 +123,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Supplement.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Supplement.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -133,6 +153,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'EnteralFormula.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'EnteralFormula.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -152,6 +176,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           MULTIPLE_TYPES = {
             'rate' => ['Quantity', 'Ratio']

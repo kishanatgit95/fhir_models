@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['identifier', 'route', 'target-species']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MedicinalProductPharmaceutical.id', 'min'=>0, 'max'=>1},
@@ -29,6 +33,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Characteristics.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Characteristics.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -49,6 +57,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'RouteOfAdministration.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'RouteOfAdministration.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -67,6 +79,10 @@ module FHIR
           include FHIR::Json
           include FHIR::Xml
 
+          def version
+            'R4'
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'TargetSpecies.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'TargetSpecies.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -79,6 +95,10 @@ module FHIR
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
+
+            def version
+              'R4'
+            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'WithdrawalPeriod.id', 'min'=>0, 'max'=>1},

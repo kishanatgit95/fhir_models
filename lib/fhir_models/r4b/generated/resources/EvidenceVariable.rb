@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4B'
+      end
+
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'identifier', 'name', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'EvidenceVariable.id', 'min'=>0, 'max'=>1},
@@ -46,6 +50,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4B'
+        end
+
         MULTIPLE_TYPES = {
           'definition' => ['Reference', 'canonical', 'CodeableConcept', 'Expression']
         }
@@ -69,6 +77,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4B'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'TimeFromStart.id', 'min'=>0, 'max'=>1},
@@ -108,6 +120,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4B'
+        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'Quantity', 'Range']

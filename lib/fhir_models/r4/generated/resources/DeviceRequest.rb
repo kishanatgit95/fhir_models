@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       MULTIPLE_TYPES = {
         'code' => ['Reference', 'CodeableConcept'],
         'occurrence' => ['dateTime', 'Period', 'Timing']
@@ -52,6 +56,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'Quantity', 'Range', 'boolean']

@@ -5,6 +5,10 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
+      def version
+        'R4'
+      end
+
       SEARCH_PARAMS = ['code']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubstanceSpecification.id', 'min'=>0, 'max'=>1},
@@ -41,6 +45,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         MULTIPLE_TYPES = {
           'amount' => ['Quantity', 'string']
         }
@@ -76,6 +84,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         MULTIPLE_TYPES = {
           'definingSubstance' => ['Reference', 'CodeableConcept'],
           'amount' => ['Quantity', 'string']
@@ -110,6 +122,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Structure.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Structure.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -129,6 +145,10 @@ module FHIR
           include FHIR::Json
           include FHIR::Xml
 
+          def version
+            'R4'
+          end
+
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Isotope.id', 'min'=>0, 'max'=>1},
             'extension' => {'type'=>'Extension', 'path'=>'Isotope.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -144,6 +164,10 @@ module FHIR
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
+
+            def version
+              'R4'
+            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'MolecularWeight.id', 'min'=>0, 'max'=>1},
@@ -176,6 +200,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Representation.id', 'min'=>0, 'max'=>1},
@@ -212,6 +240,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Code.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Code.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -238,6 +270,10 @@ module FHIR
         include FHIR::Json
         include FHIR::Xml
 
+        def version
+          'R4'
+        end
+
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Name.id', 'min'=>0, 'max'=>1},
           'extension' => {'type'=>'Extension', 'path'=>'Name.extension', 'min'=>0, 'max'=>Float::INFINITY},
@@ -259,6 +295,10 @@ module FHIR
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
+
+          def version
+            'R4'
+          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Official.id', 'min'=>0, 'max'=>1},
@@ -297,6 +337,10 @@ module FHIR
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
+
+        def version
+          'R4'
+        end
 
         MULTIPLE_TYPES = {
           'substance' => ['Reference', 'CodeableConcept'],
