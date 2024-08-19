@@ -291,7 +291,7 @@ module FHIR
     def self.module_version_name
       FHIR.module_version_name
     end
-    
+
     def self.module_version
       FHIR.module_version
     end
