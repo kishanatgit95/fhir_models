@@ -1,6 +1,6 @@
 require 'tempfile'
 module FHIR
-  class Definitions
+  class DefinitionsDeprecated
     extend FHIR::Deprecate
     @@defns = File.expand_path '../definitions', File.dirname(File.absolute_path(__FILE__))
     @@types = nil
