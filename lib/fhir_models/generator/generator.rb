@@ -39,7 +39,7 @@ module FHIR
     def load_ig_package
       FHIR.logger = Logger.new('/dev/null')
       ig_loader = IGLoader.new(ig_file_name)
-      self.ig_resources = ig_loader.load
+      self.ig_resources = ig_loader.load(show_summary: true)
       FileUtils.mkdir_p(base_output_folder)
     end
 

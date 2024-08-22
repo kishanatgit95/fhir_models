@@ -20,9 +20,9 @@ module FHIR
         @excluded_files ||= []
       end
 
-      def load
+      def load(show_summary: false)
         load_excluded_files
-        load_ig
+        load_ig(show_summary)
         load_supplement_resources
       end
 
@@ -36,7 +36,7 @@ module FHIR
         @excluded_files = JSON.parse(File.read(file_name))
       end
 
-      def load_ig
+      def load_ig(show_summary)
         tar = Gem::Package::TarReader.new(
           Zlib::GzipReader.open(ig_file_name)
         )
@@ -52,7 +52,7 @@ module FHIR
             if file_name == 'package.json'
               resource = JSON.parse(entry.read)
               ig_resources.ig_metadata = IGMetadata.new(resource)
-              puts "Extract FHIR Package version #{ig_resources.ig_metadata.version}"
+              puts "Extract FHIR Package version #{ig_resources.ig_metadata.version}" if show_summary
               next
             end
 
@@ -68,14 +68,17 @@ module FHIR
           ig_resources.add(resource)
         end
 
-        puts "Extracted Primitve Types: #{ig_resources.primitive_types&.count}"
-        puts "Extracted Complex Types: #{ig_resources.complex_types&.count}"
-        puts "Extracted Resource Definitions: #{ig_resources.resource_definitions&.count}"
-        puts "Extracted Extension Definitions: #{ig_resources.extension_definitions&.count}"
-        puts "Extracted Profiles: #{ig_resources.profiles&.count}"
-        puts "Extracted Value Sets: #{ig_resources.get_value_sets&.count}"
-        puts "Extracted Code Systems: #{ig_resources.get_code_systems&.count}"
-        puts "Extracted Search Parameters: #{ig_resources.get_search_parameters&.count}"
+        if show_summary
+          puts "Extracted Primitve Types: #{ig_resources.primitive_types&.count}"
+          puts "Extracted Complex Types: #{ig_resources.complex_types&.count}"
+          puts "Extracted Resource Definitions: #{ig_resources.resource_definitions&.count}"
+          puts "Extracted Extension Definitions: #{ig_resources.extension_definitions&.count}"
+          puts "Extracted Profiles: #{ig_resources.profiles&.count}"
+          puts "Extracted Value Sets: #{ig_resources.get_value_sets&.count}"
+          puts "Extracted Code Systems: #{ig_resources.get_code_systems&.count}"
+          puts "Extracted Search Parameters: #{ig_resources.get_search_parameters&.count}"
+        end
+
         ig_resources
       end
 
