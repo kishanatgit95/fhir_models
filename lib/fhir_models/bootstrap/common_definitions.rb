@@ -15,12 +15,104 @@ module FHIR
         @ig_resources = ig_loader.load
       end
 
-      def resource_definition(resource_name)
-        return @ig_resources.resource_definitions.find do |rd|
-          rd['id'] == resource_name || rd['name'] == resource_name || rd['url'] == resource_name
+      def find_structure_definition(structure_defs, target_name)
+        return nil if target_name.nil?
+
+        structure_defs.find do |sd|
+          sd['id'] == target_name || sd['name'] == target_name || sd['url'] == target_name
         end
       end
+
+      # ----------------------------------------------------------------
+      #  Types
+      # ----------------------------------------------------------------
+
+      def primitive_types
+        @ig_resources.primitive_types
+      end
+      deprecate :get_primitive_types, :primitive_types
+
+      def complex_types
+        @ig_resources.complex_types
+      end
+      deprecate :get_complex_types, :complex_types
+
+      def type_definition(type_name)
+        find_structure_definition(primitive_types + complex_types, type_name)
+      end
+      deprecate :get_type_definition, :type_definition
+
+      # ----------------------------------------------------------------
+      #  Resources, Profiles, Extensions
+      # ----------------------------------------------------------------
+
+      def resource_definitions
+        @ig_resources.resource_definitions
+      end
+      deprecate :get_resource_definitions, :resource_definitions
+
+      def resource_definition(resource_name)
+        find_structure_definition(resource_definitions, resource_name)
+      end
       deprecate :get_resource_definition, :resource_definition
+
+      def extension_definition(extension_name)
+        find_structure_definition(@ig_resources.extension_definitions, extension_name)
+      end
+      deprecate :get_extension_definition, :extension_definition
+
+      # Get the StructureDefinition for a given profile.
+      def profile(profile_url)
+        find_structure_definition(@ig_resources.profiles, profile_url)
+      end
+      deprecate :get_profile, :profi
+
+      def profiles_for_resource(resource_name)
+        return nil if resource_name.nil?
+
+        @ig_resources.profiles.select { |x| x['type'] == resource_name }
+      end
+      deprecate :get_profiles_for_resource, :profile_for_resource
+
+      # ----------------------------------------------------------------
+      #  ValueSet Code Expansions
+      # ----------------------------------------------------------------
+
+      def valuesets
+        @ig_resources.get_value_sets
+      end
+
+      def get_codes(url)
+        @ig_resources.get_codes(url)
+      end
+
+      # Why do we have this function?
+      def get_display(system, code)
+        return nil if system.nil? || code.nil?
+
+        @ig_resources.get_value_sets.each do |value_set|
+          if value_set['expansion'] && value_set['expansion']['contains']
+            value_set['expansion']['contains'].each do |contain|
+              return contain['display'] if contain['system'] == system && contain['code'] == code
+            end
+          elsif value_set['compose'] && value_set['compose']['include']
+            value_set['compose']['include'].each do |include_element|
+              if include_element['system'] == system && include_element['concept']
+                include_element['concept'].each { |concept| reutrn concept['display'] if concept['code'] == code }
+              end
+            end
+          end
+        end
+      end
+
+      # ----------------------------------------------------------------
+      #  Search Params
+      # ----------------------------------------------------------------
+
+      def self.search_parameters(type_name)
+        @ig_resources.get_search_parameters(type_name)
+      end
+      deprecate :get_search_parameters, :search_parameters
     end
   end
 end

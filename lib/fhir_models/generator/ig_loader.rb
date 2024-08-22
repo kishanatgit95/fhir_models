@@ -71,6 +71,8 @@ module FHIR
         puts "Extracted Primitve Types: #{ig_resources.primitive_types&.count}"
         puts "Extracted Complex Types: #{ig_resources.complex_types&.count}"
         puts "Extracted Resource Definitions: #{ig_resources.resource_definitions&.count}"
+        puts "Extracted Extension Definitions: #{ig_resources.extension_definitions&.count}"
+        puts "Extracted Profiles: #{ig_resources.profiles&.count}"
         puts "Extracted Value Sets: #{ig_resources.get_value_sets&.count}"
         puts "Extracted Code Systems: #{ig_resources.get_code_systems&.count}"
         puts "Extracted Search Parameters: #{ig_resources.get_search_parameters&.count}"

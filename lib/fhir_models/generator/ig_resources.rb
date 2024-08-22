@@ -34,6 +34,14 @@ module FHIR
         resources_by_type['StructureDefinition'].select { |sd| sd['kind'] == 'resource' && sd['derivation'] != 'constraint' }
       end
 
+      def extension_definitions
+        resources_by_type['StructureDefinition'].select { |sd| sd['type'] == 'Extension' && sd['derivation'] == 'constraint' }
+      end
+
+      def profiles
+        resources_by_type['StructureDefinition'].select { |sd| sd['kind'] == 'resource' && sd['derivation'] == 'constraint' }
+      end
+
       def get_code_systems(url = nil)
         if url.nil?
           resources_by_type['CodeSystem']
