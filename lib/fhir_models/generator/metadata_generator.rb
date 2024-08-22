@@ -43,7 +43,6 @@ module FHIR
         template.constants['RESOURCES'] = ig_resources.resource_definitions.map { |r| r['id'] }
 
         output_file_name = File.join(output_folder, 'metadata.rb')
-
         file = File.open(output_file_name, 'w:UTF-8')
         file.write(template.to_s)
         file.close
