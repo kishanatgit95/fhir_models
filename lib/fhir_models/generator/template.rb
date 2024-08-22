@@ -140,7 +140,13 @@ module FHIR
         end
         if @top_level
           s << '  end'
-          s << "  #{@name.first} = FHIR::R4::#{@name.first}" if fhir_version == 'R4' # manually filled for metadata.rb
+          if fhir_version == 'R4' && @name.first
+            s << "  #{@name.first} = FHIR::R4::#{@name.first}"
+          else
+            s << "  METADATA = FHIR::R4::METADATA"
+            s << "  TYPES = FHIR::R4::TYPES"
+            s << "  RESOURCE = FHIR::R4::RESOURCE"
+          end
           s << 'end'
         end
         s.join("\n")
