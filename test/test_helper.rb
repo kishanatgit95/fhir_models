@@ -7,6 +7,8 @@ require 'test/unit'
 require 'pry'
 
 require 'fhir_models'
+require_relative '../lib/fhir_models/r4/bootstrap/definitions'
+
 FHIR.logger.level = Logger::INFO
 
 PRIMITIVE_EXTENSIONS = [
