@@ -176,7 +176,7 @@ module FHIR
             if data_type_found == 'Extension' # && !type.profile.nil?
               verified_extension = true
               # TODO: should verify extensions
-              # extension_def = FHIR::Definitions.get_extension_definition(value['url'])
+              # extension_def = FHIR::R4B::Definitions.get_extension_definition(value['url'])
               # if extension_def
               #   verified_extension = extension_def.validates_resource?(FHIR::Extension.new(deep_copy(value)))
               # end
@@ -316,7 +316,7 @@ module FHIR
       def data_type?(data_type_code, value)
         # FHIR models covers any base Resources
         if FHIR::R4B::RESOURCES.include?(data_type_code)
-          definition = FHIR::Definitions.resource_definition(data_type_code)
+          definition = FHIR::R4B::Definitions.resource_definition(data_type_code)
           unless definition.nil?
             ret_val = false
             begin
@@ -340,7 +340,7 @@ module FHIR
           true # we don't have to verify domain resource, because it will be included in the snapshot
         when 'resource'
           resource_type = value['resourceType']
-          definition = FHIR::Definitions.resource_definition(resource_type)
+          definition = FHIR::R4B::Definitions.resource_definition(resource_type)
           if !definition.nil?
             ret_val = false
             begin
@@ -365,8 +365,8 @@ module FHIR
           # Eliminate endless loop on Element is an Element
           return true if data_type_code == 'Element' && id == 'Element'
 
-          definition = FHIR::Definitions.type_definition(data_type_code)
-          definition = FHIR::Definitions.resource_definition(data_type_code) if definition.nil?
+          definition = FHIR::R4B::Definitions.type_definition(data_type_code)
+          definition = FHIR::R4B::Definitions.resource_definition(data_type_code) if definition.nil?
           if !definition.nil?
             ret_val = false
             begin
@@ -395,7 +395,7 @@ module FHIR
           x = vs_uri.index('|')
           vs_uri = vs_uri[0..x - 1]
         end
-        valueset = FHIR::Definitions.get_codes(vs_uri)
+        valueset = FHIR::R4B::Definitions.get_codes(vs_uri)
 
         matching_type = 0
 

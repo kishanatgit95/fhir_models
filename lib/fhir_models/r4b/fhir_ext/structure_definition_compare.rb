@@ -35,7 +35,7 @@ module FHIR
 
         # StructureDefinitions don't always include all base attributes (for example, of a ContactPoint)
         # if nothing is modified from the base definition, so we have to add them in if they are missing.
-        base_definition = FHIR::Definitions.get_resource_definition(snapshot.element[0].path)
+        base_definition = FHIR::R4B::Definitions.get_resource_definition(snapshot.element[0].path)
         base_elements = base_definition.snapshot.element
 
         left_missing = right_paths - left_paths
@@ -192,7 +192,7 @@ module FHIR
           # assume missing elements are from first data type (gross)
           next if elem.type.nil? || elem.type.empty?
 
-          type_def = FHIR::Definitions.type_definition(elem.type[0].code)
+          type_def = FHIR::R4B::Definitions.type_definition(elem.type[0].code)
           next if type_def.nil?
 
           type_elements = Array.new(type_def.snapshot.element)
@@ -231,8 +231,8 @@ module FHIR
           # maybe the profiles are the same, just with different URLs...
           # ... so we have to compare them, if we can.
           @warnings << @finding.warning("#{x.path} (#{x.name})", 'type.profile', 'Different Profiles', x_profiles.to_s, y_profiles.to_s)
-          x_extension = FHIR::Definitions.get_extension_definition(x.type[0].profile)
-          y_extension = FHIR::Definitions.get_extension_definition(y.type[0].profile)
+          x_extension = FHIR::R4B::Definitions.get_extension_definition(x.type[0].profile)
+          y_extension = FHIR::R4B::Definitions.get_extension_definition(y.type[0].profile)
           if !x_extension.nil? && !y_extension.nil?
             x_extension.compatible?(y_extension)
             @errors << x_extension.errors
