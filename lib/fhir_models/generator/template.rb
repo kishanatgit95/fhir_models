@@ -143,9 +143,9 @@ module FHIR
           if fhir_version == 'R4' && @name.first
             s << "  #{@name.first} = FHIR::R4::#{@name.first}"
           elsif fhir_version == 'R4'
-            s << "  PRIMITIVES = FHIR::R4::PRIMITIVES"
-            s << "  TYPES = FHIR::R4::TYPES"
-            s << "  RESOURCES = FHIR::R4::RESOURCES"
+            s << '  PRIMITIVES = FHIR::R4::PRIMITIVES'
+            s << '  TYPES = FHIR::R4::TYPES'
+            s << '  RESOURCES = FHIR::R4::RESOURCES'
           end
           s << 'end'
         end
