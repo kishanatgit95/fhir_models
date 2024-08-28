@@ -258,7 +258,7 @@ module FHIR
         break if matches_one_profile
 
         # check profiled resources
-        profile_basetype = FHIR::Definitions.basetype(p)
+        profile_basetype = module_version::Definitions.basetype(p)
         matches_one_profile = true if profile_basetype && ref.reference.include?(profile_basetype)
         break if matches_one_profile
       end
@@ -288,7 +288,7 @@ module FHIR
       valid = false
       # Strip off the |4.0.0 or |4.0.1 or |2014-03-26 or similar from the ends of URLs
       uri&.gsub!(/\|[A-Za-z0-9.\-]*/, '')
-      valueset = FHIR::Definitions.get_codes(uri)
+      valueset = module_version::Definitions.get_codes(uri)
 
       if ['http://hl7.org/fhir/ValueSet/mimetypes', 'http://www.rfc-editor.org/bcp/bcp13.txt'].include?(uri)
         matches = MIME::Types[value]
