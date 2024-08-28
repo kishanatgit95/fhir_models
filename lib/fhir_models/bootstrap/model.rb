@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'mime/types'
 require 'yaml'
 require 'bcp47'
+require_relative '../r4/bootstrap/definitions'
 
 module FHIR
   class Model
@@ -254,9 +255,12 @@ module FHIR
       meta['type_profiles'].each do |p|
         basetype = p.split('/').last
         matches_one_profile = true if ref.reference.include?(basetype)
+        break if matches_one_profile
+
         # check profiled resources
         profile_basetype = FHIR::Definitions.basetype(p)
         matches_one_profile = true if profile_basetype && ref.reference.include?(profile_basetype)
+        break if matches_one_profile
       end
       matches_one_profile = true if meta['type_profiles'].include?('http://hl7.org/fhir/StructureDefinition/Resource')
       if !matches_one_profile && ref.reference.start_with?('#')

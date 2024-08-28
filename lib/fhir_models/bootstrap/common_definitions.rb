@@ -13,19 +13,30 @@ module FHIR
       def load_igs(ig_file_name)
         ig_loader = FHIR::Generator::IGLoader.new(ig_file_name)
         @ig_resources = ig_loader.load
+        @cache = {}
       end
 
       def find_structure_definition(structure_defs, target_name)
         return nil if target_name.nil?
+        return @cache[target_name] if @cache[target_name]
 
-        structure_defs.find do |sd|
+        definition = structure_defs.find do |sd|
           sd['id'] == target_name || sd['name'] == target_name || sd['url'] == target_name
         end
+
+        @cache[target_name] = create_structure_definition(definition) if definition
+        @cache[target_name]
       end
 
-      # ----------------------------------------------------------------
-      #  Types
-      # ----------------------------------------------------------------
+      def create_structure_definition(definition)
+        return nil if definition.nil?
+
+        module_version::StructureDefinition.new(definition)
+      end
+
+      # # ----------------------------------------------------------------
+      # #  Types
+      # # ----------------------------------------------------------------
 
       def primitive_types
         @ig_resources.primitive_types
@@ -61,11 +72,22 @@ module FHIR
       end
       deprecate :get_extension_definition, :extension_definition
 
+      # Get the basetype (String) for a given profile or extension.
+      def basetype(uri)
+        return nil if uri.nil?
+
+        defn = @ig_resources.profiles.detect { |x| x['url'] == uri } || @ig_resources.extension_definitions.detect { |x| x['url'] == uri }
+        return nil if defn.nil?
+
+        defn['type']
+      end
+      deprecate :get_basetype, :basetype
+
       # Get the StructureDefinition for a given profile.
       def profile(profile_url)
         find_structure_definition(@ig_resources.profiles, profile_url)
       end
-      deprecate :get_profile, :profi
+      deprecate :get_profile, :profile
 
       def profiles_for_resource(resource_name)
         return nil if resource_name.nil?

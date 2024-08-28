@@ -8,16 +8,16 @@ RSpec.describe FHIR::Definitions do
       name = 'string'
 
       result = FHIR::Definitions.type_definition(name)
-      expect(result['id']).to eq(name)
-      expect(result['version']).to eq(fhir_version)
+      expect(result.id).to eq(name)
+      expect(result.version).to eq(fhir_version)
     end
 
     it 'returns R4 complex type definition' do
       name = 'Address'
 
       result = FHIR::Definitions.type_definition(name)
-      expect(result['id']).to eq(name)
-      expect(result['version']).to eq(fhir_version)
+      expect(result.id).to eq(name)
+      expect(result.version).to eq(fhir_version)
     end
   end
 
@@ -26,8 +26,8 @@ RSpec.describe FHIR::Definitions do
       name = 'Patient'
 
       result = FHIR::Definitions.resource_definition(name)
-      expect(result['id']).to eq(name)
-      expect(result['version']).to eq(fhir_version)
+      expect(result.id).to eq(name)
+      expect(result.version).to eq(fhir_version)
     end
   end
 
@@ -36,8 +36,8 @@ RSpec.describe FHIR::Definitions do
       name = 'valueset-expression'
 
       result = FHIR::Definitions.extension_definition(name)
-      expect(result['id']).to eq(name)
-      expect(result['version']).to eq(fhir_version)
+      expect(result.id).to eq(name)
+      expect(result.version).to eq(fhir_version)
     end
   end
 
@@ -46,8 +46,8 @@ RSpec.describe FHIR::Definitions do
       url = 'http://hl7.org/fhir/StructureDefinition/vitalsigns'
 
       result = FHIR::Definitions.profile(url)
-      expect(result['url']).to eq(url)
-      expect(result['version']).to eq(fhir_version)
+      expect(result.url).to eq(url)
+      expect(result.version).to eq(fhir_version)
     end
 
     it 'returns R4 profiles by resource type' do
