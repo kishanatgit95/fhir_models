@@ -39,7 +39,7 @@ module FHIR
         validate_resource(resource).empty?
       end
 
-      def self.validate_resource(resource)
+      def validate_resource(resource)
         @errors = []
         @warnings = []
         if resource.is_a?(FHIR::Model)

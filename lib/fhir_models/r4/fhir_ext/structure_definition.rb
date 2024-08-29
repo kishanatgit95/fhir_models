@@ -1,7 +1,7 @@
 module FHIR
   module R4
     class StructureDefinition
-      include FHIR::CommonStructureDefinition
+      include CommonStructureDefinition
 
       def self.module_version_name
         'R4'
