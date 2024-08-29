@@ -1,5 +1,5 @@
 module FHIR
-  module StructureDefinitionFinding
+  class StructureDefinitionFinding
     # This is not an official FHIR Resource type. It is a data structure used for reporting.
     attr_accessor :resourceType
     attr_accessor :profileIdA
