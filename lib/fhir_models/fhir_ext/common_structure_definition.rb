@@ -5,26 +5,33 @@ require 'bcp47'
 
 module FHIR
   module CommonStructureDefinition
-
     extend FHIR::Deprecate
+
+    def self.included(base)
+      base.extend ClassMethods
+    end
+
+    module ClassMethods
+      def vs_validators
+        @vs_validators ||= {}
+      end
+
+      def validates_vs(valueset_uri, &validator_fn)
+        vs_validators[valueset_uri] = validator_fn
+      end
+
+      def clear_validates_vs(valueset_uri)
+        vs_validators.delete valueset_uri
+      end
+
+      def clear_all_validates_vs
+        @vs_validators = {}
+      end
+    end
 
     # -------------------------------------------------------------------------
     #                            Profile Validation
     # -------------------------------------------------------------------------
-    class << self; attr_accessor :vs_validators end
-    @vs_validators = {}
-
-    def validates_vs(valueset_uri, &validator_fn)
-      @vs_validators[valueset_uri] = validator_fn
-    end
-
-    def clear_validates_vs(valueset_uri)
-      @vs_validators.delete valueset_uri
-    end
-
-    def clear_all_validates_vs
-      @vs_validators = {}
-    end
 
     def validates_resource?(resource)
       validate_resource(resource).empty?
