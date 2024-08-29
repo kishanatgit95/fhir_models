@@ -1,5 +1,11 @@
 module FHIR
   module CommonElementDefinition
+    # children is used to hierarchically arrange elements
+    # so profile validation is easier to compute
+    attr_accessor :children
+    attr_accessor :local_name
+    attr_accessor :marked_for_keeping
+
     def add_descendent(element)
       @children = [] if @children.nil?
       element.local_name = element.path.gsub("#{path}.", '')

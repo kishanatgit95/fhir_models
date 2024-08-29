@@ -7,6 +7,11 @@ module FHIR
   module CommonStructureDefinition
     extend FHIR::Deprecate
 
+    attr_accessor :finding
+    attr_accessor :errors
+    attr_accessor :warnings
+    attr_accessor :hierarchy
+
     def self.included(base)
       base.extend ClassMethods
     end

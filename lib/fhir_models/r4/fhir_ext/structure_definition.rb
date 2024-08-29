@@ -3,11 +3,6 @@ module FHIR
     class StructureDefinition
       include CommonStructureDefinition
 
-      attr_accessor :finding
-      attr_accessor :errors
-      attr_accessor :warnings
-      attr_accessor :hierarchy
-
       def self.module_version_name
         'R4'
       end
