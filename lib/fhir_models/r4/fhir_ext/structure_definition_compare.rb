@@ -3,11 +3,11 @@ module FHIR
     class StructureDefinitionCompare
       include FHIR::CommonStructureDefinitionCompare
 
-      def self.module_version_name
+      def self.fhir_version_string
         'R4'
       end
 
-      def self.module_version
+      def self.versioned_fhir_module
         FHIR::R4
       end
     end

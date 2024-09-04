@@ -82,11 +82,11 @@ module FHIR
   end
 
   # These are needed for the unit tests that call FHIR directly
-  def self.module_version_name
+  def self.fhir_version_string
     'R4'
   end
 
-  def self.module_version
+  def self.versioned_fhir_module
     FHIR::R4
   end
 end

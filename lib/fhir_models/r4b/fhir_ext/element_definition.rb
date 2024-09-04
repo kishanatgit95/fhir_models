@@ -3,11 +3,11 @@ module FHIR
     class ElementDefinition < FHIR::Model
       include CommonElementDefinition
 
-      def self.module_version_name
+      def self.fhir_version_string
         'R4B'
       end
 
-      def self.module_version
+      def self.versioned_fhir_module
         FHIR::R4B
       end
     end

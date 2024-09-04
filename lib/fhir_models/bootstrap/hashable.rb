@@ -70,7 +70,7 @@ module FHIR
           nil
         end
         # inflate the value if it isn't a primitive
-        klass = module_version::PRIMITIVES.key?(meta['type']) ? nil : module_version.const_get(meta['type'])
+        klass = versioned_fhir_module::PRIMITIVES.key?(meta['type']) ? nil : versioned_fhir_module.const_get(meta['type'])
         if !klass.nil? && !value.nil?
           # handle array of objects
           if value.is_a?(Array)
@@ -81,7 +81,7 @@ module FHIR
             value = [value] if value && (meta['max'] > 1)
           end
           instance_variable_set("@#{local_name}", value)
-        elsif !module_version::PRIMITIVES.include?(meta['type']) && meta['type'] != 'xhtml'
+        elsif !versioned_fhir_module::PRIMITIVES.include?(meta['type']) && meta['type'] != 'xhtml'
           FHIR.logger.error("Unhandled and unrecognized class/type: #{meta['type']}")
         elsif value.is_a?(Array)
           # array of primitives
@@ -103,7 +103,7 @@ module FHIR
 
       if child['resourceType'] && !klass::METADATA['resourceType']
         klass = begin
-          module_version.const_get(child['resourceType'])
+          versioned_fhir_module.const_get(child['resourceType'])
         rescue StandardError => _e
           # TODO: this appears to be a dead code branch
           # TODO: should this log / re-raise the exception if encountered instead of silently swallowing it?
@@ -126,7 +126,7 @@ module FHIR
       rval = value
       if meta['type'] == 'boolean'
         rval = value.strip == 'true'
-      elsif module_version::PRIMITIVES.include?(meta['type'])
+      elsif versioned_fhir_module::PRIMITIVES.include?(meta['type'])
         if ['decimal', 'integer', 'positiveInt', 'unsignedInt'].include?(meta['type'])
           rval = BigDecimal(value.to_s)
           rval = rval.frac.zero? ? rval.to_i : rval.to_f

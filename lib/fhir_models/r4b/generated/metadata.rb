@@ -1,11 +1,11 @@
 module FHIR
   module R4B
 
-    def module_version_name
+    def fhir_version_string
       'R4B'
     end
 
-    def module_version
+    def versioned_fhir_module
       FHIR::R4B
     end
 

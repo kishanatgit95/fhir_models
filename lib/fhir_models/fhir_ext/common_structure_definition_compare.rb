@@ -18,7 +18,7 @@ module FHIR
       @finding.profileIdA = id
       @finding.profileIdB = another_definition.id if another_definition.respond_to?(:id)
 
-      if !(another_definition.is_a? module_version::StructureDefinition)
+      if !(another_definition.is_a? versioned_fhir_module::StructureDefinition)
         @errors << @finding.error('', '', 'Not a StructureDefinition', 'StructureDefinition', another_definition.class.name.to_s)
         return false
       elsif another_definition.snapshot.element[0].path != snapshot.element[0].path
@@ -34,7 +34,7 @@ module FHIR
 
       # StructureDefinitions don't always include all base attributes (for example, of a ContactPoint)
       # if nothing is modified from the base definition, so we have to add them in if they are missing.
-      base_definition = module_version::Definitions.get_resource_definition(snapshot.element[0].path)
+      base_definition = versioned_fhir_module::Definitions.get_resource_definition(snapshot.element[0].path)
       base_elements = base_definition.snapshot.element
 
       left_missing = right_paths - left_paths
@@ -177,7 +177,7 @@ module FHIR
         elem = get_element_by_path(path, base_elements)
         unless elem.nil?
           # _DEEP_ copy
-          elements << module_version::ElementDefinition.from_fhir_json(elem.to_fhir_json)
+          elements << versioned_fhir_module::ElementDefinition.from_fhir_json(elem.to_fhir_json)
           next
         end
 
@@ -191,13 +191,13 @@ module FHIR
         # assume missing elements are from first data type (gross)
         next if elem.type.nil? || elem.type.empty?
 
-        type_def = module_version::Definitions.type_definition(elem.type[0].code)
+        type_def = versioned_fhir_module::Definitions.type_definition(elem.type[0].code)
         next if type_def.nil?
 
         type_elements = Array.new(type_def.snapshot.element)
         # _DEEP_ copy
         type_elements.map! do |e| # {|e| FHIR::ElementDefinition.from_fhir_json(e.to_fhir_json) }
-          module_version::ElementDefinition.from_fhir_json(e.to_fhir_json)
+          versioned_fhir_module::ElementDefinition.from_fhir_json(e.to_fhir_json)
         end
         # Fix path names
         type_root = String.new(type_elements[0].path)
@@ -230,8 +230,8 @@ module FHIR
         # maybe the profiles are the same, just with different URLs...
         # ... so we have to compare them, if we can.
         @warnings << @finding.warning("#{x.path} (#{x.name})", 'type.profile', 'Different Profiles', x_profiles.to_s, y_profiles.to_s)
-        x_extension = module_version::Definitions.get_extension_definition(x.type[0].profile)
-        y_extension = module_version::Definitions.get_extension_definition(y.type[0].profile)
+        x_extension = versioned_fhir_module::Definitions.get_extension_definition(x.type[0].profile)
+        y_extension = versioned_fhir_module::Definitions.get_extension_definition(y.type[0].profile)
         if !x_extension.nil? && !y_extension.nil?
           x_extension.compatible?(y_extension)
           @errors << x_extension.errors

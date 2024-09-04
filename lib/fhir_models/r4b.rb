@@ -18,6 +18,10 @@ Dir.glob(File.join(root, 'fhir_models', 'fhirpath', '*.rb')).sort.each do |file|
   require file
 end
 
+Dir.glob(File.join(root, 'fhir_models', 'r4b', 'bootstrap', '*.rb')).sort.each do |file|
+  require file
+end
+
 Dir.glob(File.join(root, 'fhir_models', 'r4b', 'generated', '*.rb')).sort.each do |file|
   require file
 end

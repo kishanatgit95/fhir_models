@@ -172,7 +172,7 @@ module FHIR
       # Check the datatype for each node, only if the element has one declared, and it isn't the root element
       if !element.type.empty? && element.path != id
         # element.type not being empty implies data_type_found != nil, for valid profiles
-        codeable_concept_pattern = element.pattern&.is_a?(FHIR::CodeableConcept)
+        codeable_concept_pattern = element.pattern&.is_a?(versioned_fhir_module::CodeableConcept)
         matching_pattern = false
         nodes.each do |value|
           matching_type = 0
@@ -184,7 +184,7 @@ module FHIR
           if data_type_found == 'Extension' # && !type.profile.nil?
             verified_extension = true
             # TODO: should verify extensions
-            # extension_def = module_version::Definitions.get_extension_definition(value['url'])
+            # extension_def = versioned_fhir_module::Definitions.get_extension_definition(value['url'])
             # if extension_def
             #   verified_extension = extension_def.validates_resource?(FHIR::Extension.new(deep_copy(value)))
             # end
@@ -202,7 +202,7 @@ module FHIR
                 matching_type += check_binding_element(element, value)
               end
             elsif data_type_found == 'CodeableConcept' && codeable_concept_pattern
-              vcc = module_version::CodeableConcept.new(value)
+              vcc = versioned_fhir_module::CodeableConcept.new(value)
               pattern = element.pattern.coding
               pattern.each do |pcoding|
                 vcc.coding.each do |vcoding|
@@ -323,8 +323,8 @@ module FHIR
     # value == the representation of the value
     def data_type?(data_type_code, value)
       # FHIR models covers any base Resources
-      if module_version::RESOURCES.include?(data_type_code)
-        definition = module_version::Definitions.resource_definition(data_type_code)
+      if versioned_fhir_module::RESOURCES.include?(data_type_code)
+        definition = versioned_fhir_module::Definitions.resource_definition(data_type_code)
         unless definition.nil?
           ret_val = false
           begin
@@ -348,7 +348,7 @@ module FHIR
         true # we don't have to verify domain resource, because it will be included in the snapshot
       when 'resource'
         resource_type = value['resourceType']
-        definition = module_version::Definitions.resource_definition(resource_type)
+        definition = versioned_fhir_module::Definitions.resource_definition(resource_type)
         if !definition.nil?
           ret_val = false
           begin
@@ -367,14 +367,14 @@ module FHIR
           @errors << "Unable to find base Resource definition: #{resource_type}"
           false
         end
-      when *module_version::PRIMITIVES.keys.map(&:downcase)
+      when *versioned_fhir_module::PRIMITIVES.keys.map(&:downcase)
         FHIR.primitive?(datatype: data_type_code, value: value)
       else
         # Eliminate endless loop on Element is an Element
         return true if data_type_code == 'Element' && id == 'Element'
 
-        definition = module_version::Definitions.type_definition(data_type_code)
-        definition = module_version::Definitions.resource_definition(data_type_code) if definition.nil?
+        definition = versioned_fhir_module::Definitions.type_definition(data_type_code)
+        definition = versioned_fhir_module::Definitions.resource_definition(data_type_code) if definition.nil?
         if !definition.nil?
           ret_val = false
           begin
@@ -403,7 +403,7 @@ module FHIR
         x = vs_uri.index('|')
         vs_uri = vs_uri[0..x - 1]
       end
-      valueset = module_version::Definitions.get_codes(vs_uri)
+      valueset = versioned_fhir_module::Definitions.get_codes(vs_uri)
 
       matching_type = 0
 

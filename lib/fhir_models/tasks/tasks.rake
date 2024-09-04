@@ -9,22 +9,6 @@ namespace :fhir do
   task :generate, [] do |_t, _args|
     require_relative '../generator/generator'
     FHIR::Generator.generate
-    # # create a generator and load the definitions
-    # generator = FHIR::Boot::Generator.new
-    # # 1. generate the lists of primitive data types, complex types, and resources
-    # generator.generate_metadata
-    # # 2. generate the complex data types
-    # generator.generate_types
-    # # 3. generate the base Resources
-    # generator.generate_resources
-    # # 4. generate extensions?
-
-    # # 5. generate profiles?
-    # if generator.missing_required_expansion
-    #   FHIR.logger.error 'MISSING REQUIRED EXPANSION(S) -- This is a fatal error in the definition files.'
-    # elsif generator.missing_expansions
-    #   FHIR.logger.info 'Missing expansions can be safely ignored due to weak binding strengths.'
-    # end
   end
 
   desc 'preprocess definitions'

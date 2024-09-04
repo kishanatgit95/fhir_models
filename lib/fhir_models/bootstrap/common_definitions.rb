@@ -31,7 +31,7 @@ module FHIR
       def create_structure_definition(definition)
         return nil if definition.nil?
 
-        module_version::StructureDefinition.new(definition)
+        versioned_fhir_module::StructureDefinition.new(definition)
       end
 
       # # ----------------------------------------------------------------

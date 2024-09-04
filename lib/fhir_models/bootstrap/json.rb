@@ -15,7 +15,7 @@ module FHIR
       resource = nil
       begin
         resource_type = hash['resourceType']
-        klass = module_version.const_get(resource_type)
+        klass = versioned_fhir_module.const_get(resource_type)
         resource = klass.new(hash)
       rescue StandardError => e
         FHIR.logger.error("Failed to deserialize JSON:\n#{e.backtrace}")
@@ -25,12 +25,12 @@ module FHIR
       resource
     end
 
-    def self.module_version_name
-      FHIR.module_version_name
+    def self.fhir_version_string
+      FHIR.fhir_version_string
     end
 
-    def self.module_version
-      FHIR.module_version
+    def self.versioned_fhir_module
+      FHIR.versioned_fhir_module
     end
   end
 end

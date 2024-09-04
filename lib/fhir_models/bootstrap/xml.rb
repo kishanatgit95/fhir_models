@@ -34,7 +34,7 @@ module FHIR
 
       hash.each do |key, value|
         next if ['extension', 'modifierExtension'].include?(name) && key == 'url'
-        next if key == 'id' && !FHIR::RESOURCES.include?(name)
+        next if key == 'id' && !versioned_fhir_module::RESOURCES.include?(name)
 
         case value
         when Hash
@@ -65,7 +65,7 @@ module FHIR
         end
       end
       node.set_attribute('url', hash['url']) if ['extension', 'modifierExtension'].include?(name)
-      node.set_attribute('id', hash['id']) if hash['id'] && !FHIR::RESOURCES.include?(name)
+      node.set_attribute('id', hash['id']) if hash['id'] && !versioned_fhir_module::RESOURCES.include?(name)
       node
     end
 
@@ -78,7 +78,7 @@ module FHIR
       resource = nil
       begin
         resource_type = doc.root.name
-        klass = module_version.const_get(resource_type)
+        klass = versioned_fhir_module.const_get(resource_type)
         resource = klass.new(hash)
       rescue StandardError => e
         FHIR.logger.error("Failed to deserialize XML:\n#{e.backtrace}")
@@ -112,11 +112,14 @@ module FHIR
       end
       hash['url'] = node.get_attribute('url') if ['extension', 'modifierExtension'].include?(node.name)
       hash['id'] = node.get_attribute('id') if node.get_attribute('id') # Testscript fixture ids (applies to any BackboneElement)
-      hash['resourceType'] = node.name if module_version::RESOURCES.include?(node.name)
+      hash['resourceType'] = node.name if versioned_fhir_module::RESOURCES.include?(node.name)
 
       # If this hash contains nothing but an embedded resource, we should return that
       # embedded resource without the wrapper
-      if hash.keys.length == 1 && module_version::RESOURCES.include?(hash.keys.first) && hash.values.first.is_a?(Hash) && hash.values.first['resourceType'] == hash.keys.first
+      if hash.keys.length == 1 
+         && versioned_fhir_module::RESOURCES.include?(hash.keys.first)
+         && hash.values.first.is_a?(Hash) 
+         && hash.values.first['resourceType'] == hash.keys.first
         hash.values.first
       else
         hash
@@ -135,12 +138,12 @@ module FHIR
       xsd.validate(Nokogiri::XML(xml))
     end
 
-    def self.module_version_name
-      FHIR.module_version_name
+    def self.fhir_version_string
+      FHIR.fhir_version_string
     end
 
-    def self.module_version
-      FHIR.module_version
+    def self.versioned_fhir_module
+      FHIR.versioned_fhir_module
     end
 
     private :hash_to_xml_node
