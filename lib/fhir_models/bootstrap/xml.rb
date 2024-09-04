@@ -116,10 +116,10 @@ module FHIR
 
       # If this hash contains nothing but an embedded resource, we should return that
       # embedded resource without the wrapper
-      if hash.keys.length == 1 
-         && versioned_fhir_module::RESOURCES.include?(hash.keys.first)
-         && hash.values.first.is_a?(Hash) 
-         && hash.values.first['resourceType'] == hash.keys.first
+      if hash.keys.length == 1 &&
+         versioned_fhir_module::RESOURCES.include?(hash.keys.first) &&
+         hash.values.first.is_a?(Hash) &&
+         hash.values.first['resourceType'] == hash.keys.first
         hash.values.first
       else
         hash
