@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class MedicinalProductDefinition < FHIR::Model
+    class MedicinalProductDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['characteristic', 'characteristic-type', 'contact', 'domain', 'identifier', 'ingredient', 'master-file', 'name', 'name-language', 'product-classification', 'status', 'type']
       METADATA = {
@@ -53,18 +45,10 @@ module FHIR
         'characteristic' => {'type'=>'MedicinalProductDefinition::Characteristic', 'path'=>'MedicinalProductDefinition.characteristic', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Contact < FHIR::Model
+      class Contact < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Contact.id', 'min'=>0, 'max'=>1},
@@ -81,18 +65,10 @@ module FHIR
         attr_accessor :contact           # 1-1 Reference(Organization|PractitionerRole)
       end
 
-      class Name < FHIR::Model
+      class Name < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Name.id', 'min'=>0, 'max'=>1},
@@ -104,18 +80,10 @@ module FHIR
           'countryLanguage' => {'type'=>'MedicinalProductDefinition::Name::CountryLanguage', 'path'=>'Name.countryLanguage', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class NamePart < FHIR::Model
+        class NamePart < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'NamePart.id', 'min'=>0, 'max'=>1},
@@ -132,18 +100,10 @@ module FHIR
           attr_accessor :type              # 1-1 CodeableConcept
         end
 
-        class CountryLanguage < FHIR::Model
+        class CountryLanguage < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'CountryLanguage.id', 'min'=>0, 'max'=>1},
@@ -171,18 +131,10 @@ module FHIR
         attr_accessor :countryLanguage   # 0-* [ MedicinalProductDefinition::Name::CountryLanguage ]
       end
 
-      class CrossReference < FHIR::Model
+      class CrossReference < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'CrossReference.id', 'min'=>0, 'max'=>1},
@@ -199,18 +151,10 @@ module FHIR
         attr_accessor :type              # 0-1 CodeableConcept
       end
 
-      class Operation < FHIR::Model
+      class Operation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Operation.id', 'min'=>0, 'max'=>1},
@@ -231,18 +175,10 @@ module FHIR
         attr_accessor :confidentialityIndicator # 0-1 CodeableConcept
       end
 
-      class Characteristic < FHIR::Model
+      class Characteristic < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'Quantity', 'date', 'boolean', 'Attachment']

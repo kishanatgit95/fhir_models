@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class InsurancePlan < FHIR::Model
+    class InsurancePlan < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['address', 'address-city', 'address-country', 'address-postalcode', 'address-state', 'address-use', 'administered-by', 'endpoint', 'identifier', 'name', 'owned-by', 'phonetic', 'status', 'type']
       METADATA = {
@@ -39,18 +31,10 @@ module FHIR
         'plan' => {'type'=>'InsurancePlan::Plan', 'path'=>'InsurancePlan.plan', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Contact < FHIR::Model
+      class Contact < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Contact.id', 'min'=>0, 'max'=>1},
@@ -71,18 +55,10 @@ module FHIR
         attr_accessor :address           # 0-1 Address
       end
 
-      class Coverage < FHIR::Model
+      class Coverage < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Coverage.id', 'min'=>0, 'max'=>1},
@@ -93,18 +69,10 @@ module FHIR
           'benefit' => {'type'=>'InsurancePlan::Coverage::Benefit', 'path'=>'Coverage.benefit', 'min'=>1, 'max'=>Float::INFINITY}
         }
 
-        class Benefit < FHIR::Model
+        class Benefit < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Benefit.id', 'min'=>0, 'max'=>1},
@@ -115,18 +83,10 @@ module FHIR
             'limit' => {'type'=>'InsurancePlan::Coverage::Benefit::Limit', 'path'=>'Benefit.limit', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Limit < FHIR::Model
+          class Limit < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Limit.id', 'min'=>0, 'max'=>1},
@@ -159,18 +119,10 @@ module FHIR
         attr_accessor :benefit           # 1-* [ InsurancePlan::Coverage::Benefit ]
       end
 
-      class Plan < FHIR::Model
+      class Plan < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Plan.id', 'min'=>0, 'max'=>1},
@@ -184,18 +136,10 @@ module FHIR
           'specificCost' => {'type'=>'InsurancePlan::Plan::SpecificCost', 'path'=>'Plan.specificCost', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class GeneralCost < FHIR::Model
+        class GeneralCost < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'GeneralCost.id', 'min'=>0, 'max'=>1},
@@ -216,18 +160,10 @@ module FHIR
           attr_accessor :comment           # 0-1 string
         end
 
-        class SpecificCost < FHIR::Model
+        class SpecificCost < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'SpecificCost.id', 'min'=>0, 'max'=>1},
@@ -237,18 +173,10 @@ module FHIR
             'benefit' => {'type'=>'InsurancePlan::Plan::SpecificCost::Benefit', 'path'=>'SpecificCost.benefit', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Benefit < FHIR::Model
+          class Benefit < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Benefit.id', 'min'=>0, 'max'=>1},
@@ -258,18 +186,10 @@ module FHIR
               'cost' => {'type'=>'InsurancePlan::Plan::SpecificCost::Benefit::Cost', 'path'=>'Benefit.cost', 'min'=>0, 'max'=>Float::INFINITY}
             }
 
-            class Cost < FHIR::Model
+            class Cost < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4B'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4B
-              end
 
               METADATA = {
                 'id' => {'type'=>'string', 'path'=>'Cost.id', 'min'=>0, 'max'=>1},

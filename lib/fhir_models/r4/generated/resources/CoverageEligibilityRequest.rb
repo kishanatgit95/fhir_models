@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class CoverageEligibilityRequest < FHIR::Model
+    class CoverageEligibilityRequest < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'serviced' => ['date', 'Period']
@@ -43,18 +35,10 @@ module FHIR
         'item' => {'type'=>'CoverageEligibilityRequest::Item', 'path'=>'CoverageEligibilityRequest.item', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class SupportingInfo < FHIR::Model
+      class SupportingInfo < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SupportingInfo.id', 'min'=>0, 'max'=>1},
@@ -73,18 +57,10 @@ module FHIR
         attr_accessor :appliesToAll      # 0-1 boolean
       end
 
-      class Insurance < FHIR::Model
+      class Insurance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Insurance.id', 'min'=>0, 'max'=>1},
@@ -103,18 +79,10 @@ module FHIR
         attr_accessor :businessArrangement # 0-1 string
       end
 
-      class Item < FHIR::Model
+      class Item < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Item.id', 'min'=>0, 'max'=>1},
@@ -132,18 +100,10 @@ module FHIR
           'detail' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'Item.detail', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Diagnosis < FHIR::Model
+        class Diagnosis < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'diagnosis' => ['CodeableConcept', 'Reference']

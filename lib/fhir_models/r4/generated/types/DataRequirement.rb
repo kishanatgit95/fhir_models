@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class DataRequirement < FHIR::Model
+    class DataRequirement < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'subject' => ['CodeableConcept', 'Reference']
@@ -31,18 +23,10 @@ module FHIR
         'sort' => {'type'=>'DataRequirement::Sort', 'path'=>'DataRequirement.sort', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class CodeFilter < FHIR::Model
+      class CodeFilter < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'CodeFilter.id', 'min'=>0, 'max'=>1},
@@ -61,18 +45,10 @@ module FHIR
         attr_accessor :code        # 0-* [ Coding ]
       end
 
-      class DateFilter < FHIR::Model
+      class DateFilter < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['dateTime', 'Period', 'Duration']
@@ -96,18 +72,10 @@ module FHIR
         attr_accessor :valueDuration # 0-1 Duration
       end
 
-      class Sort < FHIR::Model
+      class Sort < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Sort.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class ChargeItem < FHIR::Model
+    class ChargeItem < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period', 'Timing'],
@@ -58,18 +50,10 @@ module FHIR
         'supportingInformation' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'ChargeItem.supportingInformation', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Performer < FHIR::Model
+      class Performer < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Performer.id', 'min'=>0, 'max'=>1},

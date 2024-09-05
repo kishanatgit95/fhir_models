@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class FamilyMemberHistory < FHIR::Model
+    class FamilyMemberHistory < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'born' => ['Period', 'date', 'string'],
@@ -56,18 +48,10 @@ module FHIR
         'condition' => {'type'=>'FamilyMemberHistory::Condition', 'path'=>'FamilyMemberHistory.condition', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Condition < FHIR::Model
+      class Condition < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'onset' => ['Age', 'Range', 'Period', 'string']

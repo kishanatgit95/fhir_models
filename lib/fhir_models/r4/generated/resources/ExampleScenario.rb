@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class ExampleScenario < FHIR::Model
+    class ExampleScenario < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'url', 'version']
       METADATA = {
@@ -42,18 +34,10 @@ module FHIR
         'workflow' => {'type'=>'canonical', 'path'=>'ExampleScenario.workflow', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Actor < FHIR::Model
+      class Actor < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Actor.id', 'min'=>0, 'max'=>1},
@@ -74,18 +58,10 @@ module FHIR
         attr_accessor :description       # 0-1 markdown
       end
 
-      class Instance < FHIR::Model
+      class Instance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Instance.id', 'min'=>0, 'max'=>1},
@@ -99,18 +75,10 @@ module FHIR
           'containedInstance' => {'type'=>'ExampleScenario::Instance::ContainedInstance', 'path'=>'Instance.containedInstance', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Version < FHIR::Model
+        class Version < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Version.id', 'min'=>0, 'max'=>1},
@@ -127,18 +95,10 @@ module FHIR
           attr_accessor :description       # 1-1 markdown
         end
 
-        class ContainedInstance < FHIR::Model
+        class ContainedInstance < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'ContainedInstance.id', 'min'=>0, 'max'=>1},
@@ -166,18 +126,10 @@ module FHIR
         attr_accessor :containedInstance  # 0-* [ ExampleScenario::Instance::ContainedInstance ]
       end
 
-      class Process < FHIR::Model
+      class Process < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Process.id', 'min'=>0, 'max'=>1},
@@ -190,18 +142,10 @@ module FHIR
           'step' => {'type'=>'ExampleScenario::Process::Step', 'path'=>'Process.step', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Step < FHIR::Model
+        class Step < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Step.id', 'min'=>0, 'max'=>1},
@@ -213,18 +157,10 @@ module FHIR
             'alternative' => {'type'=>'ExampleScenario::Process::Step::Alternative', 'path'=>'Step.alternative', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Operation < FHIR::Model
+          class Operation < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Operation.id', 'min'=>0, 'max'=>1},
@@ -257,18 +193,10 @@ module FHIR
             attr_accessor :response          # 0-1 ExampleScenario::Instance::ContainedInstance
           end
 
-          class Alternative < FHIR::Model
+          class Alternative < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Alternative.id', 'min'=>0, 'max'=>1},

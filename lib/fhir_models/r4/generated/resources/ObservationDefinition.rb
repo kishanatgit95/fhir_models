@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class ObservationDefinition < FHIR::Model
+    class ObservationDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -38,18 +30,10 @@ module FHIR
         'criticalCodedValueSet' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/ValueSet'], 'type'=>'Reference', 'path'=>'ObservationDefinition.criticalCodedValueSet', 'min'=>0, 'max'=>1}
       }
 
-      class QuantitativeDetails < FHIR::Model
+      class QuantitativeDetails < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'QuantitativeDetails.id', 'min'=>0, 'max'=>1},
@@ -70,18 +54,10 @@ module FHIR
         attr_accessor :decimalPrecision  # 0-1 integer
       end
 
-      class QualifiedInterval < FHIR::Model
+      class QualifiedInterval < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'QualifiedInterval.id', 'min'=>0, 'max'=>1},

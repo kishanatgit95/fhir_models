@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class StructureMap < FHIR::Model
+    class StructureMap < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -43,18 +35,10 @@ module FHIR
         'group' => {'type'=>'StructureMap::Group', 'path'=>'StructureMap.group', 'min'=>1, 'max'=>Float::INFINITY}
       }
 
-      class Structure < FHIR::Model
+      class Structure < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Structure.id', 'min'=>0, 'max'=>1},
@@ -75,18 +59,10 @@ module FHIR
         attr_accessor :documentation     # 0-1 string
       end
 
-      class Group < FHIR::Model
+      class Group < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
@@ -100,18 +76,10 @@ module FHIR
           'rule' => {'type'=>'StructureMap::Group::Rule', 'path'=>'Group.rule', 'min'=>1, 'max'=>Float::INFINITY}
         }
 
-        class Input < FHIR::Model
+        class Input < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Input.id', 'min'=>0, 'max'=>1},
@@ -132,18 +100,10 @@ module FHIR
           attr_accessor :documentation     # 0-1 string
         end
 
-        class Rule < FHIR::Model
+        class Rule < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Rule.id', 'min'=>0, 'max'=>1},
@@ -157,18 +117,10 @@ module FHIR
             'documentation' => {'type'=>'string', 'path'=>'Rule.documentation', 'min'=>0, 'max'=>1}
           }
 
-          class Source < FHIR::Model
+          class Source < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             MULTIPLE_TYPES = {
               'defaultValue' => ['base64Binary', 'boolean', 'canonical', 'code', 'date', 'dateTime', 'decimal', 'id', 'instant', 'integer', 'markdown', 'oid', 'positiveInt', 'string', 'time', 'unsignedInt', 'uri', 'url', 'uuid', 'Address', 'Age', 'Annotation', 'Attachment', 'CodeableConcept', 'Coding', 'ContactPoint', 'Count', 'Distance', 'Duration', 'HumanName', 'Identifier', 'Money', 'Period', 'Quantity', 'Range', 'Ratio', 'Reference', 'SampledData', 'Signature', 'Timing', 'ContactDetail', 'Contributor', 'DataRequirement', 'Expression', 'ParameterDefinition', 'RelatedArtifact', 'TriggerDefinition', 'UsageContext', 'Dosage', 'Meta']
@@ -304,18 +256,10 @@ module FHIR
             attr_accessor :logMessage                      # 0-1 string
           end
 
-          class Target < FHIR::Model
+          class Target < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Target.id', 'min'=>0, 'max'=>1},
@@ -331,18 +275,10 @@ module FHIR
               'parameter' => {'type'=>'StructureMap::Group::Rule::Target::Parameter', 'path'=>'Target.parameter', 'min'=>0, 'max'=>Float::INFINITY}
             }
 
-            class Parameter < FHIR::Model
+            class Parameter < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4
-              end
 
               MULTIPLE_TYPES = {
                 'value' => ['id', 'string', 'boolean', 'integer', 'decimal']
@@ -381,18 +317,10 @@ module FHIR
             attr_accessor :parameter         # 0-* [ StructureMap::Group::Rule::Target::Parameter ]
           end
 
-          class Dependent < FHIR::Model
+          class Dependent < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Dependent.id', 'min'=>0, 'max'=>1},

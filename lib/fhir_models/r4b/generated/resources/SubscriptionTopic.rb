@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class SubscriptionTopic < FHIR::Model
+    class SubscriptionTopic < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['date', 'derived-or-self', 'identifier', 'resource', 'status', 'title', 'trigger-description', 'url', 'version']
       METADATA = {
@@ -47,18 +39,10 @@ module FHIR
         'notificationShape' => {'type'=>'SubscriptionTopic::NotificationShape', 'path'=>'SubscriptionTopic.notificationShape', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class ResourceTrigger < FHIR::Model
+      class ResourceTrigger < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ResourceTrigger.id', 'min'=>0, 'max'=>1},
@@ -71,18 +55,10 @@ module FHIR
           'fhirPathCriteria' => {'type'=>'string', 'path'=>'ResourceTrigger.fhirPathCriteria', 'min'=>0, 'max'=>1}
         }
 
-        class QueryCriteria < FHIR::Model
+        class QueryCriteria < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'QueryCriteria.id', 'min'=>0, 'max'=>1},
@@ -115,18 +91,10 @@ module FHIR
         attr_accessor :fhirPathCriteria     # 0-1 string
       end
 
-      class EventTrigger < FHIR::Model
+      class EventTrigger < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'EventTrigger.id', 'min'=>0, 'max'=>1},
@@ -145,18 +113,10 @@ module FHIR
         attr_accessor :resource          # 1-1 uri
       end
 
-      class CanFilterBy < FHIR::Model
+      class CanFilterBy < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'CanFilterBy.id', 'min'=>0, 'max'=>1},
@@ -179,18 +139,10 @@ module FHIR
         attr_accessor :modifier          # 0-* [ code ]
       end
 
-      class NotificationShape < FHIR::Model
+      class NotificationShape < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'NotificationShape.id', 'min'=>0, 'max'=>1},

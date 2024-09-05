@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Questionnaire < FHIR::Model
+    class Questionnaire < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['code', 'context', 'context-quantity', 'context-type', 'date', 'definition', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'subject-type', 'title', 'url', 'version']
       METADATA = {
@@ -47,18 +39,10 @@ module FHIR
         'item' => {'type'=>'Questionnaire::Item', 'path'=>'Questionnaire.item', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Item < FHIR::Model
+      class Item < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Item.id', 'min'=>0, 'max'=>1},
@@ -82,18 +66,10 @@ module FHIR
           'item' => {'type'=>'Questionnaire::Item', 'path'=>'Item.item', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class EnableWhen < FHIR::Model
+        class EnableWhen < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'answer' => ['boolean', 'decimal', 'integer', 'date', 'dateTime', 'time', 'string', 'Coding', 'Quantity', 'Reference']
@@ -133,18 +109,10 @@ module FHIR
           attr_accessor :answerReference   # 1-1 Reference(Resource)
         end
 
-        class AnswerOption < FHIR::Model
+        class AnswerOption < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'value' => ['integer', 'date', 'time', 'string', 'Coding', 'Reference']
@@ -174,18 +142,10 @@ module FHIR
           attr_accessor :initialSelected   # 0-1 boolean
         end
 
-        class Initial < FHIR::Model
+        class Initial < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'value' => ['boolean', 'decimal', 'integer', 'date', 'dateTime', 'time', 'string', 'uri', 'Attachment', 'Coding', 'Quantity', 'Reference']

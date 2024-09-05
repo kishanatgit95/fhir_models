@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class RelatedPerson < FHIR::Model
+    class RelatedPerson < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['active', 'address', 'address-city', 'address-country', 'address-postalcode', 'address-state', 'address-use', 'birthdate', 'email', 'gender', 'identifier', 'name', 'patient', 'phone', 'phonetic', 'relationship', 'telecom']
       METADATA = {
@@ -37,18 +29,10 @@ module FHIR
         'communication' => {'type'=>'RelatedPerson::Communication', 'path'=>'RelatedPerson.communication', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Communication < FHIR::Model
+      class Communication < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Communication.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class MedicinalProductInteraction < FHIR::Model
+    class MedicinalProductInteraction < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['subject']
       METADATA = {
@@ -32,18 +24,10 @@ module FHIR
         'management' => {'type'=>'CodeableConcept', 'path'=>'MedicinalProductInteraction.management', 'min'=>0, 'max'=>1}
       }
 
-      class Interactant < FHIR::Model
+      class Interactant < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'item' => ['Reference', 'CodeableConcept']

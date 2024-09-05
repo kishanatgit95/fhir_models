@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class RiskEvidenceSynthesis < FHIR::Model
+    class RiskEvidenceSynthesis < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -56,18 +48,10 @@ module FHIR
         'certainty' => {'type'=>'RiskEvidenceSynthesis::Certainty', 'path'=>'RiskEvidenceSynthesis.certainty', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class SampleSize < FHIR::Model
+      class SampleSize < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SampleSize.id', 'min'=>0, 'max'=>1},
@@ -86,18 +70,10 @@ module FHIR
         attr_accessor :numberOfParticipants # 0-1 integer
       end
 
-      class RiskEstimate < FHIR::Model
+      class RiskEstimate < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'RiskEstimate.id', 'min'=>0, 'max'=>1},
@@ -112,18 +88,10 @@ module FHIR
           'precisionEstimate' => {'type'=>'RiskEvidenceSynthesis::RiskEstimate::PrecisionEstimate', 'path'=>'RiskEstimate.precisionEstimate', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class PrecisionEstimate < FHIR::Model
+        class PrecisionEstimate < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'PrecisionEstimate.id', 'min'=>0, 'max'=>1},
@@ -156,18 +124,10 @@ module FHIR
         attr_accessor :precisionEstimate # 0-* [ RiskEvidenceSynthesis::RiskEstimate::PrecisionEstimate ]
       end
 
-      class Certainty < FHIR::Model
+      class Certainty < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Certainty.id', 'min'=>0, 'max'=>1},
@@ -178,18 +138,10 @@ module FHIR
           'certaintySubcomponent' => {'type'=>'RiskEvidenceSynthesis::Certainty::CertaintySubcomponent', 'path'=>'Certainty.certaintySubcomponent', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class CertaintySubcomponent < FHIR::Model
+        class CertaintySubcomponent < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'CertaintySubcomponent.id', 'min'=>0, 'max'=>1},

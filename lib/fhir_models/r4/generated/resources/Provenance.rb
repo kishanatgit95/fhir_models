@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Provenance < FHIR::Model
+    class Provenance < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'occurred' => ['Period', 'dateTime']
@@ -39,18 +31,10 @@ module FHIR
         'signature' => {'type'=>'Signature', 'path'=>'Provenance.signature', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Agent < FHIR::Model
+      class Agent < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Agent.id', 'min'=>0, 'max'=>1},
@@ -71,18 +55,10 @@ module FHIR
         attr_accessor :onBehalfOf        # 0-1 Reference(Practitioner|PractitionerRole|RelatedPerson|Patient|Device|Organization)
       end
 
-      class Entity < FHIR::Model
+      class Entity < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Entity.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class BackboneElement < FHIR::Model
+    class BackboneElement < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = []
       METADATA = {

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Claim < FHIR::Model
+    class Claim < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['care-team', 'created', 'detail-udi', 'encounter', 'enterer', 'facility', 'identifier', 'insurer', 'item-udi', 'patient', 'payee', 'priority', 'procedure-udi', 'provider', 'status', 'subdetail-udi', 'use']
       METADATA = {
@@ -52,18 +44,10 @@ module FHIR
         'total' => {'type'=>'Money', 'path'=>'Claim.total', 'min'=>0, 'max'=>1}
       }
 
-      class Related < FHIR::Model
+      class Related < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Related.id', 'min'=>0, 'max'=>1},
@@ -82,18 +66,10 @@ module FHIR
         attr_accessor :reference         # 0-1 Identifier
       end
 
-      class Payee < FHIR::Model
+      class Payee < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Payee.id', 'min'=>0, 'max'=>1},
@@ -110,18 +86,10 @@ module FHIR
         attr_accessor :party             # 0-1 Reference(Practitioner|PractitionerRole|Organization|Patient|RelatedPerson)
       end
 
-      class CareTeam < FHIR::Model
+      class CareTeam < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'CareTeam.id', 'min'=>0, 'max'=>1},
@@ -144,18 +112,10 @@ module FHIR
         attr_accessor :qualification     # 0-1 CodeableConcept
       end
 
-      class SupportingInfo < FHIR::Model
+      class SupportingInfo < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'timing' => ['date', 'Period'],
@@ -194,18 +154,10 @@ module FHIR
         attr_accessor :reason            # 0-1 CodeableConcept
       end
 
-      class Diagnosis < FHIR::Model
+      class Diagnosis < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'diagnosis' => ['CodeableConcept', 'Reference']
@@ -233,18 +185,10 @@ module FHIR
         attr_accessor :packageCode              # 0-1 CodeableConcept
       end
 
-      class Procedure < FHIR::Model
+      class Procedure < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'procedure' => ['CodeableConcept', 'Reference']
@@ -272,18 +216,10 @@ module FHIR
         attr_accessor :udi                      # 0-* [ Reference(Device) ]
       end
 
-      class Insurance < FHIR::Model
+      class Insurance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Insurance.id', 'min'=>0, 'max'=>1},
@@ -310,18 +246,10 @@ module FHIR
         attr_accessor :claimResponse       # 0-1 Reference(ClaimResponse)
       end
 
-      class Accident < FHIR::Model
+      class Accident < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'location' => ['Address', 'Reference']
@@ -345,18 +273,10 @@ module FHIR
         attr_accessor :locationReference # 0-1 Reference(Location)
       end
 
-      class Item < FHIR::Model
+      class Item < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'serviced' => ['date', 'Period'],
@@ -392,18 +312,10 @@ module FHIR
           'detail' => {'type'=>'Claim::Item::Detail', 'path'=>'Item.detail', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Detail < FHIR::Model
+        class Detail < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Detail.id', 'min'=>0, 'max'=>1},
@@ -423,18 +335,10 @@ module FHIR
             'subDetail' => {'type'=>'Claim::Item::Detail::SubDetail', 'path'=>'Detail.subDetail', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class SubDetail < FHIR::Model
+          class SubDetail < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'SubDetail.id', 'min'=>0, 'max'=>1},

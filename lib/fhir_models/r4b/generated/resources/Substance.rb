@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Substance < FHIR::Model
+    class Substance < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['category', 'code', 'container-identifier', 'expiry', 'identifier', 'quantity', 'status', 'substance-reference']
       METADATA = {
@@ -32,18 +24,10 @@ module FHIR
         'ingredient' => {'type'=>'Substance::Ingredient', 'path'=>'Substance.ingredient', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Instance < FHIR::Model
+      class Instance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Instance.id', 'min'=>0, 'max'=>1},
@@ -62,18 +46,10 @@ module FHIR
         attr_accessor :quantity          # 0-1 Quantity
       end
 
-      class Ingredient < FHIR::Model
+      class Ingredient < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'substance' => ['CodeableConcept', 'Reference']

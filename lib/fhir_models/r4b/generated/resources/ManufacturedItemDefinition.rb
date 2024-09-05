@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class ManufacturedItemDefinition < FHIR::Model
+    class ManufacturedItemDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['dose-form', 'identifier', 'ingredient']
       METADATA = {
@@ -32,18 +24,10 @@ module FHIR
         'property' => {'type'=>'ManufacturedItemDefinition::Property', 'path'=>'ManufacturedItemDefinition.property', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Property < FHIR::Model
+      class Property < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'Quantity', 'date', 'boolean', 'Attachment']

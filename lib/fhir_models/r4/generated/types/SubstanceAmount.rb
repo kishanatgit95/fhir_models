@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class SubstanceAmount < FHIR::Model
+    class SubstanceAmount < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'amount' => ['Quantity', 'Range', 'string']
@@ -29,18 +21,10 @@ module FHIR
         'referenceRange' => {'type'=>'SubstanceAmount::ReferenceRange', 'path'=>'SubstanceAmount.referenceRange', 'min'=>0, 'max'=>1}
       }
 
-      class ReferenceRange < FHIR::Model
+      class ReferenceRange < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ReferenceRange.id', 'min'=>0, 'max'=>1},

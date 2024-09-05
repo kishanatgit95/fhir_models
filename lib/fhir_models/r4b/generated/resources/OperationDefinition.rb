@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class OperationDefinition < FHIR::Model
+    class OperationDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['base', 'code', 'context', 'context-quantity', 'context-type', 'date', 'description', 'input-profile', 'instance', 'jurisdiction', 'kind', 'name', 'output-profile', 'publisher', 'status', 'system', 'title', 'type', 'url', 'version']
       METADATA = {
@@ -51,18 +43,10 @@ module FHIR
         'overload' => {'type'=>'OperationDefinition::Overload', 'path'=>'OperationDefinition.overload', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Parameter < FHIR::Model
+      class Parameter < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Parameter.id', 'min'=>0, 'max'=>1},
@@ -81,18 +65,10 @@ module FHIR
           'part' => {'type'=>'OperationDefinition::Parameter', 'path'=>'Parameter.part', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Binding < FHIR::Model
+        class Binding < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Binding.id', 'min'=>0, 'max'=>1},
@@ -109,18 +85,10 @@ module FHIR
           attr_accessor :valueSet          # 1-1 canonical
         end
 
-        class ReferencedFrom < FHIR::Model
+        class ReferencedFrom < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'ReferencedFrom.id', 'min'=>0, 'max'=>1},
@@ -153,18 +121,10 @@ module FHIR
         attr_accessor :part              # 0-* [ OperationDefinition::Parameter ]
       end
 
-      class Overload < FHIR::Model
+      class Overload < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Overload.id', 'min'=>0, 'max'=>1},

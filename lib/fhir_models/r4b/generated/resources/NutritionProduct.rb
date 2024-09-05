@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class NutritionProduct < FHIR::Model
+    class NutritionProduct < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['identifier', 'status']
       METADATA = {
@@ -35,18 +27,10 @@ module FHIR
         'note' => {'type'=>'Annotation', 'path'=>'NutritionProduct.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Nutrient < FHIR::Model
+      class Nutrient < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Nutrient.id', 'min'=>0, 'max'=>1},
@@ -63,18 +47,10 @@ module FHIR
         attr_accessor :amount            # 0-* [ Ratio ]
       end
 
-      class Ingredient < FHIR::Model
+      class Ingredient < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Ingredient.id', 'min'=>0, 'max'=>1},
@@ -91,18 +67,10 @@ module FHIR
         attr_accessor :amount            # 0-* [ Ratio ]
       end
 
-      class ProductCharacteristic < FHIR::Model
+      class ProductCharacteristic < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'string', 'Quantity', 'base64Binary', 'Attachment', 'boolean']
@@ -132,18 +100,10 @@ module FHIR
         attr_accessor :valueBoolean         # 1-1 boolean
       end
 
-      class Instance < FHIR::Model
+      class Instance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Instance.id', 'min'=>0, 'max'=>1},

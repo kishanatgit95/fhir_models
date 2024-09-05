@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class MedicationAdministration < FHIR::Model
+    class MedicationAdministration < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'medication' => ['CodeableConcept', 'Reference'],
@@ -50,18 +42,10 @@ module FHIR
         'eventHistory' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Provenance'], 'type'=>'Reference', 'path'=>'MedicationAdministration.eventHistory', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Performer < FHIR::Model
+      class Performer < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Performer.id', 'min'=>0, 'max'=>1},
@@ -78,18 +62,10 @@ module FHIR
         attr_accessor :actor             # 1-1 Reference(Practitioner|PractitionerRole|Patient|RelatedPerson|Device)
       end
 
-      class Dosage < FHIR::Model
+      class Dosage < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'rate' => ['Ratio', 'Quantity']

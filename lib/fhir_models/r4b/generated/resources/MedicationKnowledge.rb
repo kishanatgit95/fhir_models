@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class MedicationKnowledge < FHIR::Model
+    class MedicationKnowledge < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['classification', 'classification-type', 'code', 'doseform', 'ingredient', 'ingredient-code', 'manufacturer', 'monitoring-program-name', 'monitoring-program-type', 'monograph', 'monograph-type', 'source-cost', 'status']
       METADATA = {
@@ -47,18 +39,10 @@ module FHIR
         'kinetics' => {'type'=>'MedicationKnowledge::Kinetics', 'path'=>'MedicationKnowledge.kinetics', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class RelatedMedicationKnowledge < FHIR::Model
+      class RelatedMedicationKnowledge < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'RelatedMedicationKnowledge.id', 'min'=>0, 'max'=>1},
@@ -75,18 +59,10 @@ module FHIR
         attr_accessor :reference         # 1-* [ Reference(MedicationKnowledge) ]
       end
 
-      class Monograph < FHIR::Model
+      class Monograph < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Monograph.id', 'min'=>0, 'max'=>1},
@@ -103,18 +79,10 @@ module FHIR
         attr_accessor :source            # 0-1 Reference(DocumentReference|Media)
       end
 
-      class Ingredient < FHIR::Model
+      class Ingredient < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'item' => ['CodeableConcept', 'Reference']
@@ -138,18 +106,10 @@ module FHIR
         attr_accessor :strength            # 0-1 Ratio
       end
 
-      class Cost < FHIR::Model
+      class Cost < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Cost.id', 'min'=>0, 'max'=>1},
@@ -168,18 +128,10 @@ module FHIR
         attr_accessor :cost              # 1-1 Money
       end
 
-      class MonitoringProgram < FHIR::Model
+      class MonitoringProgram < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'MonitoringProgram.id', 'min'=>0, 'max'=>1},
@@ -196,18 +148,10 @@ module FHIR
         attr_accessor :name              # 0-1 string
       end
 
-      class AdministrationGuidelines < FHIR::Model
+      class AdministrationGuidelines < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'indication' => ['CodeableConcept', 'Reference']
@@ -222,18 +166,10 @@ module FHIR
           'patientCharacteristics' => {'type'=>'MedicationKnowledge::AdministrationGuidelines::PatientCharacteristics', 'path'=>'AdministrationGuidelines.patientCharacteristics', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Dosage < FHIR::Model
+        class Dosage < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Dosage.id', 'min'=>0, 'max'=>1},
@@ -250,18 +186,10 @@ module FHIR
           attr_accessor :dosage            # 1-* [ Dosage ]
         end
 
-        class PatientCharacteristics < FHIR::Model
+        class PatientCharacteristics < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'characteristic' => ['CodeableConcept', 'Quantity']
@@ -292,18 +220,10 @@ module FHIR
         attr_accessor :patientCharacteristics    # 0-* [ MedicationKnowledge::AdministrationGuidelines::PatientCharacteristics ]
       end
 
-      class MedicineClassification < FHIR::Model
+      class MedicineClassification < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'MedicineClassification.id', 'min'=>0, 'max'=>1},
@@ -320,18 +240,10 @@ module FHIR
         attr_accessor :classification    # 0-* [ CodeableConcept ]
       end
 
-      class Packaging < FHIR::Model
+      class Packaging < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Packaging.id', 'min'=>0, 'max'=>1},
@@ -348,18 +260,10 @@ module FHIR
         attr_accessor :quantity          # 0-1 Quantity
       end
 
-      class DrugCharacteristic < FHIR::Model
+      class DrugCharacteristic < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'string', 'Quantity', 'base64Binary']
@@ -385,18 +289,10 @@ module FHIR
         attr_accessor :valueBase64Binary    # 0-1 base64Binary
       end
 
-      class Regulatory < FHIR::Model
+      class Regulatory < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Regulatory.id', 'min'=>0, 'max'=>1},
@@ -408,18 +304,10 @@ module FHIR
           'maxDispense' => {'type'=>'MedicationKnowledge::Regulatory::MaxDispense', 'path'=>'Regulatory.maxDispense', 'min'=>0, 'max'=>1}
         }
 
-        class Substitution < FHIR::Model
+        class Substitution < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Substitution.id', 'min'=>0, 'max'=>1},
@@ -436,18 +324,10 @@ module FHIR
           attr_accessor :allowed           # 1-1 boolean
         end
 
-        class Schedule < FHIR::Model
+        class Schedule < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Schedule.id', 'min'=>0, 'max'=>1},
@@ -462,18 +342,10 @@ module FHIR
           attr_accessor :schedule          # 1-1 CodeableConcept
         end
 
-        class MaxDispense < FHIR::Model
+        class MaxDispense < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'MaxDispense.id', 'min'=>0, 'max'=>1},
@@ -499,18 +371,10 @@ module FHIR
         attr_accessor :maxDispense         # 0-1 MedicationKnowledge::Regulatory::MaxDispense
       end
 
-      class Kinetics < FHIR::Model
+      class Kinetics < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Kinetics.id', 'min'=>0, 'max'=>1},

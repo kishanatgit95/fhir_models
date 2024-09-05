@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Device < FHIR::Model
+    class Device < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['device-name', 'identifier', 'location', 'manufacturer', 'model', 'organization', 'patient', 'status', 'type', 'udi-carrier', 'udi-di', 'url']
       METADATA = {
@@ -51,18 +43,10 @@ module FHIR
         'parent' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Device'], 'type'=>'Reference', 'path'=>'Device.parent', 'min'=>0, 'max'=>1}
       }
 
-      class UdiCarrier < FHIR::Model
+      class UdiCarrier < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'UdiCarrier.id', 'min'=>0, 'max'=>1},
@@ -87,18 +71,10 @@ module FHIR
         attr_accessor :entryType         # 0-1 code
       end
 
-      class DeviceName < FHIR::Model
+      class DeviceName < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'DeviceName.id', 'min'=>0, 'max'=>1},
@@ -115,18 +91,10 @@ module FHIR
         attr_accessor :type              # 1-1 code
       end
 
-      class Specialization < FHIR::Model
+      class Specialization < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Specialization.id', 'min'=>0, 'max'=>1},
@@ -143,18 +111,10 @@ module FHIR
         attr_accessor :version           # 0-1 string
       end
 
-      class Version < FHIR::Model
+      class Version < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Version.id', 'min'=>0, 'max'=>1},
@@ -173,18 +133,10 @@ module FHIR
         attr_accessor :value             # 1-1 string
       end
 
-      class Property < FHIR::Model
+      class Property < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Property.id', 'min'=>0, 'max'=>1},

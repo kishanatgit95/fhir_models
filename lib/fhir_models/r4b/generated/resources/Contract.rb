@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Contract < FHIR::Model
+    class Contract < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'topic' => ['CodeableConcept', 'Reference'],
@@ -64,18 +56,10 @@ module FHIR
         'legallyBindingReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Composition', 'http://hl7.org/fhir/StructureDefinition/DocumentReference', 'http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse', 'http://hl7.org/fhir/StructureDefinition/Contract'], 'type'=>'Reference', 'path'=>'Contract.legallyBinding[x]', 'min'=>0, 'max'=>1}
       }
 
-      class ContentDefinition < FHIR::Model
+      class ContentDefinition < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ContentDefinition.id', 'min'=>0, 'max'=>1},
@@ -100,18 +84,10 @@ module FHIR
         attr_accessor :copyright         # 0-1 markdown
       end
 
-      class Term < FHIR::Model
+      class Term < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'topic' => ['CodeableConcept', 'Reference']
@@ -135,18 +111,10 @@ module FHIR
           'group' => {'type'=>'Contract::Term', 'path'=>'Term.group', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class SecurityLabel < FHIR::Model
+        class SecurityLabel < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'SecurityLabel.id', 'min'=>0, 'max'=>1},
@@ -167,18 +135,10 @@ module FHIR
           attr_accessor :control           # 0-* [ Coding ]
         end
 
-        class Offer < FHIR::Model
+        class Offer < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Offer.id', 'min'=>0, 'max'=>1},
@@ -196,18 +156,10 @@ module FHIR
             'securityLabelNumber' => {'type'=>'unsignedInt', 'path'=>'Offer.securityLabelNumber', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Party < FHIR::Model
+          class Party < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Party.id', 'min'=>0, 'max'=>1},
@@ -224,18 +176,10 @@ module FHIR
             attr_accessor :role              # 1-1 CodeableConcept
           end
 
-          class Answer < FHIR::Model
+          class Answer < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             MULTIPLE_TYPES = {
               'value' => ['boolean', 'decimal', 'integer', 'date', 'dateTime', 'time', 'string', 'uri', 'Attachment', 'Coding', 'Quantity', 'Reference']
@@ -290,18 +234,10 @@ module FHIR
           attr_accessor :securityLabelNumber # 0-* [ unsignedInt ]
         end
 
-        class Asset < FHIR::Model
+        class Asset < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Asset.id', 'min'=>0, 'max'=>1},
@@ -324,18 +260,10 @@ module FHIR
             'valuedItem' => {'type'=>'Contract::Term::Asset::ValuedItem', 'path'=>'Asset.valuedItem', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Context < FHIR::Model
+          class Context < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Context.id', 'min'=>0, 'max'=>1},
@@ -354,18 +282,10 @@ module FHIR
             attr_accessor :text              # 0-1 string
           end
 
-          class ValuedItem < FHIR::Model
+          class ValuedItem < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             MULTIPLE_TYPES = {
               'entity' => ['CodeableConcept', 'Reference']
@@ -431,18 +351,10 @@ module FHIR
           attr_accessor :valuedItem          # 0-* [ Contract::Term::Asset::ValuedItem ]
         end
 
-        class Action < FHIR::Model
+        class Action < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'occurrence' => ['dateTime', 'Period', 'Timing']
@@ -476,18 +388,10 @@ module FHIR
             'securityLabelNumber' => {'type'=>'unsignedInt', 'path'=>'Action.securityLabelNumber', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Subject < FHIR::Model
+          class Subject < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Subject.id', 'min'=>0, 'max'=>1},
@@ -550,18 +454,10 @@ module FHIR
         attr_accessor :group                # 0-* [ Contract::Term ]
       end
 
-      class Signer < FHIR::Model
+      class Signer < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Signer.id', 'min'=>0, 'max'=>1},
@@ -580,18 +476,10 @@ module FHIR
         attr_accessor :signature         # 1-* [ Signature ]
       end
 
-      class Friendly < FHIR::Model
+      class Friendly < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'content' => ['Attachment', 'Reference']
@@ -611,18 +499,10 @@ module FHIR
         attr_accessor :contentReference  # 1-1 Reference(Composition|DocumentReference|QuestionnaireResponse)
       end
 
-      class Legal < FHIR::Model
+      class Legal < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'content' => ['Attachment', 'Reference']
@@ -642,18 +522,10 @@ module FHIR
         attr_accessor :contentReference  # 1-1 Reference(Composition|DocumentReference|QuestionnaireResponse)
       end
 
-      class Rule < FHIR::Model
+      class Rule < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'content' => ['Attachment', 'Reference']

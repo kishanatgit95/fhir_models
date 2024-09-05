@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class UsageContext < FHIR::Model
+    class UsageContext < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'value' => ['CodeableConcept', 'Quantity', 'Range', 'Reference']

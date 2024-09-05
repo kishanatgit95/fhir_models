@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class ResearchElementDefinition < FHIR::Model
+    class ResearchElementDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'subject' => ['CodeableConcept', 'Reference']
@@ -62,18 +54,10 @@ module FHIR
         'characteristic' => {'type'=>'ResearchElementDefinition::Characteristic', 'path'=>'ResearchElementDefinition.characteristic', 'min'=>1, 'max'=>Float::INFINITY}
       }
 
-      class Characteristic < FHIR::Model
+      class Characteristic < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'definition' => ['CodeableConcept', 'canonical', 'Expression', 'DataRequirement'],

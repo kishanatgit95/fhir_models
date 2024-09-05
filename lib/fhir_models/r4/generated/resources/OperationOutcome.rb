@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class OperationOutcome < FHIR::Model
+    class OperationOutcome < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -26,18 +18,10 @@ module FHIR
         'issue' => {'type'=>'OperationOutcome::Issue', 'path'=>'OperationOutcome.issue', 'min'=>1, 'max'=>Float::INFINITY}
       }
 
-      class Issue < FHIR::Model
+      class Issue < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Issue.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class RegulatedAuthorization < FHIR::Model
+    class RegulatedAuthorization < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['case', 'case-type', 'holder', 'identifier', 'region', 'status', 'subject']
       METADATA = {
@@ -39,18 +31,10 @@ module FHIR
         'case' => {'type'=>'RegulatedAuthorization::Case', 'path'=>'RegulatedAuthorization.case', 'min'=>0, 'max'=>1}
       }
 
-      class Case < FHIR::Model
+      class Case < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'date' => ['Period', 'dateTime']

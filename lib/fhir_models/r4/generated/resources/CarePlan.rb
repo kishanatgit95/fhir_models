@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class CarePlan < FHIR::Model
+    class CarePlan < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['activity-code', 'activity-date', 'activity-reference', 'based-on', 'care-team', 'category', 'condition', 'date', 'encounter', 'goal', 'identifier', 'instantiates-canonical', 'instantiates-uri', 'intent', 'part-of', 'patient', 'performer', 'replaces', 'status', 'subject']
       METADATA = {
@@ -48,18 +40,10 @@ module FHIR
         'note' => {'type'=>'Annotation', 'path'=>'CarePlan.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Activity < FHIR::Model
+      class Activity < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Activity.id', 'min'=>0, 'max'=>1},
@@ -72,18 +56,10 @@ module FHIR
           'detail' => {'type'=>'CarePlan::Activity::Detail', 'path'=>'Activity.detail', 'min'=>0, 'max'=>1}
         }
 
-        class Detail < FHIR::Model
+        class Detail < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'scheduled' => ['Timing', 'Period', 'string'],

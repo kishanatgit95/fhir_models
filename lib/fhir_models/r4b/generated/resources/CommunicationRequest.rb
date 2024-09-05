@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class CommunicationRequest < FHIR::Model
+    class CommunicationRequest < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period']
@@ -51,18 +43,10 @@ module FHIR
         'note' => {'type'=>'Annotation', 'path'=>'CommunicationRequest.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Payload < FHIR::Model
+      class Payload < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'content' => ['string', 'Attachment', 'Reference']

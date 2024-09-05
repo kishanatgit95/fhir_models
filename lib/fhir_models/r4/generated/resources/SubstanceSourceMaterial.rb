@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class SubstanceSourceMaterial < FHIR::Model
+    class SubstanceSourceMaterial < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -38,18 +30,10 @@ module FHIR
         'partDescription' => {'type'=>'SubstanceSourceMaterial::PartDescription', 'path'=>'SubstanceSourceMaterial.partDescription', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class FractionDescription < FHIR::Model
+      class FractionDescription < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'FractionDescription.id', 'min'=>0, 'max'=>1},
@@ -66,18 +50,10 @@ module FHIR
         attr_accessor :materialType      # 0-1 CodeableConcept
       end
 
-      class Organism < FHIR::Model
+      class Organism < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Organism.id', 'min'=>0, 'max'=>1},
@@ -93,18 +69,10 @@ module FHIR
           'organismGeneral' => {'type'=>'SubstanceSourceMaterial::Organism::OrganismGeneral', 'path'=>'Organism.organismGeneral', 'min'=>0, 'max'=>1}
         }
 
-        class Author < FHIR::Model
+        class Author < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Author.id', 'min'=>0, 'max'=>1},
@@ -121,18 +89,10 @@ module FHIR
           attr_accessor :authorDescription # 0-1 string
         end
 
-        class Hybrid < FHIR::Model
+        class Hybrid < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Hybrid.id', 'min'=>0, 'max'=>1},
@@ -155,18 +115,10 @@ module FHIR
           attr_accessor :hybridType           # 0-1 CodeableConcept
         end
 
-        class OrganismGeneral < FHIR::Model
+        class OrganismGeneral < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'OrganismGeneral.id', 'min'=>0, 'max'=>1},
@@ -200,18 +152,10 @@ module FHIR
         attr_accessor :organismGeneral          # 0-1 SubstanceSourceMaterial::Organism::OrganismGeneral
       end
 
-      class PartDescription < FHIR::Model
+      class PartDescription < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'PartDescription.id', 'min'=>0, 'max'=>1},

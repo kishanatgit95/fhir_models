@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class CompartmentDefinition < FHIR::Model
+    class CompartmentDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['code', 'context', 'context-quantity', 'context-type', 'date', 'description', 'name', 'publisher', 'resource', 'status', 'url', 'version']
       METADATA = {
@@ -39,18 +31,10 @@ module FHIR
         'resource' => {'type'=>'CompartmentDefinition::Resource', 'path'=>'CompartmentDefinition.resource', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Resource < FHIR::Model
+      class Resource < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Resource.id', 'min'=>0, 'max'=>1},

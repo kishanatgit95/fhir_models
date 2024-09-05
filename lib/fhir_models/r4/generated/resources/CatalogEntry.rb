@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class CatalogEntry < FHIR::Model
+    class CatalogEntry < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -38,18 +30,10 @@ module FHIR
         'relatedEntry' => {'type'=>'CatalogEntry::RelatedEntry', 'path'=>'CatalogEntry.relatedEntry', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class RelatedEntry < FHIR::Model
+      class RelatedEntry < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'RelatedEntry.id', 'min'=>0, 'max'=>1},

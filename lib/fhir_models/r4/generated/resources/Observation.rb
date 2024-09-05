@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Observation < FHIR::Model
+    class Observation < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'effective' => ['dateTime', 'Period', 'Timing', 'instant'],
@@ -66,18 +58,10 @@ module FHIR
         'component' => {'type'=>'Observation::Component', 'path'=>'Observation.component', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class ReferenceRange < FHIR::Model
+      class ReferenceRange < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ReferenceRange.id', 'min'=>0, 'max'=>1},
@@ -102,18 +86,10 @@ module FHIR
         attr_accessor :text              # 0-1 string
       end
 
-      class Component < FHIR::Model
+      class Component < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['Quantity', 'CodeableConcept', 'string', 'boolean', 'integer', 'Range', 'Ratio', 'SampledData', 'time', 'dateTime', 'Period']

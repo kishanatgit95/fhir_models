@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Endpoint < FHIR::Model
+    class Endpoint < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['connection-type', 'identifier', 'name', 'organization', 'payload-type', 'status']
       METADATA = {

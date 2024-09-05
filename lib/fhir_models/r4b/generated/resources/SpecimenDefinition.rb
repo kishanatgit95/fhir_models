@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class SpecimenDefinition < FHIR::Model
+    class SpecimenDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['container', 'identifier', 'type']
       METADATA = {
@@ -31,18 +23,10 @@ module FHIR
         'typeTested' => {'type'=>'SpecimenDefinition::TypeTested', 'path'=>'SpecimenDefinition.typeTested', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class TypeTested < FHIR::Model
+      class TypeTested < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'TypeTested.id', 'min'=>0, 'max'=>1},
@@ -58,18 +42,10 @@ module FHIR
           'handling' => {'type'=>'SpecimenDefinition::TypeTested::Handling', 'path'=>'TypeTested.handling', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Container < FHIR::Model
+        class Container < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'minimumVolume' => ['Quantity', 'string']
@@ -89,18 +65,10 @@ module FHIR
             'preparation' => {'type'=>'string', 'path'=>'Container.preparation', 'min'=>0, 'max'=>1}
           }
 
-          class Additive < FHIR::Model
+          class Additive < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             MULTIPLE_TYPES = {
               'additive' => ['CodeableConcept', 'Reference']
@@ -134,18 +102,10 @@ module FHIR
           attr_accessor :preparation           # 0-1 string
         end
 
-        class Handling < FHIR::Model
+        class Handling < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Handling.id', 'min'=>0, 'max'=>1},

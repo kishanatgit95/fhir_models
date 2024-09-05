@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class EvidenceVariable < FHIR::Model
+    class EvidenceVariable < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'identifier', 'name', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -49,18 +41,10 @@ module FHIR
         'category' => {'type'=>'EvidenceVariable::Category', 'path'=>'EvidenceVariable.category', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Characteristic < FHIR::Model
+      class Characteristic < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'definition' => ['Reference', 'canonical', 'CodeableConcept', 'Expression']
@@ -81,18 +65,10 @@ module FHIR
           'groupMeasure' => {'valid_codes'=>{'http://hl7.org/fhir/group-measure'=>['mean', 'median', 'mean-of-mean', 'mean-of-median', 'median-of-mean', 'median-of-median']}, 'type'=>'code', 'path'=>'Characteristic.groupMeasure', 'min'=>0, 'max'=>1, 'binding'=>{'strength'=>'required', 'uri'=>'http://hl7.org/fhir/ValueSet/group-measure'}}
         }
 
-        class TimeFromStart < FHIR::Model
+        class TimeFromStart < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'TimeFromStart.id', 'min'=>0, 'max'=>1},
@@ -128,18 +104,10 @@ module FHIR
         attr_accessor :groupMeasure              # 0-1 code
       end
 
-      class Category < FHIR::Model
+      class Category < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'Quantity', 'Range']

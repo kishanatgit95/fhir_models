@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Ingredient < FHIR::Model
+    class Ingredient < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['for', 'function', 'identifier', 'manufacturer', 'role', 'substance', 'substance-code', 'substance-definition']
       METADATA = {
@@ -33,18 +25,10 @@ module FHIR
         'substance' => {'type'=>'Ingredient::Substance', 'path'=>'Ingredient.substance', 'min'=>1, 'max'=>1}
       }
 
-      class Manufacturer < FHIR::Model
+      class Manufacturer < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Manufacturer.id', 'min'=>0, 'max'=>1},
@@ -61,18 +45,10 @@ module FHIR
         attr_accessor :manufacturer      # 1-1 Reference(Organization)
       end
 
-      class Substance < FHIR::Model
+      class Substance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Substance.id', 'min'=>0, 'max'=>1},
@@ -82,18 +58,10 @@ module FHIR
           'strength' => {'type'=>'Ingredient::Substance::Strength', 'path'=>'Substance.strength', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Strength < FHIR::Model
+        class Strength < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'presentation' => ['Ratio', 'RatioRange'],
@@ -114,18 +82,10 @@ module FHIR
             'referenceStrength' => {'type'=>'Ingredient::Substance::Strength::ReferenceStrength', 'path'=>'Strength.referenceStrength', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class ReferenceStrength < FHIR::Model
+          class ReferenceStrength < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             MULTIPLE_TYPES = {
               'strength' => ['Ratio', 'RatioRange']

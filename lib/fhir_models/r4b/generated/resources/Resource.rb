@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Resource < FHIR::Model
+    class Resource < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['_id', '_id', '_lastUpdated', '_profile', '_security', '_source', '_tag']
       METADATA = {

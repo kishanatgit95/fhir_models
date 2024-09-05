@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class CapabilityStatement < FHIR::Model
+    class CapabilityStatement < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'fhirversion', 'format', 'guide', 'jurisdiction', 'mode', 'name', 'publisher', 'resource', 'resource-profile', 'security-service', 'software', 'status', 'supported-profile', 'title', 'url', 'version']
       METADATA = {
@@ -51,18 +43,10 @@ module FHIR
         'document' => {'type'=>'CapabilityStatement::Document', 'path'=>'CapabilityStatement.document', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Software < FHIR::Model
+      class Software < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Software.id', 'min'=>0, 'max'=>1},
@@ -81,18 +65,10 @@ module FHIR
         attr_accessor :releaseDate       # 0-1 dateTime
       end
 
-      class Implementation < FHIR::Model
+      class Implementation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Implementation.id', 'min'=>0, 'max'=>1},
@@ -111,18 +87,10 @@ module FHIR
         attr_accessor :custodian         # 0-1 Reference(Organization)
       end
 
-      class Rest < FHIR::Model
+      class Rest < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Rest.id', 'min'=>0, 'max'=>1},
@@ -138,18 +106,10 @@ module FHIR
           'compartment' => {'type'=>'canonical', 'path'=>'Rest.compartment', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Security < FHIR::Model
+        class Security < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Security.id', 'min'=>0, 'max'=>1},
@@ -168,18 +128,10 @@ module FHIR
           attr_accessor :description       # 0-1 markdown
         end
 
-        class Resource < FHIR::Model
+        class Resource < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Resource.id', 'min'=>0, 'max'=>1},
@@ -204,18 +156,10 @@ module FHIR
             'operation' => {'type'=>'CapabilityStatement::Rest::Resource::Operation', 'path'=>'Resource.operation', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Interaction < FHIR::Model
+          class Interaction < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Interaction.id', 'min'=>0, 'max'=>1},
@@ -232,18 +176,10 @@ module FHIR
             attr_accessor :documentation     # 0-1 markdown
           end
 
-          class SearchParam < FHIR::Model
+          class SearchParam < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'SearchParam.id', 'min'=>0, 'max'=>1},
@@ -264,18 +200,10 @@ module FHIR
             attr_accessor :documentation     # 0-1 markdown
           end
 
-          class Operation < FHIR::Model
+          class Operation < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Operation.id', 'min'=>0, 'max'=>1},
@@ -316,18 +244,10 @@ module FHIR
           attr_accessor :operation         # 0-* [ CapabilityStatement::Rest::Resource::Operation ]
         end
 
-        class Interaction < FHIR::Model
+        class Interaction < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Interaction.id', 'min'=>0, 'max'=>1},
@@ -357,18 +277,10 @@ module FHIR
         attr_accessor :compartment       # 0-* [ canonical ]
       end
 
-      class Messaging < FHIR::Model
+      class Messaging < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Messaging.id', 'min'=>0, 'max'=>1},
@@ -380,18 +292,10 @@ module FHIR
           'supportedMessage' => {'type'=>'CapabilityStatement::Messaging::SupportedMessage', 'path'=>'Messaging.supportedMessage', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Endpoint < FHIR::Model
+        class Endpoint < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Endpoint.id', 'min'=>0, 'max'=>1},
@@ -408,18 +312,10 @@ module FHIR
           attr_accessor :address           # 1-1 url
         end
 
-        class SupportedMessage < FHIR::Model
+        class SupportedMessage < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'SupportedMessage.id', 'min'=>0, 'max'=>1},
@@ -445,18 +341,10 @@ module FHIR
         attr_accessor :supportedMessage  # 0-* [ CapabilityStatement::Messaging::SupportedMessage ]
       end
 
-      class Document < FHIR::Model
+      class Document < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Document.id', 'min'=>0, 'max'=>1},

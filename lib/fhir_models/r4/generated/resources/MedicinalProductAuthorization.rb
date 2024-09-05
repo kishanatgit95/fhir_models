@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class MedicinalProductAuthorization < FHIR::Model
+    class MedicinalProductAuthorization < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['country', 'holder', 'identifier', 'status', 'subject']
       METADATA = {
@@ -41,18 +33,10 @@ module FHIR
         'procedure' => {'type'=>'MedicinalProductAuthorization::Procedure', 'path'=>'MedicinalProductAuthorization.procedure', 'min'=>0, 'max'=>1}
       }
 
-      class JurisdictionalAuthorization < FHIR::Model
+      class JurisdictionalAuthorization < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'JurisdictionalAuthorization.id', 'min'=>0, 'max'=>1},
@@ -75,18 +59,10 @@ module FHIR
         attr_accessor :validityPeriod      # 0-1 Period
       end
 
-      class Procedure < FHIR::Model
+      class Procedure < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'date' => ['Period', 'dateTime']

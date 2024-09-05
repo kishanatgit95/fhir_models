@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class MedicinalProductPharmaceutical < FHIR::Model
+    class MedicinalProductPharmaceutical < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['identifier', 'route', 'target-species']
       METADATA = {
@@ -32,18 +24,10 @@ module FHIR
         'routeOfAdministration' => {'type'=>'MedicinalProductPharmaceutical::RouteOfAdministration', 'path'=>'MedicinalProductPharmaceutical.routeOfAdministration', 'min'=>1, 'max'=>Float::INFINITY}
       }
 
-      class Characteristics < FHIR::Model
+      class Characteristics < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Characteristics.id', 'min'=>0, 'max'=>1},
@@ -60,18 +44,10 @@ module FHIR
         attr_accessor :status            # 0-1 CodeableConcept
       end
 
-      class RouteOfAdministration < FHIR::Model
+      class RouteOfAdministration < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'RouteOfAdministration.id', 'min'=>0, 'max'=>1},
@@ -86,18 +62,10 @@ module FHIR
           'targetSpecies' => {'type'=>'MedicinalProductPharmaceutical::RouteOfAdministration::TargetSpecies', 'path'=>'RouteOfAdministration.targetSpecies', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class TargetSpecies < FHIR::Model
+        class TargetSpecies < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'TargetSpecies.id', 'min'=>0, 'max'=>1},
@@ -107,18 +75,10 @@ module FHIR
             'withdrawalPeriod' => {'type'=>'MedicinalProductPharmaceutical::RouteOfAdministration::TargetSpecies::WithdrawalPeriod', 'path'=>'TargetSpecies.withdrawalPeriod', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class WithdrawalPeriod < FHIR::Model
+          class WithdrawalPeriod < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'WithdrawalPeriod.id', 'min'=>0, 'max'=>1},

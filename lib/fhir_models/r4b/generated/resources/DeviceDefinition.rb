@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class DeviceDefinition < FHIR::Model
+    class DeviceDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'manufacturer' => ['string', 'Reference']
@@ -51,18 +43,10 @@ module FHIR
         'material' => {'type'=>'DeviceDefinition::Material', 'path'=>'DeviceDefinition.material', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class UdiDeviceIdentifier < FHIR::Model
+      class UdiDeviceIdentifier < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'UdiDeviceIdentifier.id', 'min'=>0, 'max'=>1},
@@ -81,18 +65,10 @@ module FHIR
         attr_accessor :jurisdiction      # 1-1 uri
       end
 
-      class DeviceName < FHIR::Model
+      class DeviceName < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'DeviceName.id', 'min'=>0, 'max'=>1},
@@ -109,18 +85,10 @@ module FHIR
         attr_accessor :type              # 1-1 code
       end
 
-      class Specialization < FHIR::Model
+      class Specialization < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Specialization.id', 'min'=>0, 'max'=>1},
@@ -137,18 +105,10 @@ module FHIR
         attr_accessor :version           # 0-1 string
       end
 
-      class Capability < FHIR::Model
+      class Capability < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Capability.id', 'min'=>0, 'max'=>1},
@@ -165,18 +125,10 @@ module FHIR
         attr_accessor :description       # 0-* [ CodeableConcept ]
       end
 
-      class Property < FHIR::Model
+      class Property < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Property.id', 'min'=>0, 'max'=>1},
@@ -195,18 +147,10 @@ module FHIR
         attr_accessor :valueCode         # 0-* [ CodeableConcept ]
       end
 
-      class Material < FHIR::Model
+      class Material < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Material.id', 'min'=>0, 'max'=>1},

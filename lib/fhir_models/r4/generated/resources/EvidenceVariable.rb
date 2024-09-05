@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class EvidenceVariable < FHIR::Model
+    class EvidenceVariable < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['composed-of', 'context', 'context-quantity', 'context-type', 'date', 'depends-on', 'derived-from', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'predecessor', 'publisher', 'status', 'successor', 'title', 'topic', 'url', 'version']
       METADATA = {
@@ -52,18 +44,10 @@ module FHIR
         'characteristic' => {'type'=>'EvidenceVariable::Characteristic', 'path'=>'EvidenceVariable.characteristic', 'min'=>1, 'max'=>Float::INFINITY}
       }
 
-      class Characteristic < FHIR::Model
+      class Characteristic < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'definition' => ['Reference', 'canonical', 'CodeableConcept', 'Expression', 'DataRequirement', 'TriggerDefinition'],

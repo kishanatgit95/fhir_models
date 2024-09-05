@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Element < FHIR::Model
+    class Element < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {

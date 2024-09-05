@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class ConceptMap < FHIR::Model
+    class ConceptMap < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'source' => ['uri', 'canonical'],
@@ -49,18 +41,10 @@ module FHIR
         'group' => {'type'=>'ConceptMap::Group', 'path'=>'ConceptMap.group', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Group < FHIR::Model
+      class Group < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
@@ -74,18 +58,10 @@ module FHIR
           'unmapped' => {'type'=>'ConceptMap::Group::Unmapped', 'path'=>'Group.unmapped', 'min'=>0, 'max'=>1}
         }
 
-        class Element < FHIR::Model
+        class Element < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Element.id', 'min'=>0, 'max'=>1},
@@ -96,18 +72,10 @@ module FHIR
             'target' => {'type'=>'ConceptMap::Group::Element::Target', 'path'=>'Element.target', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Target < FHIR::Model
+          class Target < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Target.id', 'min'=>0, 'max'=>1},
@@ -121,18 +89,10 @@ module FHIR
               'product' => {'type'=>'ConceptMap::Group::Element::Target::DependsOn', 'path'=>'Target.product', 'min'=>0, 'max'=>Float::INFINITY}
             }
 
-            class DependsOn < FHIR::Model
+            class DependsOn < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4B'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4B
-              end
 
               METADATA = {
                 'id' => {'type'=>'string', 'path'=>'DependsOn.id', 'min'=>0, 'max'=>1},
@@ -172,18 +132,10 @@ module FHIR
           attr_accessor :target            # 0-* [ ConceptMap::Group::Element::Target ]
         end
 
-        class Unmapped < FHIR::Model
+        class Unmapped < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Unmapped.id', 'min'=>0, 'max'=>1},

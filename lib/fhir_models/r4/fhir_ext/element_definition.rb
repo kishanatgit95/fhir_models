@@ -1,6 +1,6 @@
 module FHIR
   module R4
-    class ElementDefinition < FHIR::Model
+    class ElementDefinition < Model
       include FHIR::CommonElementDefinition
 
       def self.fhir_version_string

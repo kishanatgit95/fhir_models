@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Evidence < FHIR::Model
+    class Evidence < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'citeAs' => ['Reference', 'markdown']
@@ -54,18 +46,10 @@ module FHIR
         'certainty' => {'type'=>'Evidence::Certainty', 'path'=>'Evidence.certainty', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class VariableDefinition < FHIR::Model
+      class VariableDefinition < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'VariableDefinition.id', 'min'=>0, 'max'=>1},
@@ -90,18 +74,10 @@ module FHIR
         attr_accessor :directnessMatch   # 0-1 CodeableConcept
       end
 
-      class Statistic < FHIR::Model
+      class Statistic < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Statistic.id', 'min'=>0, 'max'=>1},
@@ -119,18 +95,10 @@ module FHIR
           'modelCharacteristic' => {'type'=>'Evidence::Statistic::ModelCharacteristic', 'path'=>'Statistic.modelCharacteristic', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class SampleSize < FHIR::Model
+        class SampleSize < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'SampleSize.id', 'min'=>0, 'max'=>1},
@@ -153,18 +121,10 @@ module FHIR
           attr_accessor :knownDataCount       # 0-1 unsignedInt
         end
 
-        class AttributeEstimate < FHIR::Model
+        class AttributeEstimate < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'AttributeEstimate.id', 'min'=>0, 'max'=>1},
@@ -191,18 +151,10 @@ module FHIR
           attr_accessor :attributeEstimate # 0-* [ Evidence::Statistic::AttributeEstimate ]
         end
 
-        class ModelCharacteristic < FHIR::Model
+        class ModelCharacteristic < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'ModelCharacteristic.id', 'min'=>0, 'max'=>1},
@@ -214,18 +166,10 @@ module FHIR
             'attributeEstimate' => {'type'=>'Evidence::Statistic::AttributeEstimate', 'path'=>'ModelCharacteristic.attributeEstimate', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Variable < FHIR::Model
+          class Variable < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Variable.id', 'min'=>0, 'max'=>1},
@@ -272,18 +216,10 @@ module FHIR
         attr_accessor :modelCharacteristic # 0-* [ Evidence::Statistic::ModelCharacteristic ]
       end
 
-      class Certainty < FHIR::Model
+      class Certainty < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Certainty.id', 'min'=>0, 'max'=>1},

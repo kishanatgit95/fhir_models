@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Medication < FHIR::Model
+    class Medication < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['code', 'expiration-date', 'form', 'identifier', 'ingredient', 'ingredient-code', 'lot-number', 'manufacturer', 'status']
       METADATA = {
@@ -33,18 +25,10 @@ module FHIR
         'batch' => {'type'=>'Medication::Batch', 'path'=>'Medication.batch', 'min'=>0, 'max'=>1}
       }
 
-      class Ingredient < FHIR::Model
+      class Ingredient < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'item' => ['CodeableConcept', 'Reference']
@@ -68,18 +52,10 @@ module FHIR
         attr_accessor :strength            # 0-1 Ratio
       end
 
-      class Batch < FHIR::Model
+      class Batch < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Batch.id', 'min'=>0, 'max'=>1},

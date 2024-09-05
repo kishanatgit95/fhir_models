@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class SubstanceReferenceInformation < FHIR::Model
+    class SubstanceReferenceInformation < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -30,18 +22,10 @@ module FHIR
         'target' => {'type'=>'SubstanceReferenceInformation::Target', 'path'=>'SubstanceReferenceInformation.target', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Gene < FHIR::Model
+      class Gene < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Gene.id', 'min'=>0, 'max'=>1},
@@ -60,18 +44,10 @@ module FHIR
         attr_accessor :source             # 0-* [ Reference(DocumentReference) ]
       end
 
-      class GeneElement < FHIR::Model
+      class GeneElement < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'GeneElement.id', 'min'=>0, 'max'=>1},
@@ -90,18 +66,10 @@ module FHIR
         attr_accessor :source            # 0-* [ Reference(DocumentReference) ]
       end
 
-      class Classification < FHIR::Model
+      class Classification < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Classification.id', 'min'=>0, 'max'=>1},
@@ -122,18 +90,10 @@ module FHIR
         attr_accessor :source            # 0-* [ Reference(DocumentReference) ]
       end
 
-      class Target < FHIR::Model
+      class Target < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'amount' => ['Quantity', 'Range', 'string']

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class SubstanceSpecification < FHIR::Model
+    class SubstanceSpecification < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['code']
       METADATA = {
@@ -44,18 +36,10 @@ module FHIR
         'sourceMaterial' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/SubstanceSourceMaterial'], 'type'=>'Reference', 'path'=>'SubstanceSpecification.sourceMaterial', 'min'=>0, 'max'=>1}
       }
 
-      class Moiety < FHIR::Model
+      class Moiety < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'amount' => ['Quantity', 'string']
@@ -87,18 +71,10 @@ module FHIR
         attr_accessor :amountString      # 0-1 string
       end
 
-      class Property < FHIR::Model
+      class Property < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'definingSubstance' => ['Reference', 'CodeableConcept'],
@@ -129,18 +105,10 @@ module FHIR
         attr_accessor :amountString                     # 0-1 string
       end
 
-      class Structure < FHIR::Model
+      class Structure < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Structure.id', 'min'=>0, 'max'=>1},
@@ -156,18 +124,10 @@ module FHIR
           'representation' => {'type'=>'SubstanceSpecification::Structure::Representation', 'path'=>'Structure.representation', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Isotope < FHIR::Model
+        class Isotope < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Isotope.id', 'min'=>0, 'max'=>1},
@@ -180,18 +140,10 @@ module FHIR
             'molecularWeight' => {'type'=>'SubstanceSpecification::Structure::Isotope::MolecularWeight', 'path'=>'Isotope.molecularWeight', 'min'=>0, 'max'=>1}
           }
 
-          class MolecularWeight < FHIR::Model
+          class MolecularWeight < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'MolecularWeight.id', 'min'=>0, 'max'=>1},
@@ -220,18 +172,10 @@ module FHIR
           attr_accessor :molecularWeight   # 0-1 SubstanceSpecification::Structure::Isotope::MolecularWeight
         end
 
-        class Representation < FHIR::Model
+        class Representation < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Representation.id', 'min'=>0, 'max'=>1},
@@ -263,18 +207,10 @@ module FHIR
         attr_accessor :representation           # 0-* [ SubstanceSpecification::Structure::Representation ]
       end
 
-      class Code < FHIR::Model
+      class Code < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Code.id', 'min'=>0, 'max'=>1},
@@ -297,18 +233,10 @@ module FHIR
         attr_accessor :source            # 0-* [ Reference(DocumentReference) ]
       end
 
-      class Name < FHIR::Model
+      class Name < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Name.id', 'min'=>0, 'max'=>1},
@@ -327,18 +255,10 @@ module FHIR
           'source' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/DocumentReference'], 'type'=>'Reference', 'path'=>'Name.source', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Official < FHIR::Model
+        class Official < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Official.id', 'min'=>0, 'max'=>1},
@@ -373,18 +293,10 @@ module FHIR
         attr_accessor :source            # 0-* [ Reference(DocumentReference) ]
       end
 
-      class Relationship < FHIR::Model
+      class Relationship < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'substance' => ['Reference', 'CodeableConcept'],

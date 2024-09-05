@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class EvidenceReport < FHIR::Model
+    class EvidenceReport < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'citeAs' => ['Reference', 'markdown']
@@ -47,18 +39,10 @@ module FHIR
         'section' => {'type'=>'EvidenceReport::Section', 'path'=>'EvidenceReport.section', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Subject < FHIR::Model
+      class Subject < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Subject.id', 'min'=>0, 'max'=>1},
@@ -68,18 +52,10 @@ module FHIR
           'note' => {'type'=>'Annotation', 'path'=>'Subject.note', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Characteristic < FHIR::Model
+        class Characteristic < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'value' => ['Reference', 'CodeableConcept', 'boolean', 'Quantity', 'Range']
@@ -118,18 +94,10 @@ module FHIR
         attr_accessor :note              # 0-* [ Annotation ]
       end
 
-      class RelatesTo < FHIR::Model
+      class RelatesTo < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'target' => ['Identifier', 'Reference']
@@ -151,18 +119,10 @@ module FHIR
         attr_accessor :targetReference   # 1-1 Reference(EvidenceReport)
       end
 
-      class Section < FHIR::Model
+      class Section < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Section.id', 'min'=>0, 'max'=>1},

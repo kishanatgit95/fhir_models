@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class BiologicallyDerivedProduct < FHIR::Model
+    class BiologicallyDerivedProduct < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -36,18 +28,10 @@ module FHIR
         'storage' => {'type'=>'BiologicallyDerivedProduct::Storage', 'path'=>'BiologicallyDerivedProduct.storage', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Collection < FHIR::Model
+      class Collection < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'collected' => ['dateTime', 'Period']
@@ -71,18 +55,10 @@ module FHIR
         attr_accessor :collectedPeriod   # 0-1 Period
       end
 
-      class Processing < FHIR::Model
+      class Processing < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'time' => ['dateTime', 'Period']
@@ -108,18 +84,10 @@ module FHIR
         attr_accessor :timePeriod        # 0-1 Period
       end
 
-      class Manipulation < FHIR::Model
+      class Manipulation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'time' => ['dateTime', 'Period']
@@ -141,18 +109,10 @@ module FHIR
         attr_accessor :timePeriod        # 0-1 Period
       end
 
-      class Storage < FHIR::Model
+      class Storage < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Storage.id', 'min'=>0, 'max'=>1},

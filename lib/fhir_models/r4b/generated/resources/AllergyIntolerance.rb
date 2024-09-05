@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class AllergyIntolerance < FHIR::Model
+    class AllergyIntolerance < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'onset' => ['dateTime', 'Age', 'Period', 'Range', 'string']
@@ -48,18 +40,10 @@ module FHIR
         'reaction' => {'type'=>'AllergyIntolerance::Reaction', 'path'=>'AllergyIntolerance.reaction', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Reaction < FHIR::Model
+      class Reaction < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Reaction.id', 'min'=>0, 'max'=>1},

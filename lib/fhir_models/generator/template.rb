@@ -62,7 +62,7 @@ module FHIR
           type = 'module'
           type = 'class' if index == @name.length - 1
           classdef = "#{space}#{type} #{name}"
-          classdef += ' < FHIR::Model' if type == 'class'
+          classdef += ' < Model' if type == 'class'
           s << classdef
         end
 
@@ -71,15 +71,6 @@ module FHIR
         s << "#{space}include FHIR::Hashable" unless @name.empty?
         s << "#{space}include FHIR::Json" unless @name.empty?
         s << "#{space}include FHIR::Xml" unless @name.empty?
-        s << ''
-
-        s << "#{space}def fhir_version_string"
-        s << "#{space}  '#{fhir_version}'"
-        s << "#{space}end"
-        s << ''
-        s << "#{space}def versioned_fhir_module"
-        s << "#{space}  FHIR::#{fhir_version}"
-        s << "#{space}end"
         s << ''
 
         # add mandatory METADATA constant

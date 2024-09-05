@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class CareTeam < FHIR::Model
+    class CareTeam < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['category', 'date', 'encounter', 'identifier', 'participant', 'patient', 'status', 'subject']
       METADATA = {
@@ -38,18 +30,10 @@ module FHIR
         'note' => {'type'=>'Annotation', 'path'=>'CareTeam.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Participant < FHIR::Model
+      class Participant < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Participant.id', 'min'=>0, 'max'=>1},

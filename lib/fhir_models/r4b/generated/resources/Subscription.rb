@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Subscription < FHIR::Model
+    class Subscription < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['contact', 'criteria', 'payload', 'status', 'type', 'url']
       METADATA = {
@@ -32,18 +24,10 @@ module FHIR
         'channel' => {'type'=>'Subscription::Channel', 'path'=>'Subscription.channel', 'min'=>1, 'max'=>1}
       }
 
-      class Channel < FHIR::Model
+      class Channel < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Channel.id', 'min'=>0, 'max'=>1},

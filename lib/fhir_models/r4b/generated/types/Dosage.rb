@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Dosage < FHIR::Model
+    class Dosage < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'asNeeded' => ['boolean', 'CodeableConcept']
@@ -37,18 +29,10 @@ module FHIR
         'maxDosePerLifetime' => {'type'=>'Quantity', 'path'=>'Dosage.maxDosePerLifetime', 'min'=>0, 'max'=>1}
       }
 
-      class DoseAndRate < FHIR::Model
+      class DoseAndRate < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'dose' => ['Range', 'Quantity'],

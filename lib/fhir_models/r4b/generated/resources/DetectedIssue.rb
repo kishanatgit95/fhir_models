@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class DetectedIssue < FHIR::Model
+    class DetectedIssue < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'identified' => ['dateTime', 'Period']
@@ -41,18 +33,10 @@ module FHIR
         'mitigation' => {'type'=>'DetectedIssue::Mitigation', 'path'=>'DetectedIssue.mitigation', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Evidence < FHIR::Model
+      class Evidence < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Evidence.id', 'min'=>0, 'max'=>1},
@@ -69,18 +53,10 @@ module FHIR
         attr_accessor :detail            # 0-* [ Reference(Resource) ]
       end
 
-      class Mitigation < FHIR::Model
+      class Mitigation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Mitigation.id', 'min'=>0, 'max'=>1},

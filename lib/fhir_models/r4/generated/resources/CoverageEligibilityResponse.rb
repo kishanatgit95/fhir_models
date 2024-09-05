@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class CoverageEligibilityResponse < FHIR::Model
+    class CoverageEligibilityResponse < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'serviced' => ['date', 'Period']
@@ -44,18 +36,10 @@ module FHIR
         'error' => {'type'=>'CoverageEligibilityResponse::Error', 'path'=>'CoverageEligibilityResponse.error', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Insurance < FHIR::Model
+      class Insurance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Insurance.id', 'min'=>0, 'max'=>1},
@@ -67,18 +51,10 @@ module FHIR
           'item' => {'type'=>'CoverageEligibilityResponse::Insurance::Item', 'path'=>'Insurance.item', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Item < FHIR::Model
+        class Item < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Item.id', 'min'=>0, 'max'=>1},
@@ -100,18 +76,10 @@ module FHIR
             'authorizationUrl' => {'type'=>'uri', 'path'=>'Item.authorizationUrl', 'min'=>0, 'max'=>1}
           }
 
-          class Benefit < FHIR::Model
+          class Benefit < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             MULTIPLE_TYPES = {
               'allowed' => ['unsignedInt', 'string', 'Money'],
@@ -170,18 +138,10 @@ module FHIR
         attr_accessor :item              # 0-* [ CoverageEligibilityResponse::Insurance::Item ]
       end
 
-      class Error < FHIR::Model
+      class Error < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Error.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Composition < FHIR::Model
+    class Composition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['attester', 'author', 'category', 'confidentiality', 'context', 'date', 'encounter', 'entry', 'identifier', 'patient', 'period', 'related-id', 'related-ref', 'section', 'status', 'subject', 'title', 'type']
       METADATA = {
@@ -40,18 +32,10 @@ module FHIR
         'section' => {'type'=>'Composition::Section', 'path'=>'Composition.section', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Attester < FHIR::Model
+      class Attester < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Attester.id', 'min'=>0, 'max'=>1},
@@ -70,18 +54,10 @@ module FHIR
         attr_accessor :party             # 0-1 Reference(Patient|RelatedPerson|Practitioner|PractitionerRole|Organization)
       end
 
-      class RelatesTo < FHIR::Model
+      class RelatesTo < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'target' => ['Identifier', 'Reference']
@@ -103,18 +79,10 @@ module FHIR
         attr_accessor :targetReference   # 1-1 Reference(Composition)
       end
 
-      class Event < FHIR::Model
+      class Event < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Event.id', 'min'=>0, 'max'=>1},
@@ -133,18 +101,10 @@ module FHIR
         attr_accessor :detail            # 0-* [ Reference(Resource) ]
       end
 
-      class Section < FHIR::Model
+      class Section < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Section.id', 'min'=>0, 'max'=>1},

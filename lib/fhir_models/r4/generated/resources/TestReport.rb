@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class TestReport < FHIR::Model
+    class TestReport < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['identifier', 'issued', 'participant', 'result', 'tester', 'testscript']
       METADATA = {
@@ -37,18 +29,10 @@ module FHIR
         'teardown' => {'type'=>'TestReport::Teardown', 'path'=>'TestReport.teardown', 'min'=>0, 'max'=>1}
       }
 
-      class Participant < FHIR::Model
+      class Participant < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Participant.id', 'min'=>0, 'max'=>1},
@@ -67,18 +51,10 @@ module FHIR
         attr_accessor :display           # 0-1 string
       end
 
-      class Setup < FHIR::Model
+      class Setup < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Setup.id', 'min'=>0, 'max'=>1},
@@ -87,18 +63,10 @@ module FHIR
           'action' => {'type'=>'TestReport::Setup::Action', 'path'=>'Setup.action', 'min'=>1, 'max'=>Float::INFINITY}
         }
 
-        class Action < FHIR::Model
+        class Action < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Action.id', 'min'=>0, 'max'=>1},
@@ -108,18 +76,10 @@ module FHIR
             'assert' => {'type'=>'TestReport::Setup::Action::Assert', 'path'=>'Action.assert', 'min'=>0, 'max'=>1}
           }
 
-          class Operation < FHIR::Model
+          class Operation < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Operation.id', 'min'=>0, 'max'=>1},
@@ -138,18 +98,10 @@ module FHIR
             attr_accessor :detail            # 0-1 uri
           end
 
-          class Assert < FHIR::Model
+          class Assert < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Assert.id', 'min'=>0, 'max'=>1},
@@ -181,18 +133,10 @@ module FHIR
         attr_accessor :action            # 1-* [ TestReport::Setup::Action ]
       end
 
-      class Test < FHIR::Model
+      class Test < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Test.id', 'min'=>0, 'max'=>1},
@@ -203,18 +147,10 @@ module FHIR
           'action' => {'type'=>'TestReport::Test::Action', 'path'=>'Test.action', 'min'=>1, 'max'=>Float::INFINITY}
         }
 
-        class Action < FHIR::Model
+        class Action < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Action.id', 'min'=>0, 'max'=>1},
@@ -239,18 +175,10 @@ module FHIR
         attr_accessor :action            # 1-* [ TestReport::Test::Action ]
       end
 
-      class Teardown < FHIR::Model
+      class Teardown < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Teardown.id', 'min'=>0, 'max'=>1},
@@ -259,18 +187,10 @@ module FHIR
           'action' => {'type'=>'TestReport::Teardown::Action', 'path'=>'Teardown.action', 'min'=>1, 'max'=>Float::INFINITY}
         }
 
-        class Action < FHIR::Model
+        class Action < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Action.id', 'min'=>0, 'max'=>1},

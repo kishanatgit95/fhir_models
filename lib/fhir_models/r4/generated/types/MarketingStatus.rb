@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class MarketingStatus < FHIR::Model
+    class MarketingStatus < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {

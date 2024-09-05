@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class SubscriptionStatus < FHIR::Model
+    class SubscriptionStatus < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -32,18 +24,10 @@ module FHIR
         'error' => {'valid_codes'=>{'http://terminology.hl7.org/CodeSystem/subscription-error'=>['dns-resolution-error', 'no-response', 'error-response']}, 'type'=>'CodeableConcept', 'path'=>'SubscriptionStatus.error', 'min'=>0, 'max'=>Float::INFINITY, 'binding'=>{'strength'=>'example', 'uri'=>'http://hl7.org/fhir/ValueSet/subscription-error'}}
       }
 
-      class NotificationEvent < FHIR::Model
+      class NotificationEvent < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'NotificationEvent.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class HealthcareService < FHIR::Model
+    class HealthcareService < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['active', 'characteristic', 'coverage-area', 'endpoint', 'identifier', 'location', 'name', 'organization', 'program', 'service-category', 'service-type', 'specialty']
       METADATA = {
@@ -49,18 +41,10 @@ module FHIR
         'endpoint' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Endpoint'], 'type'=>'Reference', 'path'=>'HealthcareService.endpoint', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Eligibility < FHIR::Model
+      class Eligibility < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Eligibility.id', 'min'=>0, 'max'=>1},
@@ -77,18 +61,10 @@ module FHIR
         attr_accessor :comment           # 0-1 markdown
       end
 
-      class AvailableTime < FHIR::Model
+      class AvailableTime < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'AvailableTime.id', 'min'=>0, 'max'=>1},
@@ -109,18 +85,10 @@ module FHIR
         attr_accessor :availableEndTime   # 0-1 time
       end
 
-      class NotAvailable < FHIR::Model
+      class NotAvailable < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'NotAvailable.id', 'min'=>0, 'max'=>1},

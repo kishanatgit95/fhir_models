@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class EffectEvidenceSynthesis < FHIR::Model
+    class EffectEvidenceSynthesis < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -58,18 +50,10 @@ module FHIR
         'certainty' => {'type'=>'EffectEvidenceSynthesis::Certainty', 'path'=>'EffectEvidenceSynthesis.certainty', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class SampleSize < FHIR::Model
+      class SampleSize < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SampleSize.id', 'min'=>0, 'max'=>1},
@@ -88,18 +72,10 @@ module FHIR
         attr_accessor :numberOfParticipants # 0-1 integer
       end
 
-      class ResultsByExposure < FHIR::Model
+      class ResultsByExposure < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ResultsByExposure.id', 'min'=>0, 'max'=>1},
@@ -120,18 +96,10 @@ module FHIR
         attr_accessor :riskEvidenceSynthesis # 1-1 Reference(RiskEvidenceSynthesis)
       end
 
-      class EffectEstimate < FHIR::Model
+      class EffectEstimate < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'EffectEstimate.id', 'min'=>0, 'max'=>1},
@@ -145,18 +113,10 @@ module FHIR
           'precisionEstimate' => {'type'=>'EffectEvidenceSynthesis::EffectEstimate::PrecisionEstimate', 'path'=>'EffectEstimate.precisionEstimate', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class PrecisionEstimate < FHIR::Model
+        class PrecisionEstimate < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'PrecisionEstimate.id', 'min'=>0, 'max'=>1},
@@ -188,18 +148,10 @@ module FHIR
         attr_accessor :precisionEstimate # 0-* [ EffectEvidenceSynthesis::EffectEstimate::PrecisionEstimate ]
       end
 
-      class Certainty < FHIR::Model
+      class Certainty < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Certainty.id', 'min'=>0, 'max'=>1},
@@ -210,18 +162,10 @@ module FHIR
           'certaintySubcomponent' => {'type'=>'EffectEvidenceSynthesis::Certainty::CertaintySubcomponent', 'path'=>'Certainty.certaintySubcomponent', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class CertaintySubcomponent < FHIR::Model
+        class CertaintySubcomponent < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'CertaintySubcomponent.id', 'min'=>0, 'max'=>1},

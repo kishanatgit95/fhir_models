@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Consent < FHIR::Model
+    class Consent < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'source' => ['Attachment', 'Reference']
@@ -42,18 +34,10 @@ module FHIR
         'provision' => {'type'=>'Consent::Provision', 'path'=>'Consent.provision', 'min'=>0, 'max'=>1}
       }
 
-      class Policy < FHIR::Model
+      class Policy < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Policy.id', 'min'=>0, 'max'=>1},
@@ -70,18 +54,10 @@ module FHIR
         attr_accessor :uri               # 0-1 uri
       end
 
-      class Verification < FHIR::Model
+      class Verification < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Verification.id', 'min'=>0, 'max'=>1},
@@ -100,18 +76,10 @@ module FHIR
         attr_accessor :verificationDate  # 0-1 dateTime
       end
 
-      class Provision < FHIR::Model
+      class Provision < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Provision.id', 'min'=>0, 'max'=>1},
@@ -130,18 +98,10 @@ module FHIR
           'provision' => {'type'=>'Consent::Provision', 'path'=>'Provision.provision', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Actor < FHIR::Model
+        class Actor < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Actor.id', 'min'=>0, 'max'=>1},
@@ -158,18 +118,10 @@ module FHIR
           attr_accessor :reference         # 1-1 Reference(Device|Group|CareTeam|Organization|Patient|Practitioner|RelatedPerson|PractitionerRole)
         end
 
-        class Data < FHIR::Model
+        class Data < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Data.id', 'min'=>0, 'max'=>1},

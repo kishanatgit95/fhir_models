@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class ClinicalImpression < FHIR::Model
+    class ClinicalImpression < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'effective' => ['dateTime', 'Period']
@@ -49,18 +41,10 @@ module FHIR
         'note' => {'type'=>'Annotation', 'path'=>'ClinicalImpression.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Investigation < FHIR::Model
+      class Investigation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Investigation.id', 'min'=>0, 'max'=>1},
@@ -77,18 +61,10 @@ module FHIR
         attr_accessor :item              # 0-* [ Reference(Observation|QuestionnaireResponse|FamilyMemberHistory|DiagnosticReport|RiskAssessment|ImagingStudy|Media) ]
       end
 
-      class Finding < FHIR::Model
+      class Finding < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Finding.id', 'min'=>0, 'max'=>1},

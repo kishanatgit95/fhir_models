@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class SubstancePolymer < FHIR::Model
+    class SubstancePolymer < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -31,18 +23,10 @@ module FHIR
         'repeat' => {'type'=>'SubstancePolymer::Repeat', 'path'=>'SubstancePolymer.repeat', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class MonomerSet < FHIR::Model
+      class MonomerSet < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'MonomerSet.id', 'min'=>0, 'max'=>1},
@@ -52,18 +36,10 @@ module FHIR
           'startingMaterial' => {'type'=>'SubstancePolymer::MonomerSet::StartingMaterial', 'path'=>'MonomerSet.startingMaterial', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class StartingMaterial < FHIR::Model
+        class StartingMaterial < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'StartingMaterial.id', 'min'=>0, 'max'=>1},
@@ -91,18 +67,10 @@ module FHIR
         attr_accessor :startingMaterial  # 0-* [ SubstancePolymer::MonomerSet::StartingMaterial ]
       end
 
-      class Repeat < FHIR::Model
+      class Repeat < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Repeat.id', 'min'=>0, 'max'=>1},
@@ -114,18 +82,10 @@ module FHIR
           'repeatUnit' => {'type'=>'SubstancePolymer::Repeat::RepeatUnit', 'path'=>'Repeat.repeatUnit', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class RepeatUnit < FHIR::Model
+        class RepeatUnit < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'RepeatUnit.id', 'min'=>0, 'max'=>1},
@@ -138,18 +98,10 @@ module FHIR
             'structuralRepresentation' => {'type'=>'SubstancePolymer::Repeat::RepeatUnit::StructuralRepresentation', 'path'=>'RepeatUnit.structuralRepresentation', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class DegreeOfPolymerisation < FHIR::Model
+          class DegreeOfPolymerisation < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'DegreeOfPolymerisation.id', 'min'=>0, 'max'=>1},
@@ -166,18 +118,10 @@ module FHIR
             attr_accessor :amount            # 0-1 SubstanceAmount
           end
 
-          class StructuralRepresentation < FHIR::Model
+          class StructuralRepresentation < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'StructuralRepresentation.id', 'min'=>0, 'max'=>1},

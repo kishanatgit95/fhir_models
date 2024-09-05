@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class SubstanceNucleicAcid < FHIR::Model
+    class SubstanceNucleicAcid < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -30,18 +22,10 @@ module FHIR
         'subunit' => {'type'=>'SubstanceNucleicAcid::Subunit', 'path'=>'SubstanceNucleicAcid.subunit', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Subunit < FHIR::Model
+      class Subunit < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Subunit.id', 'min'=>0, 'max'=>1},
@@ -57,18 +41,10 @@ module FHIR
           'sugar' => {'type'=>'SubstanceNucleicAcid::Subunit::Sugar', 'path'=>'Subunit.sugar', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Linkage < FHIR::Model
+        class Linkage < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Linkage.id', 'min'=>0, 'max'=>1},
@@ -89,18 +65,10 @@ module FHIR
           attr_accessor :residueSite       # 0-1 string
         end
 
-        class Sugar < FHIR::Model
+        class Sugar < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Sugar.id', 'min'=>0, 'max'=>1},

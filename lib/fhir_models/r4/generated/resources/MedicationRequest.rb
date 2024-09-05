@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class MedicationRequest < FHIR::Model
+    class MedicationRequest < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'reported' => ['boolean', 'Reference'],
@@ -63,18 +55,10 @@ module FHIR
         'eventHistory' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Provenance'], 'type'=>'Reference', 'path'=>'MedicationRequest.eventHistory', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class DispenseRequest < FHIR::Model
+      class DispenseRequest < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'DispenseRequest.id', 'min'=>0, 'max'=>1},
@@ -89,18 +73,10 @@ module FHIR
           'performer' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Organization'], 'type'=>'Reference', 'path'=>'DispenseRequest.performer', 'min'=>0, 'max'=>1}
         }
 
-        class InitialFill < FHIR::Model
+        class InitialFill < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'InitialFill.id', 'min'=>0, 'max'=>1},
@@ -129,18 +105,10 @@ module FHIR
         attr_accessor :performer              # 0-1 Reference(Organization)
       end
 
-      class Substitution < FHIR::Model
+      class Substitution < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'allowed' => ['boolean', 'CodeableConcept']

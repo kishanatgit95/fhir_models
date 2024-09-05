@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class PackagedProductDefinition < FHIR::Model
+    class PackagedProductDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['biological', 'contained-item', 'device', 'identifier', 'manufactured-item', 'medication', 'name', 'nutrition', 'package', 'package-for', 'status']
       METADATA = {
@@ -39,18 +31,10 @@ module FHIR
         'package' => {'type'=>'PackagedProductDefinition::Package', 'path'=>'PackagedProductDefinition.package', 'min'=>0, 'max'=>1}
       }
 
-      class LegalStatusOfSupply < FHIR::Model
+      class LegalStatusOfSupply < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'LegalStatusOfSupply.id', 'min'=>0, 'max'=>1},
@@ -67,18 +51,10 @@ module FHIR
         attr_accessor :jurisdiction      # 0-1 CodeableConcept
       end
 
-      class Package < FHIR::Model
+      class Package < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Package.id', 'min'=>0, 'max'=>1},
@@ -96,18 +72,10 @@ module FHIR
           'package' => {'type'=>'PackagedProductDefinition::Package', 'path'=>'Package.package', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class ShelfLifeStorage < FHIR::Model
+        class ShelfLifeStorage < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'period' => ['Duration', 'string']
@@ -131,18 +99,10 @@ module FHIR
           attr_accessor :specialPrecautionsForStorage # 0-* [ CodeableConcept ]
         end
 
-        class Property < FHIR::Model
+        class Property < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'value' => ['CodeableConcept', 'Quantity', 'date', 'boolean', 'Attachment']
@@ -170,18 +130,10 @@ module FHIR
           attr_accessor :valueAttachment      # 0-1 Attachment
         end
 
-        class ContainedItem < FHIR::Model
+        class ContainedItem < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'ContainedItem.id', 'min'=>0, 'max'=>1},

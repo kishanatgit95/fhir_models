@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class MessageDefinition < FHIR::Model
+    class MessageDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'event' => ['Coding', 'uri']
@@ -53,18 +45,10 @@ module FHIR
         'graph' => {'type'=>'canonical', 'path'=>'MessageDefinition.graph', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Focus < FHIR::Model
+      class Focus < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Focus.id', 'min'=>0, 'max'=>1},
@@ -85,18 +69,10 @@ module FHIR
         attr_accessor :max               # 0-1 string
       end
 
-      class AllowedResponse < FHIR::Model
+      class AllowedResponse < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'AllowedResponse.id', 'min'=>0, 'max'=>1},

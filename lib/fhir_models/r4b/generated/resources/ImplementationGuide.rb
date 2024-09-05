@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class ImplementationGuide < FHIR::Model
+    class ImplementationGuide < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'depends-on', 'description', 'experimental', 'global', 'jurisdiction', 'name', 'publisher', 'resource', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -45,18 +37,10 @@ module FHIR
         'manifest' => {'type'=>'ImplementationGuide::Manifest', 'path'=>'ImplementationGuide.manifest', 'min'=>0, 'max'=>1}
       }
 
-      class DependsOn < FHIR::Model
+      class DependsOn < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'DependsOn.id', 'min'=>0, 'max'=>1},
@@ -75,18 +59,10 @@ module FHIR
         attr_accessor :version           # 0-1 string
       end
 
-      class Global < FHIR::Model
+      class Global < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Global.id', 'min'=>0, 'max'=>1},
@@ -103,18 +79,10 @@ module FHIR
         attr_accessor :profile           # 1-1 canonical
       end
 
-      class Definition < FHIR::Model
+      class Definition < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Definition.id', 'min'=>0, 'max'=>1},
@@ -127,18 +95,10 @@ module FHIR
           'template' => {'type'=>'ImplementationGuide::Definition::Template', 'path'=>'Definition.template', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Grouping < FHIR::Model
+        class Grouping < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Grouping.id', 'min'=>0, 'max'=>1},
@@ -155,18 +115,10 @@ module FHIR
           attr_accessor :description       # 0-1 string
         end
 
-        class Resource < FHIR::Model
+        class Resource < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'example' => ['boolean', 'canonical']
@@ -196,18 +148,10 @@ module FHIR
           attr_accessor :groupingId        # 0-1 id
         end
 
-        class Page < FHIR::Model
+        class Page < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'name' => ['url', 'Reference']
@@ -233,18 +177,10 @@ module FHIR
           attr_accessor :page              # 0-* [ ImplementationGuide::Definition::Page ]
         end
 
-        class Parameter < FHIR::Model
+        class Parameter < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Parameter.id', 'min'=>0, 'max'=>1},
@@ -261,18 +197,10 @@ module FHIR
           attr_accessor :value             # 1-1 string
         end
 
-        class Template < FHIR::Model
+        class Template < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Template.id', 'min'=>0, 'max'=>1},
@@ -301,18 +229,10 @@ module FHIR
         attr_accessor :template          # 0-* [ ImplementationGuide::Definition::Template ]
       end
 
-      class Manifest < FHIR::Model
+      class Manifest < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Manifest.id', 'min'=>0, 'max'=>1},
@@ -325,18 +245,10 @@ module FHIR
           'other' => {'type'=>'string', 'path'=>'Manifest.other', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Resource < FHIR::Model
+        class Resource < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'example' => ['boolean', 'canonical']
@@ -360,18 +272,10 @@ module FHIR
           attr_accessor :relativePath      # 0-1 url
         end
 
-        class Page < FHIR::Model
+        class Page < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Page.id', 'min'=>0, 'max'=>1},

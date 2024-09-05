@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class MedicinalProduct < FHIR::Model
+    class MedicinalProduct < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['identifier', 'name', 'name-language']
       METADATA = {
@@ -45,18 +37,10 @@ module FHIR
         'specialDesignation' => {'type'=>'MedicinalProduct::SpecialDesignation', 'path'=>'MedicinalProduct.specialDesignation', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Name < FHIR::Model
+      class Name < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Name.id', 'min'=>0, 'max'=>1},
@@ -67,18 +51,10 @@ module FHIR
           'countryLanguage' => {'type'=>'MedicinalProduct::Name::CountryLanguage', 'path'=>'Name.countryLanguage', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class NamePart < FHIR::Model
+        class NamePart < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'NamePart.id', 'min'=>0, 'max'=>1},
@@ -95,18 +71,10 @@ module FHIR
           attr_accessor :type              # 1-1 Coding
         end
 
-        class CountryLanguage < FHIR::Model
+        class CountryLanguage < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'CountryLanguage.id', 'min'=>0, 'max'=>1},
@@ -133,18 +101,10 @@ module FHIR
         attr_accessor :countryLanguage   # 0-* [ MedicinalProduct::Name::CountryLanguage ]
       end
 
-      class ManufacturingBusinessOperation < FHIR::Model
+      class ManufacturingBusinessOperation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ManufacturingBusinessOperation.id', 'min'=>0, 'max'=>1},
@@ -169,18 +129,10 @@ module FHIR
         attr_accessor :regulator                    # 0-1 Reference(Organization)
       end
 
-      class SpecialDesignation < FHIR::Model
+      class SpecialDesignation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'indication' => ['CodeableConcept', 'Reference']

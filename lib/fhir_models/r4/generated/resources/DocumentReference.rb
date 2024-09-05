@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class DocumentReference < FHIR::Model
+    class DocumentReference < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['authenticator', 'author', 'category', 'contenttype', 'custodian', 'date', 'description', 'encounter', 'event', 'facility', 'format', 'identifier', 'language', 'location', 'patient', 'period', 'related', 'relatesto', 'relation', 'security-label', 'setting', 'status', 'subject', 'type']
       METADATA = {
@@ -41,18 +33,10 @@ module FHIR
         'context' => {'type'=>'DocumentReference::Context', 'path'=>'DocumentReference.context', 'min'=>0, 'max'=>1}
       }
 
-      class RelatesTo < FHIR::Model
+      class RelatesTo < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'RelatesTo.id', 'min'=>0, 'max'=>1},
@@ -69,18 +53,10 @@ module FHIR
         attr_accessor :target            # 1-1 Reference(DocumentReference)
       end
 
-      class Content < FHIR::Model
+      class Content < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Content.id', 'min'=>0, 'max'=>1},
@@ -97,18 +73,10 @@ module FHIR
         attr_accessor :format            # 0-1 Coding
       end
 
-      class Context < FHIR::Model
+      class Context < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Context.id', 'min'=>0, 'max'=>1},

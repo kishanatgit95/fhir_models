@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class AdverseEvent < FHIR::Model
+    class AdverseEvent < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['actuality', 'category', 'date', 'event', 'location', 'recorder', 'resultingcondition', 'seriousness', 'severity', 'study', 'subject', 'substance']
       METADATA = {
@@ -45,18 +37,10 @@ module FHIR
         'study' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/ResearchStudy'], 'type'=>'Reference', 'path'=>'AdverseEvent.study', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class SuspectEntity < FHIR::Model
+      class SuspectEntity < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SuspectEntity.id', 'min'=>0, 'max'=>1},
@@ -66,18 +50,10 @@ module FHIR
           'causality' => {'type'=>'AdverseEvent::SuspectEntity::Causality', 'path'=>'SuspectEntity.causality', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Causality < FHIR::Model
+        class Causality < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Causality.id', 'min'=>0, 'max'=>1},

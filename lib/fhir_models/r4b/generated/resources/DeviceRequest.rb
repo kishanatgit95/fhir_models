@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class DeviceRequest < FHIR::Model
+    class DeviceRequest < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'code' => ['Reference', 'CodeableConcept'],
@@ -56,18 +48,10 @@ module FHIR
         'relevantHistory' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Provenance'], 'type'=>'Reference', 'path'=>'DeviceRequest.relevantHistory', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Parameter < FHIR::Model
+      class Parameter < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'Quantity', 'Range', 'boolean']

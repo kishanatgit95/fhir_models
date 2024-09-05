@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class MedicinalProductIngredient < FHIR::Model
+    class MedicinalProductIngredient < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = []
       METADATA = {
@@ -31,18 +23,10 @@ module FHIR
         'substance' => {'type'=>'MedicinalProductIngredient::Substance', 'path'=>'MedicinalProductIngredient.substance', 'min'=>0, 'max'=>1}
       }
 
-      class SpecifiedSubstance < FHIR::Model
+      class SpecifiedSubstance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SpecifiedSubstance.id', 'min'=>0, 'max'=>1},
@@ -54,18 +38,10 @@ module FHIR
           'strength' => {'type'=>'MedicinalProductIngredient::SpecifiedSubstance::Strength', 'path'=>'SpecifiedSubstance.strength', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Strength < FHIR::Model
+        class Strength < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Strength.id', 'min'=>0, 'max'=>1},
@@ -80,18 +56,10 @@ module FHIR
             'referenceStrength' => {'type'=>'MedicinalProductIngredient::SpecifiedSubstance::Strength::ReferenceStrength', 'path'=>'Strength.referenceStrength', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class ReferenceStrength < FHIR::Model
+          class ReferenceStrength < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'ReferenceStrength.id', 'min'=>0, 'max'=>1},
@@ -135,18 +103,10 @@ module FHIR
         attr_accessor :strength          # 0-* [ MedicinalProductIngredient::SpecifiedSubstance::Strength ]
       end
 
-      class Substance < FHIR::Model
+      class Substance < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Substance.id', 'min'=>0, 'max'=>1},

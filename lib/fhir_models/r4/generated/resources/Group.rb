@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Group < FHIR::Model
+    class Group < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['actual', 'characteristic', 'code', 'exclude', 'identifier', 'managing-entity', 'member', 'type', 'value']
       METADATA = {
@@ -35,18 +27,10 @@ module FHIR
         'member' => {'type'=>'Group::Member', 'path'=>'Group.member', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Characteristic < FHIR::Model
+      class Characteristic < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'value' => ['CodeableConcept', 'boolean', 'Quantity', 'Range', 'Reference']
@@ -78,18 +62,10 @@ module FHIR
         attr_accessor :period               # 0-1 Period
       end
 
-      class Member < FHIR::Model
+      class Member < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Member.id', 'min'=>0, 'max'=>1},

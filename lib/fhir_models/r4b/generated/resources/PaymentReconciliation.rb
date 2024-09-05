@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class PaymentReconciliation < FHIR::Model
+    class PaymentReconciliation < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['created', 'disposition', 'identifier', 'outcome', 'payment-issuer', 'request', 'requestor', 'status']
       METADATA = {
@@ -40,18 +32,10 @@ module FHIR
         'processNote' => {'type'=>'PaymentReconciliation::ProcessNote', 'path'=>'PaymentReconciliation.processNote', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Detail < FHIR::Model
+      class Detail < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Detail.id', 'min'=>0, 'max'=>1},
@@ -84,18 +68,10 @@ module FHIR
         attr_accessor :amount            # 0-1 Money
       end
 
-      class ProcessNote < FHIR::Model
+      class ProcessNote < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ProcessNote.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Measure < FHIR::Model
+    class Measure < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'subject' => ['CodeableConcept', 'Reference']
@@ -70,18 +62,10 @@ module FHIR
         'supplementalData' => {'type'=>'Measure::SupplementalData', 'path'=>'Measure.supplementalData', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Group < FHIR::Model
+      class Group < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
@@ -93,18 +77,10 @@ module FHIR
           'stratifier' => {'type'=>'Measure::Group::Stratifier', 'path'=>'Group.stratifier', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Population < FHIR::Model
+        class Population < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Population.id', 'min'=>0, 'max'=>1},
@@ -123,18 +99,10 @@ module FHIR
           attr_accessor :criteria          # 1-1 Expression
         end
 
-        class Stratifier < FHIR::Model
+        class Stratifier < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Stratifier.id', 'min'=>0, 'max'=>1},
@@ -146,18 +114,10 @@ module FHIR
             'component' => {'type'=>'Measure::Group::Stratifier::Component', 'path'=>'Stratifier.component', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Component < FHIR::Model
+          class Component < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Component.id', 'min'=>0, 'max'=>1},
@@ -194,18 +154,10 @@ module FHIR
         attr_accessor :stratifier        # 0-* [ Measure::Group::Stratifier ]
       end
 
-      class SupplementalData < FHIR::Model
+      class SupplementalData < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'SupplementalData.id', 'min'=>0, 'max'=>1},

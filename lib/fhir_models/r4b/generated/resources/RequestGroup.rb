@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class RequestGroup < FHIR::Model
+    class RequestGroup < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['author', 'authored', 'code', 'encounter', 'group-identifier', 'identifier', 'instantiates-canonical', 'instantiates-uri', 'intent', 'participant', 'patient', 'priority', 'status', 'subject']
       METADATA = {
@@ -43,18 +35,10 @@ module FHIR
         'action' => {'type'=>'RequestGroup::Action', 'path'=>'RequestGroup.action', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Action < FHIR::Model
+      class Action < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'timing' => ['dateTime', 'Age', 'Period', 'Duration', 'Range', 'Timing']
@@ -89,18 +73,10 @@ module FHIR
           'action' => {'type'=>'RequestGroup::Action', 'path'=>'Action.action', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Condition < FHIR::Model
+        class Condition < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Condition.id', 'min'=>0, 'max'=>1},
@@ -117,18 +93,10 @@ module FHIR
           attr_accessor :expression        # 0-1 Expression
         end
 
-        class RelatedAction < FHIR::Model
+        class RelatedAction < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'offset' => ['Duration', 'Range']

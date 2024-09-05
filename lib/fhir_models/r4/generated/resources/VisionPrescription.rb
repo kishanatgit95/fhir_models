@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class VisionPrescription < FHIR::Model
+    class VisionPrescription < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['datewritten', 'encounter', 'identifier', 'patient', 'prescriber', 'status']
       METADATA = {
@@ -33,18 +25,10 @@ module FHIR
         'lensSpecification' => {'type'=>'VisionPrescription::LensSpecification', 'path'=>'VisionPrescription.lensSpecification', 'min'=>1, 'max'=>Float::INFINITY}
       }
 
-      class LensSpecification < FHIR::Model
+      class LensSpecification < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'LensSpecification.id', 'min'=>0, 'max'=>1},
@@ -66,18 +50,10 @@ module FHIR
           'note' => {'type'=>'Annotation', 'path'=>'LensSpecification.note', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Prism < FHIR::Model
+        class Prism < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Prism.id', 'min'=>0, 'max'=>1},

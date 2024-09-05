@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class TerminologyCapabilities < FHIR::Model
+    class TerminologyCapabilities < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'jurisdiction', 'name', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -49,18 +41,10 @@ module FHIR
         'closure' => {'type'=>'TerminologyCapabilities::Closure', 'path'=>'TerminologyCapabilities.closure', 'min'=>0, 'max'=>1}
       }
 
-      class Software < FHIR::Model
+      class Software < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Software.id', 'min'=>0, 'max'=>1},
@@ -77,18 +61,10 @@ module FHIR
         attr_accessor :version           # 0-1 string
       end
 
-      class Implementation < FHIR::Model
+      class Implementation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Implementation.id', 'min'=>0, 'max'=>1},
@@ -105,18 +81,10 @@ module FHIR
         attr_accessor :url               # 0-1 url
       end
 
-      class CodeSystem < FHIR::Model
+      class CodeSystem < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'CodeSystem.id', 'min'=>0, 'max'=>1},
@@ -127,18 +95,10 @@ module FHIR
           'subsumption' => {'type'=>'boolean', 'path'=>'CodeSystem.subsumption', 'min'=>0, 'max'=>1}
         }
 
-        class Version < FHIR::Model
+        class Version < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Version.id', 'min'=>0, 'max'=>1},
@@ -152,18 +112,10 @@ module FHIR
             'property' => {'type'=>'code', 'path'=>'Version.property', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Filter < FHIR::Model
+          class Filter < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Filter.id', 'min'=>0, 'max'=>1},
@@ -199,18 +151,10 @@ module FHIR
         attr_accessor :subsumption       # 0-1 boolean
       end
 
-      class Expansion < FHIR::Model
+      class Expansion < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Expansion.id', 'min'=>0, 'max'=>1},
@@ -223,18 +167,10 @@ module FHIR
           'textFilter' => {'type'=>'markdown', 'path'=>'Expansion.textFilter', 'min'=>0, 'max'=>1}
         }
 
-        class Parameter < FHIR::Model
+        class Parameter < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Parameter.id', 'min'=>0, 'max'=>1},
@@ -261,18 +197,10 @@ module FHIR
         attr_accessor :textFilter        # 0-1 markdown
       end
 
-      class ValidateCode < FHIR::Model
+      class ValidateCode < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ValidateCode.id', 'min'=>0, 'max'=>1},
@@ -287,18 +215,10 @@ module FHIR
         attr_accessor :translations      # 1-1 boolean
       end
 
-      class Translation < FHIR::Model
+      class Translation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Translation.id', 'min'=>0, 'max'=>1},
@@ -313,18 +233,10 @@ module FHIR
         attr_accessor :needsMap          # 1-1 boolean
       end
 
-      class Closure < FHIR::Model
+      class Closure < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Closure.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class GraphDefinition < FHIR::Model
+    class GraphDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'jurisdiction', 'name', 'publisher', 'start', 'status', 'url', 'version']
       METADATA = {
@@ -40,18 +32,10 @@ module FHIR
         'link' => {'type'=>'GraphDefinition::Link', 'path'=>'GraphDefinition.link', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Link < FHIR::Model
+      class Link < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Link.id', 'min'=>0, 'max'=>1},
@@ -65,18 +49,10 @@ module FHIR
           'target' => {'type'=>'GraphDefinition::Link::Target', 'path'=>'Link.target', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Target < FHIR::Model
+        class Target < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Target.id', 'min'=>0, 'max'=>1},
@@ -89,18 +65,10 @@ module FHIR
             'link' => {'type'=>'GraphDefinition::Link', 'path'=>'Target.link', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Compartment < FHIR::Model
+          class Compartment < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Compartment.id', 'min'=>0, 'max'=>1},

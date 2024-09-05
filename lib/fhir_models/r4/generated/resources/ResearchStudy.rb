@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class ResearchStudy < FHIR::Model
+    class ResearchStudy < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['category', 'date', 'focus', 'identifier', 'keyword', 'location', 'partof', 'principalinvestigator', 'protocol', 'site', 'sponsor', 'status', 'title']
       METADATA = {
@@ -49,18 +41,10 @@ module FHIR
         'objective' => {'type'=>'ResearchStudy::Objective', 'path'=>'ResearchStudy.objective', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Arm < FHIR::Model
+      class Arm < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Arm.id', 'min'=>0, 'max'=>1},
@@ -79,18 +63,10 @@ module FHIR
         attr_accessor :description       # 0-1 string
       end
 
-      class Objective < FHIR::Model
+      class Objective < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Objective.id', 'min'=>0, 'max'=>1},

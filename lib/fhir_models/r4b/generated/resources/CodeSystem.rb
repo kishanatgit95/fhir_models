@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class CodeSystem < FHIR::Model
+    class CodeSystem < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['code', 'content-mode', 'context', 'context-quantity', 'context-type', 'date', 'description', 'identifier', 'jurisdiction', 'language', 'name', 'publisher', 'status', 'supplements', 'system', 'title', 'url', 'version']
       METADATA = {
@@ -51,18 +43,10 @@ module FHIR
         'concept' => {'type'=>'CodeSystem::Concept', 'path'=>'CodeSystem.concept', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Filter < FHIR::Model
+      class Filter < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Filter.id', 'min'=>0, 'max'=>1},
@@ -83,18 +67,10 @@ module FHIR
         attr_accessor :value             # 1-1 string
       end
 
-      class Property < FHIR::Model
+      class Property < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Property.id', 'min'=>0, 'max'=>1},
@@ -115,18 +91,10 @@ module FHIR
         attr_accessor :type              # 1-1 code
       end
 
-      class Concept < FHIR::Model
+      class Concept < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Concept.id', 'min'=>0, 'max'=>1},
@@ -140,18 +108,10 @@ module FHIR
           'concept' => {'type'=>'CodeSystem::Concept', 'path'=>'Concept.concept', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Designation < FHIR::Model
+        class Designation < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Designation.id', 'min'=>0, 'max'=>1},
@@ -170,18 +130,10 @@ module FHIR
           attr_accessor :value             # 1-1 string
         end
 
-        class Property < FHIR::Model
+        class Property < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'value' => ['code', 'Coding', 'string', 'integer', 'boolean', 'dateTime', 'decimal']

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Immunization < FHIR::Model
+    class Immunization < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'string']
@@ -57,18 +49,10 @@ module FHIR
         'protocolApplied' => {'type'=>'Immunization::ProtocolApplied', 'path'=>'Immunization.protocolApplied', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Performer < FHIR::Model
+      class Performer < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Performer.id', 'min'=>0, 'max'=>1},
@@ -85,18 +69,10 @@ module FHIR
         attr_accessor :actor             # 1-1 Reference(Practitioner|PractitionerRole|Organization)
       end
 
-      class Education < FHIR::Model
+      class Education < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Education.id', 'min'=>0, 'max'=>1},
@@ -117,18 +93,10 @@ module FHIR
         attr_accessor :presentationDate  # 0-1 dateTime
       end
 
-      class Reaction < FHIR::Model
+      class Reaction < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Reaction.id', 'min'=>0, 'max'=>1},
@@ -147,18 +115,10 @@ module FHIR
         attr_accessor :reported          # 0-1 boolean
       end
 
-      class ProtocolApplied < FHIR::Model
+      class ProtocolApplied < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'doseNumber' => ['positiveInt', 'string'],

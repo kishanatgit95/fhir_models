@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class ImagingStudy < FHIR::Model
+    class ImagingStudy < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['basedon', 'bodysite', 'dicom-class', 'encounter', 'endpoint', 'identifier', 'instance', 'interpreter', 'modality', 'patient', 'performer', 'reason', 'referrer', 'series', 'started', 'status', 'subject']
       METADATA = {
@@ -45,18 +37,10 @@ module FHIR
         'series' => {'type'=>'ImagingStudy::Series', 'path'=>'ImagingStudy.series', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Series < FHIR::Model
+      class Series < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Series.id', 'min'=>0, 'max'=>1},
@@ -76,18 +60,10 @@ module FHIR
           'instance' => {'type'=>'ImagingStudy::Series::Instance', 'path'=>'Series.instance', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Performer < FHIR::Model
+        class Performer < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Performer.id', 'min'=>0, 'max'=>1},
@@ -104,18 +80,10 @@ module FHIR
           attr_accessor :actor             # 1-1 Reference(Practitioner|PractitionerRole|Organization|CareTeam|Patient|Device|RelatedPerson)
         end
 
-        class Instance < FHIR::Model
+        class Instance < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Instance.id', 'min'=>0, 'max'=>1},

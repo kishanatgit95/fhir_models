@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class ImmunizationEvaluation < FHIR::Model
+    class ImmunizationEvaluation < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'doseNumber' => ['positiveInt', 'string'],

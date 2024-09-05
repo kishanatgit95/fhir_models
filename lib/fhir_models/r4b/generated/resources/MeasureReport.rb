@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class MeasureReport < FHIR::Model
+    class MeasureReport < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['date', 'evaluated-resource', 'identifier', 'measure', 'patient', 'period', 'reporter', 'status', 'subject']
       METADATA = {
@@ -36,18 +28,10 @@ module FHIR
         'evaluatedResource' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Resource'], 'type'=>'Reference', 'path'=>'MeasureReport.evaluatedResource', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Group < FHIR::Model
+      class Group < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
@@ -59,18 +43,10 @@ module FHIR
           'stratifier' => {'type'=>'MeasureReport::Group::Stratifier', 'path'=>'Group.stratifier', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Population < FHIR::Model
+        class Population < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Population.id', 'min'=>0, 'max'=>1},
@@ -89,18 +65,10 @@ module FHIR
           attr_accessor :subjectResults    # 0-1 Reference(List)
         end
 
-        class Stratifier < FHIR::Model
+        class Stratifier < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Stratifier.id', 'min'=>0, 'max'=>1},
@@ -110,18 +78,10 @@ module FHIR
             'stratum' => {'type'=>'MeasureReport::Group::Stratifier::Stratum', 'path'=>'Stratifier.stratum', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Stratum < FHIR::Model
+          class Stratum < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Stratum.id', 'min'=>0, 'max'=>1},
@@ -133,18 +93,10 @@ module FHIR
               'measureScore' => {'type'=>'Quantity', 'path'=>'Stratum.measureScore', 'min'=>0, 'max'=>1}
             }
 
-            class Component < FHIR::Model
+            class Component < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4B'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4B
-              end
 
               METADATA = {
                 'id' => {'type'=>'string', 'path'=>'Component.id', 'min'=>0, 'max'=>1},
@@ -161,18 +113,10 @@ module FHIR
               attr_accessor :value             # 1-1 CodeableConcept
             end
 
-            class Population < FHIR::Model
+            class Population < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4B'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4B
-              end
 
               METADATA = {
                 'id' => {'type'=>'string', 'path'=>'Population.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class SearchParameter < FHIR::Model
+    class SearchParameter < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['base', 'code', 'component', 'context', 'context-quantity', 'context-type', 'date', 'derived-from', 'description', 'jurisdiction', 'name', 'publisher', 'status', 'target', 'type', 'url', 'version']
       METADATA = {
@@ -51,18 +43,10 @@ module FHIR
         'component' => {'type'=>'SearchParameter::Component', 'path'=>'SearchParameter.component', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Component < FHIR::Model
+      class Component < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Component.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class NutritionOrder < FHIR::Model
+    class NutritionOrder < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['additive', 'datetime', 'encounter', 'formula', 'identifier', 'instantiates-canonical', 'instantiates-uri', 'oraldiet', 'patient', 'provider', 'status', 'supplement']
       METADATA = {
@@ -42,18 +34,10 @@ module FHIR
         'note' => {'type'=>'Annotation', 'path'=>'NutritionOrder.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class OralDiet < FHIR::Model
+      class OralDiet < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'OralDiet.id', 'min'=>0, 'max'=>1},
@@ -67,18 +51,10 @@ module FHIR
           'instruction' => {'type'=>'string', 'path'=>'OralDiet.instruction', 'min'=>0, 'max'=>1}
         }
 
-        class Nutrient < FHIR::Model
+        class Nutrient < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Nutrient.id', 'min'=>0, 'max'=>1},
@@ -95,18 +71,10 @@ module FHIR
           attr_accessor :amount            # 0-1 Quantity
         end
 
-        class Texture < FHIR::Model
+        class Texture < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Texture.id', 'min'=>0, 'max'=>1},
@@ -134,18 +102,10 @@ module FHIR
         attr_accessor :instruction          # 0-1 string
       end
 
-      class Supplement < FHIR::Model
+      class Supplement < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Supplement.id', 'min'=>0, 'max'=>1},
@@ -168,18 +128,10 @@ module FHIR
         attr_accessor :instruction       # 0-1 string
       end
 
-      class EnteralFormula < FHIR::Model
+      class EnteralFormula < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'EnteralFormula.id', 'min'=>0, 'max'=>1},
@@ -196,18 +148,10 @@ module FHIR
           'administrationInstruction' => {'type'=>'string', 'path'=>'EnteralFormula.administrationInstruction', 'min'=>0, 'max'=>1}
         }
 
-        class Administration < FHIR::Model
+        class Administration < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'rate' => ['Quantity', 'Ratio']

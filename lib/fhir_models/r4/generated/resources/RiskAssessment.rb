@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class RiskAssessment < FHIR::Model
+    class RiskAssessment < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period']
@@ -46,18 +38,10 @@ module FHIR
         'note' => {'type'=>'Annotation', 'path'=>'RiskAssessment.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Prediction < FHIR::Model
+      class Prediction < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'probability' => ['decimal', 'Range'],

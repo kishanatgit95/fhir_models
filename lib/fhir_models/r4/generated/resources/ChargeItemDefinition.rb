@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class ChargeItemDefinition < FHIR::Model
+    class ChargeItemDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'effective', 'identifier', 'jurisdiction', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -48,18 +40,10 @@ module FHIR
         'propertyGroup' => {'type'=>'ChargeItemDefinition::PropertyGroup', 'path'=>'ChargeItemDefinition.propertyGroup', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Applicability < FHIR::Model
+      class Applicability < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Applicability.id', 'min'=>0, 'max'=>1},
@@ -78,18 +62,10 @@ module FHIR
         attr_accessor :expression        # 0-1 string
       end
 
-      class PropertyGroup < FHIR::Model
+      class PropertyGroup < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'PropertyGroup.id', 'min'=>0, 'max'=>1},
@@ -99,18 +75,10 @@ module FHIR
           'priceComponent' => {'type'=>'ChargeItemDefinition::PropertyGroup::PriceComponent', 'path'=>'PropertyGroup.priceComponent', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class PriceComponent < FHIR::Model
+        class PriceComponent < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'PriceComponent.id', 'min'=>0, 'max'=>1},

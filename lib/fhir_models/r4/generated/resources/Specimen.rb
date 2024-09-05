@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Specimen < FHIR::Model
+    class Specimen < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['accession', 'bodysite', 'collected', 'collector', 'container', 'container-id', 'identifier', 'parent', 'patient', 'status', 'subject', 'type']
       METADATA = {
@@ -38,18 +30,10 @@ module FHIR
         'note' => {'type'=>'Annotation', 'path'=>'Specimen.note', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Collection < FHIR::Model
+      class Collection < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'collected' => ['dateTime', 'Period'],
@@ -84,18 +68,10 @@ module FHIR
         attr_accessor :fastingStatusDuration        # 0-1 Duration
       end
 
-      class Processing < FHIR::Model
+      class Processing < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'time' => ['dateTime', 'Period']
@@ -121,18 +97,10 @@ module FHIR
         attr_accessor :timePeriod        # 0-1 Period
       end
 
-      class Container < FHIR::Model
+      class Container < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'additive' => ['CodeableConcept', 'Reference']

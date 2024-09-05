@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Patient < FHIR::Model
+    class Patient < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'deceased' => ['boolean', 'dateTime'],
@@ -47,18 +39,10 @@ module FHIR
         'link' => {'type'=>'Patient::Link', 'path'=>'Patient.link', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Contact < FHIR::Model
+      class Contact < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Contact.id', 'min'=>0, 'max'=>1},
@@ -85,18 +69,10 @@ module FHIR
         attr_accessor :period            # 0-1 Period
       end
 
-      class Communication < FHIR::Model
+      class Communication < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Communication.id', 'min'=>0, 'max'=>1},
@@ -113,18 +89,10 @@ module FHIR
         attr_accessor :preferred         # 0-1 boolean
       end
 
-      class Link < FHIR::Model
+      class Link < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Link.id', 'min'=>0, 'max'=>1},

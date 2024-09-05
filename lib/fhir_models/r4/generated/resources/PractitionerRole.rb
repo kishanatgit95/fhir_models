@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class PractitionerRole < FHIR::Model
+    class PractitionerRole < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['active', 'date', 'email', 'endpoint', 'identifier', 'location', 'organization', 'phone', 'practitioner', 'role', 'service', 'specialty', 'telecom']
       METADATA = {
@@ -39,18 +31,10 @@ module FHIR
         'endpoint' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Endpoint'], 'type'=>'Reference', 'path'=>'PractitionerRole.endpoint', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class AvailableTime < FHIR::Model
+      class AvailableTime < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'AvailableTime.id', 'min'=>0, 'max'=>1},
@@ -71,18 +55,10 @@ module FHIR
         attr_accessor :availableEndTime   # 0-1 time
       end
 
-      class NotAvailable < FHIR::Model
+      class NotAvailable < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'NotAvailable.id', 'min'=>0, 'max'=>1},

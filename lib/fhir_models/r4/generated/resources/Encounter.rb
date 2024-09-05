@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Encounter < FHIR::Model
+    class Encounter < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['account', 'appointment', 'based-on', 'class', 'date', 'diagnosis', 'episode-of-care', 'identifier', 'length', 'location', 'location-period', 'part-of', 'participant', 'participant-type', 'patient', 'practitioner', 'reason-code', 'reason-reference', 'service-provider', 'special-arrangement', 'status', 'subject', 'type']
       METADATA = {
@@ -48,18 +40,10 @@ module FHIR
         'partOf' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Encounter'], 'type'=>'Reference', 'path'=>'Encounter.partOf', 'min'=>0, 'max'=>1}
       }
 
-      class StatusHistory < FHIR::Model
+      class StatusHistory < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'StatusHistory.id', 'min'=>0, 'max'=>1},
@@ -76,18 +60,10 @@ module FHIR
         attr_accessor :period            # 1-1 Period
       end
 
-      class ClassHistory < FHIR::Model
+      class ClassHistory < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'ClassHistory.id', 'min'=>0, 'max'=>1},
@@ -104,18 +80,10 @@ module FHIR
         attr_accessor :period            # 1-1 Period
       end
 
-      class Participant < FHIR::Model
+      class Participant < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Participant.id', 'min'=>0, 'max'=>1},
@@ -134,18 +102,10 @@ module FHIR
         attr_accessor :individual        # 0-1 Reference(Practitioner|PractitionerRole|RelatedPerson)
       end
 
-      class Diagnosis < FHIR::Model
+      class Diagnosis < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Diagnosis.id', 'min'=>0, 'max'=>1},
@@ -164,18 +124,10 @@ module FHIR
         attr_accessor :rank              # 0-1 positiveInt
       end
 
-      class Hospitalization < FHIR::Model
+      class Hospitalization < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Hospitalization.id', 'min'=>0, 'max'=>1},
@@ -206,18 +158,10 @@ module FHIR
         attr_accessor :dischargeDisposition   # 0-1 CodeableConcept
       end
 
-      class Location < FHIR::Model
+      class Location < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Location.id', 'min'=>0, 'max'=>1},

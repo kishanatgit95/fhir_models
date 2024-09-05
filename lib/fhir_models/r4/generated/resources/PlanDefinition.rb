@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class PlanDefinition < FHIR::Model
+    class PlanDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'subject' => ['CodeableConcept', 'Reference']
@@ -60,18 +52,10 @@ module FHIR
         'action' => {'type'=>'PlanDefinition::Action', 'path'=>'PlanDefinition.action', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Goal < FHIR::Model
+      class Goal < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Goal.id', 'min'=>0, 'max'=>1},
@@ -86,18 +70,10 @@ module FHIR
           'target' => {'type'=>'PlanDefinition::Goal::Target', 'path'=>'Goal.target', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Target < FHIR::Model
+        class Target < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'detail' => ['Quantity', 'Range', 'CodeableConcept']
@@ -135,18 +111,10 @@ module FHIR
         attr_accessor :target            # 0-* [ PlanDefinition::Goal::Target ]
       end
 
-      class Action < FHIR::Model
+      class Action < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'subject' => ['CodeableConcept', 'Reference'],
@@ -193,18 +161,10 @@ module FHIR
           'action' => {'type'=>'PlanDefinition::Action', 'path'=>'Action.action', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Condition < FHIR::Model
+        class Condition < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Condition.id', 'min'=>0, 'max'=>1},
@@ -221,18 +181,10 @@ module FHIR
           attr_accessor :expression        # 0-1 Expression
         end
 
-        class RelatedAction < FHIR::Model
+        class RelatedAction < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'offset' => ['Duration', 'Range']
@@ -256,18 +208,10 @@ module FHIR
           attr_accessor :offsetRange       # 0-1 Range
         end
 
-        class Participant < FHIR::Model
+        class Participant < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Participant.id', 'min'=>0, 'max'=>1},
@@ -284,18 +228,10 @@ module FHIR
           attr_accessor :role              # 0-1 CodeableConcept
         end
 
-        class DynamicValue < FHIR::Model
+        class DynamicValue < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'DynamicValue.id', 'min'=>0, 'max'=>1},

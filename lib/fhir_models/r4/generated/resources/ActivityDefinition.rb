@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class ActivityDefinition < FHIR::Model
+    class ActivityDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'subject' => ['CodeableConcept', 'Reference'],
@@ -83,18 +75,10 @@ module FHIR
         'dynamicValue' => {'type'=>'ActivityDefinition::DynamicValue', 'path'=>'ActivityDefinition.dynamicValue', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Participant < FHIR::Model
+      class Participant < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Participant.id', 'min'=>0, 'max'=>1},
@@ -111,18 +95,10 @@ module FHIR
         attr_accessor :role              # 0-1 CodeableConcept
       end
 
-      class DynamicValue < FHIR::Model
+      class DynamicValue < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'DynamicValue.id', 'min'=>0, 'max'=>1},

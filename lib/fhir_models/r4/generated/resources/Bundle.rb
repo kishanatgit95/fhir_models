@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Bundle < FHIR::Model
+    class Bundle < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['composition', 'identifier', 'message', 'timestamp', 'type']
       METADATA = {
@@ -28,18 +20,10 @@ module FHIR
         'signature' => {'type'=>'Signature', 'path'=>'Bundle.signature', 'min'=>0, 'max'=>1}
       }
 
-      class Link < FHIR::Model
+      class Link < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Link.id', 'min'=>0, 'max'=>1},
@@ -56,18 +40,10 @@ module FHIR
         attr_accessor :url               # 1-1 uri
       end
 
-      class Entry < FHIR::Model
+      class Entry < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Entry.id', 'min'=>0, 'max'=>1},
@@ -81,18 +57,10 @@ module FHIR
           'response' => {'type'=>'Bundle::Entry::Response', 'path'=>'Entry.response', 'min'=>0, 'max'=>1}
         }
 
-        class Search < FHIR::Model
+        class Search < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Search.id', 'min'=>0, 'max'=>1},
@@ -109,18 +77,10 @@ module FHIR
           attr_accessor :score             # 0-1 decimal
         end
 
-        class Request < FHIR::Model
+        class Request < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Request.id', 'min'=>0, 'max'=>1},
@@ -145,18 +105,10 @@ module FHIR
           attr_accessor :ifNoneExist       # 0-1 string
         end
 
-        class Response < FHIR::Model
+        class Response < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Response.id', 'min'=>0, 'max'=>1},

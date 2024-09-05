@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Location < FHIR::Model
+    class Location < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['address', 'address-city', 'address-country', 'address-postalcode', 'address-state', 'address-use', 'endpoint', 'identifier', 'name', 'near', 'operational-status', 'organization', 'partof', 'status', 'type']
       METADATA = {
@@ -42,18 +34,10 @@ module FHIR
         'endpoint' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Endpoint'], 'type'=>'Reference', 'path'=>'Location.endpoint', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Position < FHIR::Model
+      class Position < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Position.id', 'min'=>0, 'max'=>1},
@@ -72,18 +56,10 @@ module FHIR
         attr_accessor :altitude          # 0-1 decimal
       end
 
-      class HoursOfOperation < FHIR::Model
+      class HoursOfOperation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'HoursOfOperation.id', 'min'=>0, 'max'=>1},

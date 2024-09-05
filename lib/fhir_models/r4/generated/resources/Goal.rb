@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class Goal < FHIR::Model
+    class Goal < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       MULTIPLE_TYPES = {
         'start' => ['date', 'CodeableConcept']
@@ -45,18 +37,10 @@ module FHIR
         'outcomeReference' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Observation'], 'type'=>'Reference', 'path'=>'Goal.outcomeReference', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Target < FHIR::Model
+      class Target < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         MULTIPLE_TYPES = {
           'detail' => ['Quantity', 'Range', 'CodeableConcept', 'string', 'boolean', 'integer', 'Ratio'],

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class DeviceMetric < FHIR::Model
+    class DeviceMetric < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['category', 'identifier', 'parent', 'source', 'type']
       METADATA = {
@@ -35,18 +27,10 @@ module FHIR
         'calibration' => {'type'=>'DeviceMetric::Calibration', 'path'=>'DeviceMetric.calibration', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Calibration < FHIR::Model
+      class Calibration < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Calibration.id', 'min'=>0, 'max'=>1},

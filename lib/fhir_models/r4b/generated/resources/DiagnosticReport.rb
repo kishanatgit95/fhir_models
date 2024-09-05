@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class DiagnosticReport < FHIR::Model
+    class DiagnosticReport < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'effective' => ['dateTime', 'Period']
@@ -47,18 +39,10 @@ module FHIR
         'presentedForm' => {'type'=>'Attachment', 'path'=>'DiagnosticReport.presentedForm', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class Media < FHIR::Model
+      class Media < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Media.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class MessageHeader < FHIR::Model
+    class MessageHeader < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'event' => ['Coding', 'uri']
@@ -40,18 +32,10 @@ module FHIR
         'definition' => {'type'=>'canonical', 'path'=>'MessageHeader.definition', 'min'=>0, 'max'=>1}
       }
 
-      class Destination < FHIR::Model
+      class Destination < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Destination.id', 'min'=>0, 'max'=>1},
@@ -72,18 +56,10 @@ module FHIR
         attr_accessor :receiver          # 0-1 Reference(Practitioner|PractitionerRole|Organization)
       end
 
-      class Source < FHIR::Model
+      class Source < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Source.id', 'min'=>0, 'max'=>1},
@@ -106,18 +82,10 @@ module FHIR
         attr_accessor :endpoint          # 1-1 url
       end
 
-      class Response < FHIR::Model
+      class Response < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Response.id', 'min'=>0, 'max'=>1},

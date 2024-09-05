@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class ValueSet < FHIR::Model
+    class ValueSet < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['code', 'context', 'context-quantity', 'context-type', 'date', 'description', 'expansion', 'identifier', 'jurisdiction', 'name', 'publisher', 'reference', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -43,18 +35,10 @@ module FHIR
         'expansion' => {'type'=>'ValueSet::Expansion', 'path'=>'ValueSet.expansion', 'min'=>0, 'max'=>1}
       }
 
-      class Compose < FHIR::Model
+      class Compose < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Compose.id', 'min'=>0, 'max'=>1},
@@ -66,18 +50,10 @@ module FHIR
           'exclude' => {'type'=>'ValueSet::Compose::Include', 'path'=>'Compose.exclude', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Include < FHIR::Model
+        class Include < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Include.id', 'min'=>0, 'max'=>1},
@@ -90,18 +66,10 @@ module FHIR
             'valueSet' => {'type'=>'canonical', 'path'=>'Include.valueSet', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Concept < FHIR::Model
+          class Concept < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Concept.id', 'min'=>0, 'max'=>1},
@@ -112,18 +80,10 @@ module FHIR
               'designation' => {'type'=>'ValueSet::Compose::Include::Concept::Designation', 'path'=>'Concept.designation', 'min'=>0, 'max'=>Float::INFINITY}
             }
 
-            class Designation < FHIR::Model
+            class Designation < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4
-              end
 
               METADATA = {
                 'id' => {'type'=>'string', 'path'=>'Designation.id', 'min'=>0, 'max'=>1},
@@ -150,18 +110,10 @@ module FHIR
             attr_accessor :designation       # 0-* [ ValueSet::Compose::Include::Concept::Designation ]
           end
 
-          class Filter < FHIR::Model
+          class Filter < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Filter.id', 'min'=>0, 'max'=>1},
@@ -199,18 +151,10 @@ module FHIR
         attr_accessor :exclude           # 0-* [ ValueSet::Compose::Include ]
       end
 
-      class Expansion < FHIR::Model
+      class Expansion < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Expansion.id', 'min'=>0, 'max'=>1},
@@ -224,18 +168,10 @@ module FHIR
           'contains' => {'type'=>'ValueSet::Expansion::Contains', 'path'=>'Expansion.contains', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Parameter < FHIR::Model
+        class Parameter < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           MULTIPLE_TYPES = {
             'value' => ['string', 'boolean', 'integer', 'decimal', 'uri', 'code', 'dateTime']
@@ -267,18 +203,10 @@ module FHIR
           attr_accessor :valueDateTime     # 0-1 dateTime
         end
 
-        class Contains < FHIR::Model
+        class Contains < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Contains.id', 'min'=>0, 'max'=>1},

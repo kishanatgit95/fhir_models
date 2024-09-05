@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class SupplyDelivery < FHIR::Model
+    class SupplyDelivery < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period', 'Timing']
@@ -41,18 +33,10 @@ module FHIR
         'receiver' => {'type_profiles'=>['http://hl7.org/fhir/StructureDefinition/Practitioner', 'http://hl7.org/fhir/StructureDefinition/PractitionerRole'], 'type'=>'Reference', 'path'=>'SupplyDelivery.receiver', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class SuppliedItem < FHIR::Model
+      class SuppliedItem < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'item' => ['CodeableConcept', 'Reference']

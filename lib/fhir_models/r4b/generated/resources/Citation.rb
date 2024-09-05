@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class Citation < FHIR::Model
+    class Citation < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
@@ -54,18 +46,10 @@ module FHIR
         'citedArtifact' => {'type'=>'Citation::CitedArtifact', 'path'=>'Citation.citedArtifact', 'min'=>0, 'max'=>1}
       }
 
-      class Summary < FHIR::Model
+      class Summary < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Summary.id', 'min'=>0, 'max'=>1},
@@ -82,18 +66,10 @@ module FHIR
         attr_accessor :text              # 1-1 markdown
       end
 
-      class Classification < FHIR::Model
+      class Classification < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Classification.id', 'min'=>0, 'max'=>1},
@@ -110,18 +86,10 @@ module FHIR
         attr_accessor :classifier        # 0-* [ CodeableConcept ]
       end
 
-      class StatusDate < FHIR::Model
+      class StatusDate < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'StatusDate.id', 'min'=>0, 'max'=>1},
@@ -140,18 +108,10 @@ module FHIR
         attr_accessor :period            # 1-1 Period
       end
 
-      class RelatesTo < FHIR::Model
+      class RelatesTo < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         MULTIPLE_TYPES = {
           'target' => ['uri', 'Identifier', 'Reference', 'Attachment']
@@ -179,18 +139,10 @@ module FHIR
         attr_accessor :targetAttachment  # 1-1 Attachment
       end
 
-      class CitedArtifact < FHIR::Model
+      class CitedArtifact < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'CitedArtifact.id', 'min'=>0, 'max'=>1},
@@ -213,18 +165,10 @@ module FHIR
           'note' => {'type'=>'Annotation', 'path'=>'CitedArtifact.note', 'min'=>0, 'max'=>Float::INFINITY}
         }
 
-        class Version < FHIR::Model
+        class Version < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Version.id', 'min'=>0, 'max'=>1},
@@ -241,18 +185,10 @@ module FHIR
           attr_accessor :baseCitation      # 0-1 Reference(Citation)
         end
 
-        class StatusDate < FHIR::Model
+        class StatusDate < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'StatusDate.id', 'min'=>0, 'max'=>1},
@@ -271,18 +207,10 @@ module FHIR
           attr_accessor :period            # 1-1 Period
         end
 
-        class Title < FHIR::Model
+        class Title < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Title.id', 'min'=>0, 'max'=>1},
@@ -301,18 +229,10 @@ module FHIR
           attr_accessor :text              # 1-1 markdown
         end
 
-        class Abstract < FHIR::Model
+        class Abstract < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Abstract.id', 'min'=>0, 'max'=>1},
@@ -333,18 +253,10 @@ module FHIR
           attr_accessor :copyright         # 0-1 markdown
         end
 
-        class Part < FHIR::Model
+        class Part < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Part.id', 'min'=>0, 'max'=>1},
@@ -363,18 +275,10 @@ module FHIR
           attr_accessor :baseCitation      # 0-1 Reference(Citation)
         end
 
-        class RelatesTo < FHIR::Model
+        class RelatesTo < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           MULTIPLE_TYPES = {
             'target' => ['uri', 'Identifier', 'Reference', 'Attachment']
@@ -402,18 +306,10 @@ module FHIR
           attr_accessor :targetAttachment  # 1-1 Attachment
         end
 
-        class PublicationForm < FHIR::Model
+        class PublicationForm < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'PublicationForm.id', 'min'=>0, 'max'=>1},
@@ -432,18 +328,10 @@ module FHIR
             'copyright' => {'type'=>'markdown', 'path'=>'PublicationForm.copyright', 'min'=>0, 'max'=>1}
           }
 
-          class PublishedIn < FHIR::Model
+          class PublishedIn < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'PublishedIn.id', 'min'=>0, 'max'=>1},
@@ -466,18 +354,10 @@ module FHIR
             attr_accessor :publisherLocation # 0-1 string
           end
 
-          class PeriodicRelease < FHIR::Model
+          class PeriodicRelease < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'PeriodicRelease.id', 'min'=>0, 'max'=>1},
@@ -489,18 +369,10 @@ module FHIR
               'dateOfPublication' => {'type'=>'Citation::CitedArtifact::PublicationForm::PeriodicRelease::DateOfPublication', 'path'=>'PeriodicRelease.dateOfPublication', 'min'=>0, 'max'=>1}
             }
 
-            class DateOfPublication < FHIR::Model
+            class DateOfPublication < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4B'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4B
-              end
 
               METADATA = {
                 'id' => {'type'=>'string', 'path'=>'DateOfPublication.id', 'min'=>0, 'max'=>1},
@@ -550,18 +422,10 @@ module FHIR
           attr_accessor :copyright         # 0-1 markdown
         end
 
-        class WebLocation < FHIR::Model
+        class WebLocation < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'WebLocation.id', 'min'=>0, 'max'=>1},
@@ -578,18 +442,10 @@ module FHIR
           attr_accessor :url               # 0-1 uri
         end
 
-        class Classification < FHIR::Model
+        class Classification < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Classification.id', 'min'=>0, 'max'=>1},
@@ -600,18 +456,10 @@ module FHIR
             'whoClassified' => {'type'=>'Citation::CitedArtifact::Classification::WhoClassified', 'path'=>'Classification.whoClassified', 'min'=>0, 'max'=>1}
           }
 
-          class WhoClassified < FHIR::Model
+          class WhoClassified < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'WhoClassified.id', 'min'=>0, 'max'=>1},
@@ -642,18 +490,10 @@ module FHIR
           attr_accessor :whoClassified     # 0-1 Citation::CitedArtifact::Classification::WhoClassified
         end
 
-        class Contributorship < FHIR::Model
+        class Contributorship < Model
           include FHIR::Hashable
           include FHIR::Json
           include FHIR::Xml
-
-          def fhir_version_string
-            'R4B'
-          end
-
-          def versioned_fhir_module
-            FHIR::R4B
-          end
 
           METADATA = {
             'id' => {'type'=>'string', 'path'=>'Contributorship.id', 'min'=>0, 'max'=>1},
@@ -664,18 +504,10 @@ module FHIR
             'summary' => {'type'=>'Citation::CitedArtifact::Contributorship::Summary', 'path'=>'Contributorship.summary', 'min'=>0, 'max'=>Float::INFINITY}
           }
 
-          class Entry < FHIR::Model
+          class Entry < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Entry.id', 'min'=>0, 'max'=>1},
@@ -695,18 +527,10 @@ module FHIR
               'listOrder' => {'type'=>'positiveInt', 'path'=>'Entry.listOrder', 'min'=>0, 'max'=>1}
             }
 
-            class AffiliationInfo < FHIR::Model
+            class AffiliationInfo < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4B'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4B
-              end
 
               METADATA = {
                 'id' => {'type'=>'string', 'path'=>'AffiliationInfo.id', 'min'=>0, 'max'=>1},
@@ -725,18 +549,10 @@ module FHIR
               attr_accessor :identifier        # 0-* [ Identifier ]
             end
 
-            class ContributionInstance < FHIR::Model
+            class ContributionInstance < Model
               include FHIR::Hashable
               include FHIR::Json
               include FHIR::Xml
-
-              def fhir_version_string
-                'R4B'
-              end
-
-              def versioned_fhir_module
-                FHIR::R4B
-              end
 
               METADATA = {
                 'id' => {'type'=>'string', 'path'=>'ContributionInstance.id', 'min'=>0, 'max'=>1},
@@ -770,18 +586,10 @@ module FHIR
             attr_accessor :listOrder            # 0-1 positiveInt
           end
 
-          class Summary < FHIR::Model
+          class Summary < Model
             include FHIR::Hashable
             include FHIR::Json
             include FHIR::Xml
-
-            def fhir_version_string
-              'R4B'
-            end
-
-            def versioned_fhir_module
-              FHIR::R4B
-            end
 
             METADATA = {
               'id' => {'type'=>'string', 'path'=>'Summary.id', 'min'=>0, 'max'=>1},

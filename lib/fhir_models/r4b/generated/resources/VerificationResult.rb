@@ -1,17 +1,9 @@
 module FHIR
   module R4B
-    class VerificationResult < FHIR::Model
+    class VerificationResult < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4B'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4B
-      end
 
       SEARCH_PARAMS = ['target']
       METADATA = {
@@ -39,18 +31,10 @@ module FHIR
         'validator' => {'type'=>'VerificationResult::Validator', 'path'=>'VerificationResult.validator', 'min'=>0, 'max'=>Float::INFINITY}
       }
 
-      class PrimarySource < FHIR::Model
+      class PrimarySource < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'PrimarySource.id', 'min'=>0, 'max'=>1},
@@ -77,18 +61,10 @@ module FHIR
         attr_accessor :pushTypeAvailable   # 0-* [ CodeableConcept ]
       end
 
-      class Attestation < FHIR::Model
+      class Attestation < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Attestation.id', 'min'=>0, 'max'=>1},
@@ -117,18 +93,10 @@ module FHIR
         attr_accessor :sourceSignature           # 0-1 Signature
       end
 
-      class Validator < FHIR::Model
+      class Validator < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4B'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4B
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Validator.id', 'min'=>0, 'max'=>1},

@@ -1,17 +1,9 @@
 module FHIR
   module R4
-    class StructureDefinition < FHIR::Model
+    class StructureDefinition < Model
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
-
-      def fhir_version_string
-        'R4'
-      end
-
-      def versioned_fhir_module
-        FHIR::R4
-      end
 
       SEARCH_PARAMS = ['abstract', 'base', 'base-path', 'context', 'context-quantity', 'context-type', 'date', 'derivation', 'description', 'experimental', 'ext-context', 'identifier', 'jurisdiction', 'keyword', 'kind', 'name', 'path', 'publisher', 'status', 'title', 'type', 'url', 'valueset', 'version']
       METADATA = {
@@ -52,18 +44,10 @@ module FHIR
         'differential' => {'type'=>'StructureDefinition::Differential', 'path'=>'StructureDefinition.differential', 'min'=>0, 'max'=>1}
       }
 
-      class Mapping < FHIR::Model
+      class Mapping < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Mapping.id', 'min'=>0, 'max'=>1},
@@ -84,18 +68,10 @@ module FHIR
         attr_accessor :comment           # 0-1 string
       end
 
-      class Context < FHIR::Model
+      class Context < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Context.id', 'min'=>0, 'max'=>1},
@@ -112,18 +88,10 @@ module FHIR
         attr_accessor :expression        # 1-1 string
       end
 
-      class Snapshot < FHIR::Model
+      class Snapshot < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Snapshot.id', 'min'=>0, 'max'=>1},
@@ -138,18 +106,10 @@ module FHIR
         attr_accessor :element           # 1-* [ ElementDefinition ]
       end
 
-      class Differential < FHIR::Model
+      class Differential < Model
         include FHIR::Hashable
         include FHIR::Json
         include FHIR::Xml
-
-        def fhir_version_string
-          'R4'
-        end
-
-        def versioned_fhir_module
-          FHIR::R4
-        end
 
         METADATA = {
           'id' => {'type'=>'string', 'path'=>'Differential.id', 'min'=>0, 'max'=>1},
