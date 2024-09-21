@@ -30,12 +30,9 @@ Layout/EmptyLinesAroundModuleBody:
 Layout/TrailingEmptyLines:
   Exclude:
     - 'lib/fhir_models/bootstrap/json.rb'
-    - 'lib/fhir_models/r4/fhir_ext/structure_definition.rb'
-    - 'lib/fhir_models/r4/fhir_ext/structure_definition_compare.rb'
-    - 'lib/fhir_models/r4/fhir_ext/structure_definition_finding.rb'
-    - 'lib/fhir_models/r4b/fhir_ext/structure_definition.rb'
-    - 'lib/fhir_models/r4b/fhir_ext/structure_definition_compare.rb'
-    - 'lib/fhir_models/r4b/fhir_ext/structure_definition_finding.rb'
+    - 'lib/fhir_models/*/fhir_ext/structure_definition.rb'
+    - 'lib/fhir_models/*/fhir_ext/structure_definition_compare.rb'
+    - 'lib/fhir_models/*/fhir_ext/structure_definition_finding.rb'
 
 # Offense count: 3
 # Cop supports --auto-correct.
