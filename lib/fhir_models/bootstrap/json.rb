@@ -1,16 +1,12 @@
 require 'json'
 
 module FHIR
-  module Json
+  module ClassJson
     #
     #  This module includes methods to serialize or deserialize FHIR resources to and from JSON.
     #
 
-    def to_json(opts = nil)
-      JSON.pretty_generate(to_hash, opts)
-    end
-
-    def self.from_json(json)
+    def from_json(json)
       hash = JSON.parse(json)
       resource = nil
       begin
@@ -24,13 +20,11 @@ module FHIR
       end
       resource
     end
+  end
 
-    def self.fhir_version_string
-      FHIR.fhir_version_string
-    end
-
-    def self.versioned_fhir_module
-      FHIR.versioned_fhir_module
+  module InstanceJson
+    def to_json(opts = nil)
+      JSON.pretty_generate(to_hash, opts)
     end
   end
 end

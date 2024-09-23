@@ -1,7 +1,76 @@
 require 'nokogiri'
 module FHIR
-  module Xml
-    extend FHIR::Deprecate
+  module ClassXml
+    def from_xml(xml)
+      doc = Nokogiri::XML(xml)
+      doc.root.add_namespace_definition('f', 'http://hl7.org/fhir')
+      doc.root.add_namespace_definition('x', 'http://www.w3.org/1999/xhtml')
+      hash = xml_node_to_hash(doc.root)
+
+      resource = nil
+      begin
+        resource_type = doc.root.name
+        klass = versioned_fhir_module.const_get(resource_type)
+        resource = klass.new(hash)
+      rescue StandardError => e
+        FHIR.logger.error("Failed to deserialize XML:\n#{e.backtrace}")
+        FHIR.logger.debug("XML:\n#{xml}")
+        resource = nil
+      end
+      resource
+    end
+
+    def xml_node_to_hash(node)
+      hash = {}
+      node.children.each do |child|
+        next if [Nokogiri::XML::Text, Nokogiri::XML::Comment].include?(child.class)
+
+        key = child.name
+        if node.name == 'text' && key == 'div'
+          hash[key] = child.to_xml
+        else
+          value = child.get_attribute('value')
+          if value.nil? && !child.children.empty?
+            value = xml_node_to_hash(child)
+          end
+
+          if hash[key]
+            hash[key] = [hash[key]] unless hash[key].is_a?(Array)
+            hash[key] << value
+          else
+            hash[key] = value
+          end
+        end
+      end
+      hash['url'] = node.get_attribute('url') if ['extension', 'modifierExtension'].include?(node.name)
+      hash['id'] = node.get_attribute('id') if node.get_attribute('id') # Testscript fixture ids (applies to any BackboneElement)
+      hash['resourceType'] = node.name if versioned_fhir_module::RESOURCES.include?(node.name)
+
+      # If this hash contains nothing but an embedded resource, we should return that
+      # embedded resource without the wrapper
+      if hash.keys.length == 1 &&
+         versioned_fhir_module::RESOURCES.include?(hash.keys.first) &&
+         hash.values.first.is_a?(Hash) &&
+         hash.values.first['resourceType'] == hash.keys.first
+        hash.values.first
+      else
+        hash
+      end
+    end
+
+    def valid?(xml)
+      validate(xml).empty?
+    end
+
+    def validate(xml)
+      defns = File.expand_path '../definitions/schema', File.dirname(File.absolute_path(__FILE__))
+      schema = File.join(defns, 'fhir-all.xsd')
+      xsd = Nokogiri::XML::Schema(File.new(schema))
+      xsd.validate(Nokogiri::XML(xml))
+    end
+  end
+
+  module InstanceXml
     #
     #  This module includes methods to serialize or deserialize FHIR resources to and from XML.
     #
@@ -68,85 +137,5 @@ module FHIR
       node.set_attribute('id', hash['id']) if hash['id'] && !versioned_fhir_module::RESOURCES.include?(name)
       node
     end
-
-    def self.from_xml(xml)
-      doc = Nokogiri::XML(xml)
-      doc.root.add_namespace_definition('f', 'http://hl7.org/fhir')
-      doc.root.add_namespace_definition('x', 'http://www.w3.org/1999/xhtml')
-      hash = xml_node_to_hash(doc.root)
-
-      resource = nil
-      begin
-        resource_type = doc.root.name
-        klass = versioned_fhir_module.const_get(resource_type)
-        resource = klass.new(hash)
-      rescue StandardError => e
-        FHIR.logger.error("Failed to deserialize XML:\n#{e.backtrace}")
-        FHIR.logger.debug("XML:\n#{xml}")
-        resource = nil
-      end
-      resource
-    end
-
-    def self.xml_node_to_hash(node)
-      hash = {}
-      node.children.each do |child|
-        next if [Nokogiri::XML::Text, Nokogiri::XML::Comment].include?(child.class)
-
-        key = child.name
-        if node.name == 'text' && key == 'div'
-          hash[key] = child.to_xml
-        else
-          value = child.get_attribute('value')
-          if value.nil? && !child.children.empty?
-            value = xml_node_to_hash(child)
-          end
-
-          if hash[key]
-            hash[key] = [hash[key]] unless hash[key].is_a?(Array)
-            hash[key] << value
-          else
-            hash[key] = value
-          end
-        end
-      end
-      hash['url'] = node.get_attribute('url') if ['extension', 'modifierExtension'].include?(node.name)
-      hash['id'] = node.get_attribute('id') if node.get_attribute('id') # Testscript fixture ids (applies to any BackboneElement)
-      hash['resourceType'] = node.name if versioned_fhir_module::RESOURCES.include?(node.name)
-
-      # If this hash contains nothing but an embedded resource, we should return that
-      # embedded resource without the wrapper
-      if hash.keys.length == 1 &&
-         versioned_fhir_module::RESOURCES.include?(hash.keys.first) &&
-         hash.values.first.is_a?(Hash) &&
-         hash.values.first['resourceType'] == hash.keys.first
-        hash.values.first
-      else
-        hash
-      end
-    end
-
-    def self.valid?(xml)
-      validate(xml).empty?
-    end
-    deprecate :is_valid?, :valid?
-
-    def self.validate(xml)
-      defns = File.expand_path '../definitions/schema', File.dirname(File.absolute_path(__FILE__))
-      schema = File.join(defns, 'fhir-all.xsd')
-      xsd = Nokogiri::XML::Schema(File.new(schema))
-      xsd.validate(Nokogiri::XML(xml))
-    end
-
-    def self.fhir_version_string
-      FHIR.fhir_version_string
-    end
-
-    def self.versioned_fhir_module
-      FHIR.versioned_fhir_module
-    end
-
-    private :hash_to_xml_node
-    private_class_method :xml_node_to_hash
   end
 end

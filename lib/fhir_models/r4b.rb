@@ -45,12 +45,14 @@ end
 
 module FHIR
   module R4B
-    def self.fhir_version_string
+    module_function
+
+    def fhir_version_string
       'R4B'
     end
 
-    def self.versioned_fhir_module
-      self
+    def versioned_fhir_module
+      FHIR::R4B
     end
   end
 end
