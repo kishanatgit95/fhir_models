@@ -75,6 +75,10 @@ module FHIR
       !(value.to_s =~ /\A(0|([1-9][0-9]*))\Z/).nil?
     when 'positiveint'
       !(value.to_s =~ /\A+?[1-9][0-9]*\Z/).nil?
+    when 'canonical', 'url'
+      !(value.to_s =~ /\S*/).nil?
+    when 'uuid'
+      !(value.to_s =~ /urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/).nil?
     else
       FHIR.logger.warn "Unable to check #{value} for datatype #{datatype}"
       false

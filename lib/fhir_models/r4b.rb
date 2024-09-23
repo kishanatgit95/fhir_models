@@ -18,6 +18,11 @@ Dir.glob(File.join(root, 'fhir_models', 'fhirpath', '*.rb')).sort.each do |file|
   require file
 end
 
+# Require the fhir_ext code
+Dir.glob(File.join(root, 'fhir_models', 'fhir_ext', '*.rb')).sort.each do |file|
+  require file
+end
+
 Dir.glob(File.join(root, 'fhir_models', 'r4b', 'bootstrap', '*.rb')).sort.each do |file|
   require file
 end
@@ -34,11 +39,18 @@ Dir.glob(File.join(root, 'fhir_models', 'r4b', 'generated', 'types', '*.rb')).so
   require file
 end
 
-# Require the fhir_ext code
-Dir.glob(File.join(root, 'fhir_models', 'fhir_ext', '*.rb')).sort.each do |file|
+Dir.glob(File.join(root, 'fhir_models', 'r4b', 'fhir_ext', '*.rb')).sort.each do |file|
   require file
 end
 
-Dir.glob(File.join(root, 'fhir_models', 'r4b', 'fhir_ext', '*.rb')).sort.each do |file|
-  require file
+module FHIR
+  module R4B
+    def self.fhir_version_string
+      'R4B'
+    end
+
+    def self.versioned_fhir_module
+      self
+    end
+  end
 end

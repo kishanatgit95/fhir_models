@@ -4,6 +4,7 @@ module FHIR
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
+      include FHIR::CommonStructureDefinition
 
       SEARCH_PARAMS = ['abstract', 'base', 'base-path', 'context', 'context-quantity', 'context-type', 'date', 'derivation', 'description', 'experimental', 'ext-context', 'identifier', 'jurisdiction', 'keyword', 'kind', 'name', 'path', 'publisher', 'status', 'title', 'type', 'url', 'valueset', 'version']
       METADATA = {
