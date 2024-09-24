@@ -30,7 +30,7 @@ module FHIR
     case datatype.downcase
     when 'boolean'
       !(value.to_s =~ /\A(true|false)\Z/).nil?
-    when 'integer'
+    when 'integer', 'integer64'
       !(value.to_s =~ /\A(0|[-+]?[1-9][0-9]*)\Z/).nil?
     when 'string', 'markdown'
       value.is_a?(String)

@@ -42,7 +42,7 @@ module FHIR
         # resources
         template.constants['RESOURCES'] = ig_resources.resource_definitions.map { |r| r['id'] }
 
-        output_file_name = File.join(output_folder, 'metadata.rb')
+        output_file_name = File.join(output_folder, "#{output_folder.split('/')[-2]}.rb")
         file = File.open(output_file_name, 'w:UTF-8')
         file.write(template.to_s)
         file.close
