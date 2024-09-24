@@ -368,7 +368,7 @@ module FHIR
           false
         end
       when *versioned_fhir_module::PRIMITIVES.keys.map(&:downcase)
-        versioned_fhir_module.primitive?(datatype: data_type_code, value: value)
+        FHIR.primitive?(datatype: data_type_code, value: value)
       else
         # Eliminate endless loop on Element is an Element
         return true if data_type_code == 'Element' && id == 'Element'
