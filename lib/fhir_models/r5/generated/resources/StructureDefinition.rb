@@ -4,6 +4,7 @@ module FHIR
       include FHIR::Hashable
       include FHIR::Json
       include FHIR::Xml
+      include FHIR::CommonStructureDefinition
 
       MULTIPLE_TYPES = {
         'versionAlgorithm' => ['string', 'Coding']
