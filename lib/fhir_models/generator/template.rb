@@ -71,6 +71,7 @@ module FHIR
         s << "#{space}include FHIR::Hashable" unless @name.empty?
         s << "#{space}include FHIR::Json" unless @name.empty?
         s << "#{space}include FHIR::Xml" unless @name.empty?
+        s << "#{space}include FHIR::Common#{@name.first}" if ['StructureDefinition', 'ElementDefinition'].include?(@name.first)
         s << ''
 
         # add mandatory METADATA constant
