@@ -28,6 +28,8 @@ Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
   Enabled: true
+Style/ModuleFunction:
+  Enabled: false
 Style/SymbolArray:
   Enabled: false
 Style/WordArray:
