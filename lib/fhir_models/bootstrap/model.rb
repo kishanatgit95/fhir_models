@@ -2,6 +2,7 @@ require 'nokogiri'
 require 'mime/types'
 require 'yaml'
 require 'bcp47'
+require_relative '../r4/bootstrap/definitions'
 
 module FHIR
   class Model
@@ -58,7 +59,7 @@ module FHIR
     end
 
     def to_reference
-      FHIR::Reference.new(reference: "#{self.class.name.split('::').last}/#{id}")
+      versioned_fhir_module::Reference.new(reference: "#{self.class.name.split('::').last}/#{id}")
     end
 
     def equals?(other, exclude = [])
@@ -181,10 +182,10 @@ module FHIR
       # check datatype
       datatype = meta['type']
       value.each do |v|
-        klassname = v.class.name.gsub('FHIR::', '')
+        klassname = v.class.name.gsub("#{versioned_fhir_module.name}::", '')
         # if the data type is a generic Resource, validate it
         if datatype == 'Resource'
-          if FHIR::RESOURCES.include?(klassname)
+          if versioned_fhir_module::RESOURCES.include?(klassname)
             validation = v.validate(contained_here)
             errors[field] << validation unless validation.empty?
           else
@@ -201,7 +202,7 @@ module FHIR
             errors[field] << "#{meta['path']}: expected Reference, found #{klassname}"
           end
         # if the data type is a particular resource or complex type or BackBone element within this resource
-        elsif FHIR::RESOURCES.include?(datatype) || FHIR::TYPES.include?(datatype) || v.class.name.start_with?(self.class.name)
+        elsif versioned_fhir_module::RESOURCES.include?(datatype) || versioned_fhir_module::TYPES.include?(datatype) || v.class.name.start_with?(self.class.name)
           if datatype == klassname
             validation = v.validate(contained_here)
             errors[field] << validation unless validation.empty?
@@ -209,8 +210,8 @@ module FHIR
             errors[field] << "#{meta['path']}: incorrect type. Found #{klassname} expected #{datatype}"
           end
         # if the data type is a primitive, test the regular expression (if any)
-        elsif FHIR::PRIMITIVES.include?(datatype)
-          primitive_meta = FHIR::PRIMITIVES[datatype]
+        elsif versioned_fhir_module::PRIMITIVES.include?(datatype)
+          primitive_meta = versioned_fhir_module::PRIMITIVES[datatype]
           if primitive_meta['regex'] && primitive_meta['type'] != 'number'
             match = (v.to_s =~ Regexp.new(primitive_meta['regex']))
             errors[field] << "#{meta['path']}: #{v} does not match #{datatype} regex" if match.nil?
@@ -254,9 +255,12 @@ module FHIR
       meta['type_profiles'].each do |p|
         basetype = p.split('/').last
         matches_one_profile = true if ref.reference.include?(basetype)
+        break if matches_one_profile
+
         # check profiled resources
-        profile_basetype = FHIR::Definitions.basetype(p)
+        profile_basetype = versioned_fhir_module::Definitions.basetype(p)
         matches_one_profile = true if profile_basetype && ref.reference.include?(profile_basetype)
+        break if matches_one_profile
       end
       matches_one_profile = true if meta['type_profiles'].include?('http://hl7.org/fhir/StructureDefinition/Resource')
       if !matches_one_profile && ref.reference.start_with?('#')
@@ -284,7 +288,7 @@ module FHIR
       valid = false
       # Strip off the |4.0.0 or |4.0.1 or |2014-03-26 or similar from the ends of URLs
       uri&.gsub!(/\|[A-Za-z0-9.\-]*/, '')
-      valueset = FHIR::Definitions.get_codes(uri)
+      valueset = versioned_fhir_module::Definitions.get_codes(uri)
 
       if ['http://hl7.org/fhir/ValueSet/mimetypes', 'http://www.rfc-editor.org/bcp/bcp13.txt'].include?(uri)
         matches = MIME::Types[value]
@@ -318,7 +322,7 @@ module FHIR
             end
           child_path += "[#{i}]" if metadata['max'] > 1
           yield value, metadata, child_path
-          value.each_element child_path, &block unless FHIR::PRIMITIVES.include? metadata['type']
+          value.each_element child_path, &block unless versioned_fhir_module::PRIMITIVES.include? metadata['type']
         end
       end
       self

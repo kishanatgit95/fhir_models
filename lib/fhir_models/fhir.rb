@@ -30,7 +30,7 @@ module FHIR
     case datatype.downcase
     when 'boolean'
       !(value.to_s =~ /\A(true|false)\Z/).nil?
-    when 'integer'
+    when 'integer', 'integer64'
       !(value.to_s =~ /\A(0|[-+]?[1-9][0-9]*)\Z/).nil?
     when 'string', 'markdown'
       value.is_a?(String)
@@ -75,9 +75,22 @@ module FHIR
       !(value.to_s =~ /\A(0|([1-9][0-9]*))\Z/).nil?
     when 'positiveint'
       !(value.to_s =~ /\A+?[1-9][0-9]*\Z/).nil?
+    when 'canonical', 'url'
+      !(value.to_s =~ /\S*/).nil?
+    when 'uuid'
+      !(value.to_s =~ /urn:uuid:[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/).nil?
     else
       FHIR.logger.warn "Unable to check #{value} for datatype #{datatype}"
       false
     end
+  end
+
+  # These are needed for the unit tests that call FHIR directly
+  def self.fhir_version_string
+    'R4'
+  end
+
+  def self.versioned_fhir_module
+    FHIR::R4
   end
 end

@@ -6,15 +6,21 @@ AllCops:
     - 'spec/**/*'
     - 'lib/fhir_models/fhir/**/*'
     - 'lib/fhir_models/fhirpath/evaluate.rb'
+    - 'lib/fhir_models/r4/generated/**/*'
+    - 'lib/fhir_models/r4b/generated/**/*'
     - 'lib/**/*.rake'
     - 'tmp/**/*'
     - '*.gemspec'
     - 'bin/*'
 Layout/LineLength:
   Enabled: false
+Naming/MethodName:
+  Enabled: false
 Style/AccessorGrouping:
   Enabled: false
 Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
   Enabled: false
 Style/HashEachMethods:
   Enabled: true
@@ -22,6 +28,10 @@ Style/HashTransformKeys:
   Enabled: true
 Style/HashTransformValues:
   Enabled: true
+Style/ModuleFunction:
+  Enabled: false
+Style/SymbolArray:
+  Enabled: false
 Style/WordArray:
   EnforcedStyle: brackets
 inherit_mode:

@@ -1,0 +1,8 @@
+[
+  "SearchParameter-example-extension.json",
+  "SearchParameter-example-reference.json",
+  "SearchParameter-example.json",
+  "SearchParameter-patient-extensions-Patient-age.json",
+  "SearchParameter-patient-extensions-Patient-birthOrderBoolean.json",
+  "SearchParameter-patient-extensions-Patient-mothersMaidenName.json"
+]

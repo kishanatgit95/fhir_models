@@ -115,10 +115,10 @@ class EqualityTest < Test::Unit::TestCase
   end
 
   def test_mismatch
-    x = FHIR::Patient.new('id' => 'foo', 'gender' => 'male')
-    y = FHIR::Patient.new('id' => 'foo', 'gender' => 'female')
+    x = FHIR::R4::Patient.new('id' => 'foo', 'gender' => 'male')
+    y = FHIR::R4::Patient.new('id' => 'foo', 'gender' => 'female')
     misses = x.mismatch(y)
-    assert misses.first == 'FHIR::Patient::gender', 'Mismatch did not detect differences.'
+    assert misses.first == 'FHIR::R4::Patient::gender', 'Mismatch did not detect differences.'
     # check memory
     before = check_memory
     x = nil
