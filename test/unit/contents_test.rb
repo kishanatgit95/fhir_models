@@ -1,4 +1,6 @@
 require_relative '../test_helper'
+require_relative '../../lib/fhir_models/r5'
+require_relative '../../lib/fhir_models/r4b'
 
 class ContentsTest < Test::Unit::TestCase
   EXAMPLE_JSON = File.join('lib', 'fhir_models', 'examples', 'json', 'patient-example.json')

@@ -1,5 +1,5 @@
 require_relative '../../../../lib/fhir_models/r5/bootstrap/definitions'
-
+require_relative '../../../../lib/fhir_models/r5'
 RSpec.describe FHIR::R5::Definitions do
   describe '#resource_definition' do
     it 'returns R5 resource definition' do
