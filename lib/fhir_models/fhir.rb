@@ -3,6 +3,19 @@ require 'logger'
 require 'uri'
 
 module FHIR
+  module ClassMethods
+    def from_contents(contents)
+      doc = Nokogiri::XML(contents)
+      if doc.errors.empty?
+        versioned_fhir_module::Xml.from_xml(contents)
+      else
+        versioned_fhir_module::Json.from_json(contents)
+      end
+    end
+  end
+  include ClassMethods
+  extend ClassMethods
+
   def self.logger
     @logger || default_logger
   end
@@ -13,15 +26,6 @@ module FHIR
 
   def self.default_logger
     @default_logger ||= Logger.new(ENV['FHIR_LOGGER'] || $stdout)
-  end
-
-  def self.from_contents(contents)
-    doc = Nokogiri::XML(contents)
-    if doc.errors.empty?
-      FHIR::Xml.from_xml(contents)
-    else
-      FHIR::Json.from_json(contents)
-    end
   end
 
   # TODO: pull regexes from metadata

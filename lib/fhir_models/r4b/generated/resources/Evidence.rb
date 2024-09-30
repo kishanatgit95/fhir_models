@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'citeAs' => ['Reference', 'markdown']
       }
-      SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'date', 'description', 'identifier', 'publisher', 'status', 'title', 'url', 'version']
+      SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'context-type-quantity', 'context-type-value', 'date', 'description', 'identifier', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Evidence.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Evidence.meta', 'min'=>0, 'max'=>1},

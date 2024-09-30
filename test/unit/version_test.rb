@@ -1,4 +1,5 @@
 require_relative '../test_helper'
+require_relative '../../lib/fhir_models/r4b'
 
 class VersionTest < Test::Unit::TestCase
   def test_json_version

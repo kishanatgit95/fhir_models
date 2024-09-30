@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = ['code', 'content-mode', 'context', 'context-quantity', 'context-type', 'date', 'description', 'identifier', 'jurisdiction', 'language', 'name', 'publisher', 'status', 'supplements', 'system', 'title', 'url', 'version']
+      SEARCH_PARAMS = ['code', 'content-mode', 'context', 'context-quantity', 'context-type', 'context-type-quantity', 'context-type-value', 'date', 'description', 'identifier', 'jurisdiction', 'language', 'name', 'publisher', 'status', 'supplements', 'system', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'CodeSystem.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'CodeSystem.meta', 'min'=>0, 'max'=>1},

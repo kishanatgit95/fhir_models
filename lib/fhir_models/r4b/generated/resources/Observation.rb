@@ -9,7 +9,7 @@ module FHIR
         'effective' => ['dateTime', 'Period', 'Timing', 'instant'],
         'value' => ['Quantity', 'CodeableConcept', 'string', 'boolean', 'integer', 'Range', 'Ratio', 'SampledData', 'time', 'dateTime', 'Period']
       }
-      SEARCH_PARAMS = ['based-on', 'category', 'code', 'combo-code', 'combo-data-absent-reason', 'combo-value-concept', 'combo-value-quantity', 'component-code', 'component-data-absent-reason', 'component-value-concept', 'component-value-quantity', 'data-absent-reason', 'date', 'derived-from', 'device', 'encounter', 'focus', 'has-member', 'identifier', 'method', 'part-of', 'patient', 'performer', 'specimen', 'status', 'subject', 'value-concept', 'value-date', 'value-quantity', 'value-string']
+      SEARCH_PARAMS = ['based-on', 'category', 'code', 'code-value-concept', 'code-value-date', 'code-value-quantity', 'code-value-string', 'combo-code', 'combo-code-value-concept', 'combo-code-value-quantity', 'combo-data-absent-reason', 'combo-value-concept', 'combo-value-quantity', 'component-code', 'component-code-value-concept', 'component-code-value-quantity', 'component-data-absent-reason', 'component-value-concept', 'component-value-quantity', 'data-absent-reason', 'date', 'derived-from', 'device', 'encounter', 'focus', 'has-member', 'identifier', 'method', 'part-of', 'patient', 'performer', 'specimen', 'status', 'subject', 'value-concept', 'value-date', 'value-quantity', 'value-string']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Observation.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Observation.meta', 'min'=>0, 'max'=>1},

@@ -1,4 +1,6 @@
 require_relative '../test_helper'
+require_relative '../../lib/fhir_models/r5'
+require_relative '../../lib/fhir_models/r4b'
 
 class ContentsTest < Test::Unit::TestCase
   EXAMPLE_JSON = File.join('lib', 'fhir_models', 'examples', 'json', 'patient-example.json')
@@ -53,5 +55,42 @@ class ContentsTest < Test::Unit::TestCase
   def test_negative_xml_contents
     nothing = FHIR.from_contents('<?xml version="1.0" encoding="UTF-8"?><Nothing/>')
     assert nothing.nil?, 'From contents should have returned nil.'
+  end
+
+  def test_versioned_from_contents
+    xml = File.read(EXAMPLE_XML)
+    json = File.read(EXAMPLE_JSON)
+
+    # infer XML
+    patient_xml= FHIR.from_contents(xml)
+    assert !patient_xml.nil?, 'From contents did not succeed with XML.'
+    assert patient_xml.id == 'example', 'Patient did not deserialize correctly.'
+    assert patient_xml.versioned_fhir_module == FHIR::R4
+
+    patient_xml_r4b = FHIR::R4B.from_contents(xml)
+    assert !patient_xml_r4b.nil?, 'From contents did not succeed with XML.'
+    assert patient_xml_r4b.id == 'example', 'Patient did not deserialize correctly.'
+    assert patient_xml_r4b.versioned_fhir_module == FHIR::R4B
+
+    patient_xml_r5 = FHIR::R5.from_contents(xml)
+    assert !patient_xml_r5.nil?, 'From contents did not succeed with XML.'
+    assert patient_xml_r5.id == 'example', 'Patient did not deserialize correctly.'
+    assert patient_xml_r5.versioned_fhir_module == FHIR::R5
+
+    # infer json
+    patient_json= FHIR.from_contents(json)
+    assert !patient_json.nil?, 'From contents did not succeed with JSON.'
+    assert patient_json.id == 'example', 'Patient did not deserialize correctly.'
+    assert patient_json.versioned_fhir_module == FHIR::R4
+
+    patient_json_r4b = FHIR::R4B.from_contents(json)
+    assert !patient_json_r4b.nil?, 'From contents did not succeed with JSON.'
+    assert patient_json_r4b.id == 'example', 'Patient did not deserialize correctly.'
+    assert patient_json_r4b.versioned_fhir_module == FHIR::R4B
+
+    patient_json_r5 = FHIR::R5.from_contents(json)
+    assert !patient_json_r5.nil?, 'From contents did not succeed with JSON.'
+    assert patient_json_r5.id == 'example', 'Patient did not deserialize correctly.'
+    assert patient_json_r5.versioned_fhir_module == FHIR::R5
   end
 end

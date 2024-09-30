@@ -45,6 +45,7 @@ end
 
 module FHIR
   module R4
+    extend FHIR
     extend self
 
     def fhir_version_string

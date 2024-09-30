@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = ['authenticator', 'author', 'category', 'contenttype', 'custodian', 'date', 'description', 'encounter', 'event', 'facility', 'format', 'identifier', 'language', 'location', 'patient', 'period', 'related', 'relatesto', 'relation', 'security-label', 'setting', 'status', 'subject', 'type']
+      SEARCH_PARAMS = ['authenticator', 'author', 'category', 'contenttype', 'custodian', 'date', 'description', 'encounter', 'event', 'facility', 'format', 'identifier', 'language', 'location', 'patient', 'period', 'related', 'relatesto', 'relation', 'relationship', 'security-label', 'setting', 'status', 'subject', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'DocumentReference.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'DocumentReference.meta', 'min'=>0, 'max'=>1},
