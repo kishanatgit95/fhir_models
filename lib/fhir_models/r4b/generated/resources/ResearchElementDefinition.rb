@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'subject' => ['CodeableConcept', 'Reference']
       }
-      SEARCH_PARAMS = ['composed-of', 'context', 'context-quantity', 'context-type', 'date', 'depends-on', 'derived-from', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'predecessor', 'publisher', 'status', 'successor', 'title', 'topic', 'url', 'version']
+      SEARCH_PARAMS = ['composed-of', 'context', 'context-quantity', 'context-type', 'context-type-quantity', 'context-type-value', 'date', 'depends-on', 'derived-from', 'description', 'effective', 'identifier', 'jurisdiction', 'name', 'predecessor', 'publisher', 'status', 'successor', 'title', 'topic', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ResearchElementDefinition.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ResearchElementDefinition.meta', 'min'=>0, 'max'=>1},

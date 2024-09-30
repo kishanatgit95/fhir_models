@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'versionAlgorithm' => ['string', 'Coding']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'context-type-quantity', 'context-type-value', 'date', 'description', 'identifier', 'jurisdiction', 'name', 'publisher', 'start', 'status', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'GraphDefinition.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'GraphDefinition.meta', 'min'=>0, 'max'=>1},

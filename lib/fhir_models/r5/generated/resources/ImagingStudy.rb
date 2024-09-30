@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['based-on', 'body-site', 'body-structure', 'dicom-class', 'encounter', 'endpoint', 'identifier', 'instance', 'modality', 'patient', 'performer', 'referrer', 'series', 'started', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ImagingStudy.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ImagingStudy.meta', 'min'=>0, 'max'=>1},

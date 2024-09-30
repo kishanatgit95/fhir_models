@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['biological-source-event', 'code', 'collector', 'identifier', 'product-category', 'product-status', 'request', 'serial-number']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'BiologicallyDerivedProduct.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'BiologicallyDerivedProduct.meta', 'min'=>0, 'max'=>1},

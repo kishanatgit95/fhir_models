@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'module' => ['uri', 'canonical', 'CodeableConcept']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['identifier', 'patient', 'request', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'GuidanceResponse.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'GuidanceResponse.meta', 'min'=>0, 'max'=>1},

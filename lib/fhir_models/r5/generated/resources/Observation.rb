@@ -10,7 +10,7 @@ module FHIR
         'effective' => ['dateTime', 'Period', 'Timing', 'instant'],
         'value' => ['Quantity', 'CodeableConcept', 'string', 'boolean', 'integer', 'Range', 'Ratio', 'SampledData', 'time', 'dateTime', 'Period', 'Attachment', 'Reference']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['based-on', 'category', 'code', 'code-value-concept', 'code-value-date', 'code-value-quantity', 'code-value-string', 'combo-code', 'combo-code-value-concept', 'combo-code-value-quantity', 'combo-data-absent-reason', 'combo-value-concept', 'combo-value-quantity', 'component-code', 'component-code-value-concept', 'component-code-value-quantity', 'component-data-absent-reason', 'component-value-canonical', 'component-value-concept', 'component-value-quantity', 'component-value-reference', 'data-absent-reason', 'date', 'derived-from', 'device', 'encounter', 'focus', 'has-member', 'identifier', 'method', 'part-of', 'patient', 'performer', 'specimen', 'status', 'subject', 'value-canonical', 'value-concept', 'value-date', 'value-markdown', 'value-quantity', 'value-reference']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Observation.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Observation.meta', 'min'=>0, 'max'=>1},

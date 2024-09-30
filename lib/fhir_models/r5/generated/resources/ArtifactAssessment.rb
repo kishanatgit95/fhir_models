@@ -9,7 +9,7 @@ module FHIR
         'citeAs' => ['Reference', 'markdown'],
         'artifact' => ['Reference', 'canonical', 'uri']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['date', 'identifier']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ArtifactAssessment.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ArtifactAssessment.meta', 'min'=>0, 'max'=>1},

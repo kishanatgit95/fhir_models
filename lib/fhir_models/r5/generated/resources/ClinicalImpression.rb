@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'effective' => ['dateTime', 'Period']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['date', 'encounter', 'finding-code', 'finding-ref', 'identifier', 'patient', 'performer', 'previous', 'problem', 'status', 'subject', 'supporting-info']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ClinicalImpression.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ClinicalImpression.meta', 'min'=>0, 'max'=>1},

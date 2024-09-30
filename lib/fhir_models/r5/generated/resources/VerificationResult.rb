@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['attestation-method', 'attestation-onbehalfof', 'attestation-who', 'primarysource-date', 'primarysource-type', 'primarysource-who', 'status', 'status-date', 'target', 'validator-organization']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'VerificationResult.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'VerificationResult.meta', 'min'=>0, 'max'=>1},

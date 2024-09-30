@@ -9,7 +9,7 @@ module FHIR
         'versionAlgorithm' => ['string', 'Coding'],
         'event' => ['Coding', 'uri']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['category', 'context', 'context-quantity', 'context-type', 'context-type-quantity', 'context-type-value', 'date', 'description', 'event', 'focus', 'identifier', 'jurisdiction', 'name', 'parent', 'publisher', 'status', 'title', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MessageDefinition.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'MessageDefinition.meta', 'min'=>0, 'max'=>1},

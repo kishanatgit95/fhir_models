@@ -10,7 +10,7 @@ module FHIR
         'sourceScope' => ['uri', 'canonical'],
         'targetScope' => ['uri', 'canonical']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['context', 'context-quantity', 'context-type', 'context-type-quantity', 'context-type-value', 'date', 'derived-from', 'description', 'effective', 'identifier', 'jurisdiction', 'mapping-property', 'name', 'other-map', 'predecessor', 'publisher', 'source-code', 'source-group-system', 'source-scope', 'source-scope-uri', 'status', 'target-code', 'target-group-system', 'target-scope', 'target-scope-uri', 'title', 'topic', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ConceptMap.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ConceptMap.meta', 'min'=>0, 'max'=>1},

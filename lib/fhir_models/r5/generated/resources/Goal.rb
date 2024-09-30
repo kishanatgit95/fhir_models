@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'start' => ['date', 'CodeableConcept']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['achievement-status', 'addresses', 'category', 'description', 'identifier', 'lifecycle-status', 'patient', 'start-date', 'subject', 'target-date', 'target-measure']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Goal.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Goal.meta', 'min'=>0, 'max'=>1},

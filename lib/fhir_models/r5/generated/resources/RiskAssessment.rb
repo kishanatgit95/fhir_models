@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['condition', 'date', 'encounter', 'identifier', 'method', 'patient', 'performer', 'probability', 'risk', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'RiskAssessment.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'RiskAssessment.meta', 'min'=>0, 'max'=>1},

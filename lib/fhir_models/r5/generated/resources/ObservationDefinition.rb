@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'versionAlgorithm' => ['string', 'Coding']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['category', 'code', 'experimental', 'identifier', 'method', 'status', 'title', 'url']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ObservationDefinition.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ObservationDefinition.meta', 'min'=>0, 'max'=>1},

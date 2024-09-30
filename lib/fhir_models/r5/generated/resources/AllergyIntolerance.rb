@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'onset' => ['dateTime', 'Age', 'Period', 'Range', 'string']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['category', 'clinical-status', 'code', 'criticality', 'date', 'identifier', 'last-date', 'manifestation-code', 'manifestation-reference', 'participant', 'patient', 'route', 'severity', 'type', 'verification-status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'AllergyIntolerance.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'AllergyIntolerance.meta', 'min'=>0, 'max'=>1},

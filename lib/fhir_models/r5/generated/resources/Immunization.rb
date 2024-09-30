@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'string']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['date', 'identifier', 'location', 'lot-number', 'manufacturer', 'patient', 'performer', 'reaction', 'reaction-date', 'reason-code', 'reason-reference', 'series', 'status', 'status-reason', 'target-disease', 'vaccine-code']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Immunization.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Immunization.meta', 'min'=>0, 'max'=>1},

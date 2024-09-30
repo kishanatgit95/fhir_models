@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'period' => ['date', 'Period']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['account', 'date', 'identifier', 'issuer', 'participant', 'participant-role', 'patient', 'recipient', 'status', 'subject', 'totalgross', 'totalnet', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Invoice.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Invoice.meta', 'min'=>0, 'max'=>1},

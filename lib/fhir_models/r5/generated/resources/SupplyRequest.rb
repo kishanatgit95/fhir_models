@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'occurrence' => ['dateTime', 'Period', 'Timing']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['category', 'date', 'identifier', 'patient', 'requester', 'status', 'subject', 'supplier']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SupplyRequest.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'SupplyRequest.meta', 'min'=>0, 'max'=>1},

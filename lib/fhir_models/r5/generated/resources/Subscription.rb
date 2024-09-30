@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['contact', 'content-level', 'filter-value', 'identifier', 'name', 'owner', 'payload', 'status', 'topic', 'type', 'url']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Subscription.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Subscription.meta', 'min'=>0, 'max'=>1},

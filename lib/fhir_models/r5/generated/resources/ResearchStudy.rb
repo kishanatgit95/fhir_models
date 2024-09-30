@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['classifier', 'condition', 'date', 'description', 'eligibility', 'focus-code', 'focus-reference', 'identifier', 'keyword', 'name', 'objective-description', 'objective-type', 'part-of', 'phase', 'progress-status-state-actual', 'progress-status-state-period', 'progress-status-state-period-actual', 'protocol', 'recruitment-actual', 'recruitment-target', 'region', 'site', 'status', 'study-design', 'title']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ResearchStudy.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ResearchStudy.meta', 'min'=>0, 'max'=>1},

@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'versionAlgorithm' => ['string', 'Coding']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['date', 'derived-or-self', 'effective', 'event', 'identifier', 'resource', 'status', 'title', 'trigger-description', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubscriptionTopic.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'SubscriptionTopic.meta', 'min'=>0, 'max'=>1},

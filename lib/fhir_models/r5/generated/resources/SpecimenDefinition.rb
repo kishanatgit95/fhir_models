@@ -9,7 +9,7 @@ module FHIR
         'versionAlgorithm' => ['string', 'Coding'],
         'subject' => ['CodeableConcept', 'Reference']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['container', 'experimental', 'identifier', 'is-derived', 'status', 'title', 'type', 'type-tested', 'url']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SpecimenDefinition.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'SpecimenDefinition.meta', 'min'=>0, 'max'=>1},

@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['actor', 'appointment-type', 'based-on', 'date', 'group', 'identifier', 'location', 'part-status', 'patient', 'practitioner', 'reason-code', 'reason-reference', 'requested-period', 'service-category', 'service-type', 'service-type-reference', 'slot', 'specialty', 'status', 'subject', 'supporting-info']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Appointment.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Appointment.meta', 'min'=>0, 'max'=>1},

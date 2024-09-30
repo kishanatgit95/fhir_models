@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['beneficiary', 'class-type', 'class-value', 'dependent', 'identifier', 'insurer', 'patient', 'paymentby-party', 'policy-holder', 'status', 'subscriber', 'subscriberid', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Coverage.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Coverage.meta', 'min'=>0, 'max'=>1},

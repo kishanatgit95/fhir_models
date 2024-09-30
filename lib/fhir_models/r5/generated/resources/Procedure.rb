@@ -9,7 +9,7 @@ module FHIR
         'occurrence' => ['dateTime', 'Period', 'string', 'Age', 'Range', 'Timing'],
         'reported' => ['boolean', 'Reference']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['based-on', 'category', 'code', 'date', 'encounter', 'identifier', 'instantiates-canonical', 'instantiates-uri', 'location', 'part-of', 'patient', 'performer', 'reason-code', 'reason-reference', 'report', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Procedure.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Procedure.meta', 'min'=>0, 'max'=>1},

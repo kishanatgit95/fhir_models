@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'deceased' => ['boolean', 'dateTime']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['address', 'address-city', 'address-country', 'address-postalcode', 'address-state', 'address-use', 'birthdate', 'death-date', 'deceased', 'email', 'family', 'gender', 'given', 'identifier', 'link', 'name', 'organization', 'patient', 'phone', 'phonetic', 'practitioner', 'relatedperson', 'telecom']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Person.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Person.meta', 'min'=>0, 'max'=>1},

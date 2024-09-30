@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'event' => ['Coding', 'canonical']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['author', 'code', 'destination', 'event', 'focus', 'receiver', 'response-id', 'responsible', 'sender', 'source', 'target']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'MessageHeader.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'MessageHeader.meta', 'min'=>0, 'max'=>1},

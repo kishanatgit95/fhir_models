@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['classification', 'code', 'domain', 'identifier', 'name']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'SubstanceDefinition.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'SubstanceDefinition.meta', 'min'=>0, 'max'=>1},

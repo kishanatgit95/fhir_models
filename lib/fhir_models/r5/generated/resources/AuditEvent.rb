@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'occurred' => ['Period', 'dateTime']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['action', 'agent', 'agent-role', 'based-on', 'category', 'code', 'date', 'encounter', 'entity', 'entity-role', 'outcome', 'patient', 'policy', 'purpose', 'source']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'AuditEvent.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'AuditEvent.meta', 'min'=>0, 'max'=>1},

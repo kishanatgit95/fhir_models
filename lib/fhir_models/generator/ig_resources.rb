@@ -63,7 +63,7 @@ module FHIR
           resources_by_type['SearchParameter']
         else
           resources_by_type['SearchParameter'].select do |p|
-            p['base']&.include?(type_name) && p['xpath'] && !p['xpath'].include?('extension')
+            p['base']&.include?(type_name) && p['expression'] && !p['expression'].include?('extension')
           end
         end
       end

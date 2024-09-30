@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['actor', 'authored-on', 'based-on', 'business-status', 'code', 'encounter', 'focus', 'group-identifier', 'identifier', 'intent', 'modified', 'output', 'owner', 'part-of', 'patient', 'performer', 'period', 'priority', 'requestedperformer-reference', 'requester', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Task.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Task.meta', 'min'=>0, 'max'=>1},

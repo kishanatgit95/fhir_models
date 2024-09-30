@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['contraindication', 'contraindication-reference', 'effect', 'effect-reference', 'identifier', 'indication', 'indication-reference', 'interaction', 'product', 'status', 'subject', 'type']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ClinicalUseDefinition.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ClinicalUseDefinition.meta', 'min'=>0, 'max'=>1},

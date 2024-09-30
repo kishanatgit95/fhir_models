@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['identifier', 'item', 'item-reference', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'InventoryReport.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'InventoryReport.meta', 'min'=>0, 'max'=>1},

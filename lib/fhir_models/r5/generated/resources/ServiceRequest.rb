@@ -10,7 +10,7 @@ module FHIR
         'occurrence' => ['dateTime', 'Period', 'Timing'],
         'asNeeded' => ['boolean', 'CodeableConcept']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['authored', 'based-on', 'body-site', 'body-structure', 'category', 'code-concept', 'code-reference', 'encounter', 'identifier', 'instantiates-canonical', 'instantiates-uri', 'intent', 'occurrence', 'patient', 'performer', 'performer-type', 'priority', 'replaces', 'requester', 'requisition', 'specimen', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'ServiceRequest.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'ServiceRequest.meta', 'min'=>0, 'max'=>1},

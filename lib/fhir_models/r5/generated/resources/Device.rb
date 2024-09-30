@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['biological-source-event', 'code', 'code-value-concept', 'definition', 'device-name', 'expiration-date', 'identifier', 'location', 'lot-number', 'manufacture-date', 'manufacturer', 'model', 'organization', 'parent', 'serial-number', 'specification', 'specification-version', 'status', 'type', 'udi-carrier', 'udi-di', 'url', 'version']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Device.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Device.meta', 'min'=>0, 'max'=>1},

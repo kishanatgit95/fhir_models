@@ -9,7 +9,7 @@ module FHIR
         'occurrence' => ['dateTime', 'Period'],
         'reported' => ['boolean', 'Reference']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['code', 'date', 'encounter', 'identifier', 'nutrition', 'patient', 'source', 'status', 'subject']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'NutritionIntake.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'NutritionIntake.meta', 'min'=>0, 'max'=>1},

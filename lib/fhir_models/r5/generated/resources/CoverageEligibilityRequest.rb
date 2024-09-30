@@ -8,7 +8,7 @@ module FHIR
       MULTIPLE_TYPES = {
         'serviced' => ['date', 'Period']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['created', 'enterer', 'facility', 'identifier', 'patient', 'provider', 'status']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'CoverageEligibilityRequest.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'CoverageEligibilityRequest.meta', 'min'=>0, 'max'=>1},

@@ -5,7 +5,7 @@ module FHIR
       include FHIR::Json
       include FHIR::Xml
 
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['characteristic', 'characteristic-reference', 'characteristic-value', 'code', 'exclude', 'identifier', 'managing-entity', 'member', 'membership', 'name', 'type', 'value']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Group.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Group.meta', 'min'=>0, 'max'=>1},

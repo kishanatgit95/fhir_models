@@ -9,7 +9,7 @@ module FHIR
         'topic' => ['CodeableConcept', 'Reference'],
         'legallyBinding' => ['Attachment', 'Reference']
       }
-      SEARCH_PARAMS = []
+      SEARCH_PARAMS = ['authority', 'domain', 'identifier', 'instantiates', 'issued', 'patient', 'signer', 'status', 'subject', 'url']
       METADATA = {
         'id' => {'type'=>'id', 'path'=>'Contract.id', 'min'=>0, 'max'=>1},
         'meta' => {'type'=>'Meta', 'path'=>'Contract.meta', 'min'=>0, 'max'=>1},
