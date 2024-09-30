@@ -13,11 +13,8 @@
 Layout/TrailingEmptyLines:
   Exclude:
     - 'lib/fhir_models/bootstrap/json.rb'
-    - 'lib/fhir_models/r4/fhir_ext/structure_definition.rb'
     - 'lib/fhir_models/r4/fhir_ext/structure_definition_compare.rb'
-    - 'lib/fhir_models/r4b/fhir_ext/structure_definition.rb'
     - 'lib/fhir_models/r4b/fhir_ext/structure_definition_compare.rb'
-    - 'lib/fhir_models/r5/fhir_ext/structure_definition.rb'
     - 'lib/fhir_models/r5/fhir_ext/structure_definition_compare.rb'
 
 # Offense count: 43
