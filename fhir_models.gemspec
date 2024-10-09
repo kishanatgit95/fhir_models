@@ -14,13 +14,9 @@ Gem::Specification.new do |spec|
   spec.description   = %q{A Gem for handling FHIR models in ruby}
   spec.homepage      = 'https://github.com/fhir-crucible/fhir_models'
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
-  spec.files.reject! { |file| file =~ /lib\/fhir_models\/examples|lib\/fhir_models\/definitions\/schema|lib\/fhir_models\/definitions\/valuesets/}
-  spec.files.reject! { |file| file =~ /lib\/fhir_models\/igs\/hl7.fhir.r4.core\/package_supplement\/expansions.json/}
-  spec.files.reject! { |file| file =~ /lib\/fhir_models\/igs\/hl7.fhir.r4b.core\/package_supplement\/expansions.json/}
-  spec.files.reject! { |file| file =~ /lib\/fhir_models\/igs\/hl7.fhir.r5.core\/package_supplement\/expansions.json/}
+  spec.files         = `git ls-files -z lib`.split("\x0")
+  spec.files.reject! { |file| file =~ /lib\/fhir_models\/examples|lib\/fhir_models\/definitions/}
+  spec.files.reject! { |file| file =~ /lib\/fhir_models\/igs\/hl7.fhir..*\.core\/package_supplement\/expansions.json/}
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
